@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.dopt_app.databinding.FragmentSearchBinding
+import com.example.dopt_app.databinding.FragmentMatchBinding
 
-class SearchFragment : Fragment() {
+class MatchFragment : Fragment() {
 
-    lateinit var binding: FragmentSearchBinding
+    lateinit var binding: FragmentMatchBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSearchBinding.inflate(inflater, container, false)
+        binding = FragmentMatchBinding.inflate(inflater, container, false)
 
         return binding.root
     }

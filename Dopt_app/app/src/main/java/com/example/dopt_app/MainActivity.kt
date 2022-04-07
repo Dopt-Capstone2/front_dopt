@@ -33,21 +33,27 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.lookFragment -> {
+                R.id.starFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, LookFragment())
+                        .replace(R.id.main_frm, StarFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
-                R.id.searchFragment -> {
+                R.id.matchFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, SearchFragment())
+                        .replace(R.id.main_frm, MatchFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
-                R.id.lockerFragment -> {
+                R.id.shareFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, LockerFragment())
+                        .replace(R.id.main_frm, ShareFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
+                }
+                R.id.accountFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frm, AccountFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }

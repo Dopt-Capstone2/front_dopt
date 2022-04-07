@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.dopt_app.databinding.FragmentLookBinding
+import com.example.dopt_app.databinding.FragmentAccountBinding
 
-class LookFragment : Fragment() {
+class AccountFragment : Fragment() {
 
-    lateinit var binding: FragmentLookBinding
+    lateinit var binding: FragmentAccountBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLookBinding.inflate(inflater, container, false)
+        binding = FragmentAccountBinding.inflate(inflater, container, false)
 
         return binding.root
     }
