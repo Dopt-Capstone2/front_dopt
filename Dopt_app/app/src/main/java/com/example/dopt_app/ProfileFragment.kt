@@ -1,27 +1,26 @@
 package com.example.dopt_app
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.dopt_app.databinding.FragmentAccountBinding
+import com.example.dopt_app.databinding.FragmentProfileBinding
 
-class AccountFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    lateinit var binding: FragmentAccountBinding
+    lateinit var binding: FragmentProfileBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentAccountBinding.inflate(inflater, container, false)
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        binding.profileDetailBtn.setOnClickListener{
+        binding.profileBackIg.setOnClickListener {
             (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.main_frm , ProfileFragment())
+                .replace(R.id.main_frm, AccountFragment())
                 .commitAllowingStateLoss()
         }
 
