@@ -18,7 +18,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        binding.profileBackIg.setOnClickListener {
+        binding.backAccountBt.setOnClickListener {
             (context as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, AccountFragment())
                 .commitAllowingStateLoss()

@@ -16,13 +16,15 @@
         <entry key="..\:/Users/jungwoo/AndroidStudioProjects/FLO/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/Users/jungwoo/AndroidStudioProjects/FLO/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/btm_color_selector.xml" value="0.14907407407407408" />
+        <entry key="app/src/main/res/drawable/btn_color_selector.xml" value="0.14537037037037037" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.14907407407407408" />
         <entry key="app/src/main/res/drawable/join_shape.xml" value="0.14907407407407408" />
+        <entry key="app/src/main/res/drawable/profile_fix_radius.xml" value="0.10648148148148148" />
         <entry key="app/src/main/res/drawable/profile_menu_radius.xml" value="0.20092592592592592" />
         <entry key="app/src/main/res/drawable/profile_radius.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10833333333333334" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.26902173913043476" />
         <entry key="app/src/main/res/layout/fragment_match.xml" value="0.15925925925925927" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.165" />

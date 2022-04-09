@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/default_background">
     <LinearLayout
+        android:id="@+id/back_account_bt"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="94dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
         <ImageButton
             android:id="@+id/profile_back_ig"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/arrow_left_white"
-            android:background="@color/transparent"
             android:layout_marginLeft="10dp"
+            android:background="@color/transparent"
             android:scaleType="fitXY"
+            android:src="@drawable/arrow_left_white"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            tools:ignore="TouchTargetSizeCheck" />
         <TextView
             android:id="@+id/account_profile_tx"
             android:layout_width="wrap_content"
@@ -33,7 +37,74 @@
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/profile_back_ig"/>
-
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_info_vp"
+        android:layout_width="370dp"
+        android:layout_height="0dp"
+        android:background="@drawable/profile_radius"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_account_bt">
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="21dp"
+            android:src="@drawable/default_profile"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/profile_name_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="입양하러왓개"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"
+            app:layout_constraintStart_toEndOf="@id/profile_image"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:textColor="#EBB53E"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintStart_toEndOf="@id/profile_name_tx"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/profile_email_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123456@123.456"
+            android:textColor="#707070"
+            android:textSize="12sp"
+            android:layout_marginStart="30dp"
+            app:layout_constraintStart_toEndOf="@id/profile_image"
+            app:layout_constraintBottom_toBottomOf="@id/profile_image"
+            app:layout_constraintTop_toBottomOf="@id/profile_name_tx"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:textColor="@color/gray1_color"
+            android:text="프로필 수정"
+            android:background="@drawable/profile_fix_radius"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_email_tx"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
