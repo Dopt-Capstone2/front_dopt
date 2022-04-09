@@ -24,6 +24,12 @@ class ProfileFragment : Fragment() {
                 .commitAllowingStateLoss()
         }
 
+        binding.profileFixBt.setOnClickListener{
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.main_frm , ProfiledetailFragment())
+                .commitAllowingStateLoss()
+        }
+
         return binding.root
     }
 }
