@@ -18,6 +18,7 @@ class ProfiledetailFragment : Fragment() {
     ): View? {
         binding = FragmentProfiledetailBinding.inflate(inflater, container, false)
 
+
         binding.backProfileBt.setOnClickListener {
             (context as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, ProfileFragment())
@@ -26,4 +27,6 @@ class ProfiledetailFragment : Fragment() {
 
         return binding.root
     }
+
+
 }

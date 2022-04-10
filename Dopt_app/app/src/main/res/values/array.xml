@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="kind">
+        <item>개</item>
+        <item>고양이</item>
+        <item>기타</item>
+    </string-array>
+    <string-array name="bread_dog">
+        <item>믹스견</item>
+        <item>닥스훈트</item>
+        <item>말티즈</item>
+        <item>포메라니안</item>
+        <item>기타</item>
+    </string-array>
+    <string-array name="bread_cat">
+        <item>페르시</item>
+        <item>메인쿤</item>
+        <item>스핑크스</item>
+        <item>기타</item>
+    </string-array>
+    <string-array name="bread_color">
+        <item>검정색</item>
+        <item>흰색</item>
+        <item>갈색</item>
+        <item>회색</item>
+        <item>기타</item>
+    </string-array>
+    <string-array name="bread_size">
+        <item>대형</item>
+        <item>중형</item>
+        <item>소형</item>
+    </string-array>
+</resources>
