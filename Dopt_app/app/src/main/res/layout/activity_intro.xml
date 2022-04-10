@@ -16,11 +16,12 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginTop="370dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/join_email_jo"
                 android:hint="이메일"
+                android:background="@drawable/profile_radius"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
@@ -28,12 +29,13 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             app:counterMaxLength="10"
             app:counterEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/join_pw_jo"
                 android:hint="비밀번호"
+                android:background="@drawable/profile_radius"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
