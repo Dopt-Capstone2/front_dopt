@@ -21,13 +21,13 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         //url 변수 지정
-        buildConfigField "String", "URL_ANIMAL", properties['url.animal_openAPI']
+        //buildConfigField "String?", "URL_ANIMAL", properties['url.animalOpenAPI']
 
         //endpoint 변수 지정
-        buildConfigField "String", "ENDPOINT_GET_ANIMAL_STATUS", properties['endPoint.get_Animal_openAPI_Status']
+        //buildConfigField "String", "ENDPOINT_GET_ANIMAL_STATUS", properties['endPoint.getAnimalOpenAPIStatus']
 
         //api key 변수 지정
-        buildConfigField "String", "API_KEY", properties['api.key']
+        //buildConfigField "String", "API_KEY", properties['api.key']
     }
 
     buildTypes {
