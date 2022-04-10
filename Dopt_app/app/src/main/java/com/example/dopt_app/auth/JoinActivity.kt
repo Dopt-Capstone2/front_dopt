@@ -1,9 +1,11 @@
 package com.example.dopt_app.auth
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import com.example.dopt_app.NicknameActivity
 import com.example.dopt_app.R
 import com.google.android.material.textfield.TextInputEditText
 
@@ -19,11 +21,15 @@ class JoinActivity : AppCompatActivity() {
         joinBtn.setOnClickListener{
             val email= findViewById<TextInputEditText>(R.id.join_email_jo)
             val pwd = findViewById<TextInputEditText>(R.id.join_pw_jo)
+            val intent= Intent(this, NicknameActivity::class.java)
+            startActivity(intent)
 
             Log.d(TAG, email.text.toString())
             Log.d(TAG, pwd.text.toString())
 
         }
+
+
 
     }
 }

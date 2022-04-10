@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/back_constraint_bi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back_color">
+
+        <FrameLayout
+            android:id="@+id/myprofile_profileImg_frm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/myprofile_backgroundImg_iv"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@drawable/background_nologo" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                app:cardElevation="0dp"
+                app:cardCornerRadius="65dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginTop="80dp">
+
+                <ImageView
+                    android:id="@+id/myprofile_profileImg_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/default_profile"
+                    android:scaleType="centerCrop"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/myprofile_plusBtn_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_plus_gray"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginStart="50dp"
+                android:layout_marginBottom="5dp"/>
+
+            <ImageView
+                android:id="@+id/back_profile_bt"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/arrow_left_white"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"/>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/profile_info_tx"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="사용자 정보"
+            android:textColor="@color/main_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_profileImg_frm"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="35dp" />
+
+        <TextView
+            android:id="@+id/myprofile_email_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이메일"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_info_tx"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="35dp"/>
+
+        <EditText
+            android:id="@+id/myprofile_email_content_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:textColor="@color/black"
+            android:text="123@123.com"
+            android:paddingStart="10dp"
+            android:gravity="center_vertical"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_email_tv"
+            android:background="@drawable/rounding_line_yellow"
+            android:maxLines="1"/>
+
+
+        <TextView
+            android:id="@+id/myprofile_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="닉네임"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_email_content_tv"
+            android:layout_marginTop="15dp" />
+
+        <EditText
+            android:id="@+id/myprofile_name_content_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:paddingStart="10dp"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_name_tv"
+            android:background="@drawable/rounding_line_yellow"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/myprofile_name_error_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="에러"
+            android:textColor="@color/favorite_purple"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_name_content_tv"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/myprofile_gender_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="성별"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/myprofile_name_tv"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_name_content_tv"
+            android:layout_marginTop="15dp" />
+
+        <ImageView
+            android:id="@+id/user_gender_m_iv"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/m_on"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toStartOf="@id/user_gender_w_iv"
+            app:layout_constraintStart_toStartOf="@id/myprofile_gender_tv"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_gender_tv" />
+
+        <ImageView
+            android:id="@+id/user_gender_w_iv"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@id/user_gender_m_iv"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_gender_tv"
+            app:layout_constraintEnd_toEndOf="@+id/myprofile_name_content_tv"
+            android:src="@drawable/f_off" />
+
+        <TextView
+            android:id="@+id/profile_check_tx"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="선호도 정보 입력"
+            android:textColor="@color/main_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/myprofile_pet_kind_tv"
+            app:layout_constraintTop_toBottomOf="@id/user_gender_w_iv"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="35dp" />
+
+        <TextView
+            android:id="@+id/myprofile_pet_kind_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선호하는 반려동물 종류"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/myprofile_gender_tv"
+            app:layout_constraintTop_toBottomOf="@id/profile_check_tx"
+            android:layout_marginTop="15dp" />
+
+        <Spinner
+            android:id="@+id/dogbreed_kind_sp"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_pet_kind_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="35dp"
+            android:spinnerMode="dialog"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_spinner"
+            android:dropDownWidth="50dp" />
+        <ImageView
+            app:layout_constraintTop_toTopOf="@id/dogbreed_kind_sp"
+            app:layout_constraintBottom_toBottomOf="@id/dogbreed_kind_sp"
+            app:layout_constraintEnd_toEndOf="@id/dogbreed_kind_sp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="25dp"
+            android:layout_height="16dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/arrow_right_yellow"/>
+
+        <TextView
+            android:id="@+id/myprofile_pet_bread_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선호하는 반려동물 종"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/myprofile_pet_kind_tv"
+            app:layout_constraintTop_toBottomOf="@id/dogbreed_kind_sp"
+            android:layout_marginTop="15dp" />
+
+        <Spinner
+            android:id="@+id/dogbreed_bread_sp"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_pet_bread_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="35dp"
+            android:spinnerMode="dialog"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_spinner"
+            android:dropDownWidth="50dp" />
+        <ImageView
+            app:layout_constraintTop_toTopOf="@id/dogbreed_bread_sp"
+            app:layout_constraintBottom_toBottomOf="@id/dogbreed_bread_sp"
+            app:layout_constraintEnd_toEndOf="@id/dogbreed_bread_sp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="25dp"
+            android:layout_height="16dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/arrow_right_yellow"/>
+
+        <TextView
+            android:id="@+id/myprofile_pet_color_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선호하는 반려동물 색"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/dogbreed_bread_sp"
+            app:layout_constraintTop_toBottomOf="@id/dogbreed_bread_sp"
+            android:layout_marginTop="15dp" />
+
+        <Spinner
+            android:id="@+id/dogbreed_color_sp"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_pet_color_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="35dp"
+            android:spinnerMode="dialog"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_spinner"
+            android:dropDownWidth="50dp" />
+        <ImageView
+            app:layout_constraintTop_toTopOf="@id/dogbreed_color_sp"
+            app:layout_constraintBottom_toBottomOf="@id/dogbreed_color_sp"
+            app:layout_constraintEnd_toEndOf="@id/dogbreed_color_sp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="25dp"
+            android:layout_height="16dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/arrow_right_yellow"/>
+
+        <TextView
+            android:id="@+id/myprofile_pet_size_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선호하는 반려동물 크기"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/dogbreed_bread_sp"
+            app:layout_constraintTop_toBottomOf="@id/dogbreed_color_sp"
+            android:layout_marginTop="15dp" />
+
+        <Spinner
+            android:id="@+id/dogbreed_size_sp"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_pet_size_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="35dp"
+            android:spinnerMode="dialog"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_spinner"
+            android:dropDownWidth="50dp" />
+        <ImageView
+            app:layout_constraintTop_toTopOf="@id/dogbreed_size_sp"
+            app:layout_constraintBottom_toBottomOf="@id/dogbreed_size_sp"
+            app:layout_constraintEnd_toEndOf="@id/dogbreed_size_sp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="25dp"
+            android:layout_height="16dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/arrow_right_yellow"/>
+
+        <TextView
+            android:id="@+id/pet_gender_prefer_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선호하는 반려동물 성별"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/myprofile_pet_size_tv"
+            app:layout_constraintTop_toBottomOf="@id/dogbreed_size_sp"
+            android:layout_marginTop="15dp" />
+
+        <ImageView
+            android:id="@+id/prefer_doggender_m_iv"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/m_on"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toStartOf="@id/prefer_doggender_w_iv"
+            app:layout_constraintStart_toStartOf="@id/pet_gender_prefer_tv"
+            app:layout_constraintTop_toBottomOf="@id/pet_gender_prefer_tv" />
+
+        <ImageView
+            android:id="@+id/prefer_doggender_w_iv"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@id/prefer_doggender_m_iv"
+            app:layout_constraintTop_toBottomOf="@id/pet_gender_prefer_tv"
+            app:layout_constraintEnd_toEndOf="@+id/dogbreed_bread_sp"
+            android:src="@drawable/f_off" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/doggender_neutering_tv"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="반려동물 중성화 유무"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="15sp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/pet_gender_prefer_tv"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/prefer_doggender_m_iv"-->
+        <!--            android:layout_marginTop="15dp" />-->
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/doggender_neutered_tv"-->
+        <!--            android:layout_width="150dp"-->
+        <!--            android:layout_height="30dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:src="@drawable/m_on"-->
+        <!--            android:scaleType="fitXY"-->
+        <!--            app:layout_constraintEnd_toStartOf="@id/doggender_nonneutered_tv"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/doggender_neutering_tv"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/doggender_neutering_tv" />-->
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/doggender_nonneutered_tv"-->
+        <!--            android:layout_width="150dp"-->
+        <!--            android:layout_height="30dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:scaleType="fitXY"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/doggender_neutered_tv"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/doggender_neutering_tv"-->
+        <!--            app:layout_constraintEnd_toEndOf="@+id/dogbreed_bread_sp"-->
+        <!--            android:src="@drawable/f_off" />-->
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/profile_fix_end_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/profile_fix_btn"
+            android:text="프로필 저장하기"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/prefer_doggender_w_iv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

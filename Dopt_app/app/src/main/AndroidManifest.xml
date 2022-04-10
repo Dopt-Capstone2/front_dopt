@@ -25,6 +25,12 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".NicknameActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".PreferActivity"
+            android:exported="true"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
     </application>
