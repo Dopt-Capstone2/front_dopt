@@ -16,6 +16,7 @@
         <entry key="..\:/Users/jungwoo/AndroidStudioProjects/FLO/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/Users/jungwoo/AndroidStudioProjects/FLO/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/join_shape.xml" value="0.14907407407407408" />
+        <entry key="app/src/main/res/drawable/bg_previous_btn.xml" value="0.13240740740740742" />
         <entry key="app/src/main/res/drawable/bg_spinner.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/drawable/btm_color_selector.xml" value="0.14907407407407408" />
         <entry key="app/src/main/res/drawable/btn_color_selector.xml" value="0.14537037037037037" />
@@ -30,9 +31,9 @@
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_join.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10833333333333334" />
-        <entry key="app/src/main/res/layout/activity_nickname.xml" value="0.2749094202898551" />
+        <entry key="app/src/main/res/layout/activity_nickname.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_popup1.xml" value="0.26856884057971014" />
-        <entry key="app/src/main/res/layout/activity_prefer.xml" value="0.2749094202898551" />
+        <entry key="app/src/main/res/layout/activity_prefer.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2749094202898551" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.125" />
