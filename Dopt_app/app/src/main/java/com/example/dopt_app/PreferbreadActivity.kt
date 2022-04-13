@@ -5,24 +5,25 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dopt_app.databinding.ActivityPreferBinding
+import com.example.dopt_app.databinding.ActivityPreferbreadBinding
 import kotlinx.android.synthetic.main.activity_nickname.*
 import kotlinx.android.synthetic.main.activity_prefer.*
+import kotlinx.android.synthetic.main.activity_preferbread.*
 
-class PreferActivity : AppCompatActivity() {
-    lateinit var binding: ActivityPreferBinding
+class PreferbreadActivity : AppCompatActivity() {
+    lateinit var binding: ActivityPreferbreadBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_prefer)
+        setContentView(R.layout.activity_preferbread)
 
         //이전, 다음으로 넘어가
-        dogbreed_previous_btn.setOnClickListener{
-            val intent= Intent(this, NicknameActivity::class.java)
+        breed_previous_btn.setOnClickListener{
+            val intent= Intent(this, PreferActivity::class.java)
             startActivity(intent)
         }
-        dogbreed_next_btn.setOnClickListener{
-            val intent= Intent(this, PreferbreadActivity::class.java)
+        breed_next_btn.setOnClickListener{
+            val intent= Intent(this, PrefergenderActivity::class.java)
             startActivity(intent)
         }
 
