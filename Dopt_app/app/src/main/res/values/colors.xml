@@ -16,6 +16,9 @@
     <color name="gray3_color">#d2d2d2</color>
     <color name="back_color">#ccf9f9f9</color>
 
+    <color name="btn_stroke">#E9E9E9</color>
+
+
 
     <color name="card_no">#48D831</color>
     <color name="card_star">#31B0D8</color>
