@@ -34,6 +34,10 @@
         <entry key="app/src/main/res/layout/activity_nickname.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_popup1.xml" value="0.26856884057971014" />
         <entry key="app/src/main/res/layout/activity_prefer.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_preferbread.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_prefercolor.xml" value="0.26721014492753625" />
+        <entry key="app/src/main/res/layout/activity_prefergender.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_prefersize.xml" value="0.26721014492753625" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2749094202898551" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.125" />

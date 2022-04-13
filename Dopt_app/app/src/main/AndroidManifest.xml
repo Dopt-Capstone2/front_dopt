@@ -24,12 +24,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        //회원가입 정보입력
         <activity
             android:name=".NicknameActivity"
             android:exported="true"/>
         <activity
             android:name=".PreferActivity"
             android:exported="true"/>
+        <activity
+            android:name=".PreferbreadActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".PrefergenderActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".PrefercolorActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".PrefersizeActivity"
+            android:exported="true"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true" />
