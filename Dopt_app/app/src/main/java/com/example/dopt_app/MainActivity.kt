@@ -1,132 +1,62 @@
+package com.example.dopt_app
 
-public class Body {
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.example.dopt_app.databinding.ActivityMainBinding
 
-    @SerializedName("items")
-    @Expose
-    private Items items;
-    @SerializedName("numOfRows")
-    @Expose
-    private Integer numOfRows;
-    @SerializedName("pageNo")
-    @Expose
-    private Integer pageNo;
-    @SerializedName("totalCount")
-    @Expose
-    private Integer totalCount;
+class MainActivity : AppCompatActivity() {
 
+    lateinit var binding: ActivityMainBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initBottomNavigation()
+    }
 
-}
+    private fun initBottomNavigation(){
 
-public class Example {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_frm, HomeFragment())
+            .commitAllowingStateLoss()
 
-    @SerializedName("response")
-    @Expose
-    private Response response;
+        binding.mainBnv.setOnItemSelectedListener{ item ->
+            when (item.itemId) {
 
+                R.id.homeFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frm, HomeFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
+                }
 
-}
-
-public class Header {
-
-    @SerializedName("resultCode")
-    @Expose
-    private String resultCode;
-    @SerializedName("resultMsg")
-    @Expose
-    private String resultMsg;
-
-
-
-}
-
-public class Item {
-
-    @SerializedName("age")
-    @Expose
-    private String age;
-    @SerializedName("careAddr")
-    @Expose
-    private String careAddr;
-    @SerializedName("careNm")
-    @Expose
-    private String careNm;
-    @SerializedName("careTel")
-    @Expose
-    private String careTel;
-    @SerializedName("colorCd")
-    @Expose
-    private String colorCd;
-    @SerializedName("desertionNo")
-    @Expose
-    private Long desertionNo;
-    @SerializedName("filename")
-    @Expose
-    private String filename;
-    @SerializedName("happenDt")
-    @Expose
-    private Integer happenDt;
-    @SerializedName("happenPlace")
-    @Expose
-    private String happenPlace;
-    @SerializedName("kindCd")
-    @Expose
-    private String kindCd;
-    @SerializedName("neuterYn")
-    @Expose
-    private String neuterYn;
-    @SerializedName("noticeEdt")
-    @Expose
-    private Integer noticeEdt;
-    @SerializedName("noticeNo")
-    @Expose
-    private String noticeNo;
-    @SerializedName("noticeSdt")
-    @Expose
-    private Integer noticeSdt;
-    @SerializedName("officetel")
-    @Expose
-    private String officetel;
-    @SerializedName("orgNm")
-    @Expose
-    private String orgNm;
-    @SerializedName("popfile")
-    @Expose
-    private String popfile;
-    @SerializedName("processState")
-    @Expose
-    private String processState;
-    @SerializedName("sexCd")
-    @Expose
-    private String sexCd;
-    @SerializedName("specialMark")
-    @Expose
-    private String specialMark;
-    @SerializedName("weight")
-    @Expose
-    private String weight;
-
-}
-
-public class Items {
-
-    @SerializedName("item")
-    @Expose
-    private List<Item> item = null;
-
-
-
-}
-
-
-@Generated("jsonschema2pojo")
-public class Response {
-
-    @SerializedName("header")
-    @Expose
-    private Header header;
-    @SerializedName("body")
-    @Exposez
-    private Body body;
-
+                R.id.starFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frm, StarFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
+                }
+                R.id.matchFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frm, MatchFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
+                }
+                R.id.shareFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frm, ShareFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
+                }
+                R.id.accountFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frm, AccountFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
+                }
+            }
+            false
+        }
+    }
 }
