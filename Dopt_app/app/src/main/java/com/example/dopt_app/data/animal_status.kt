@@ -1,5 +1,5 @@
 package com.example.dopt_app.data
 
-data class animal_status(
+data class Animal_Status(
     val response: Response
 )
