@@ -20,7 +20,7 @@ interface OpenAPIInterface {
              * @QueryMap 어노테이션은 위치가 바뀌어도 동적으로 값을 받아올 수 있게 한다.
              */
 
-    fun getInfo(@QueryMap par: Map<String, String>) : Call<Response>
+    fun getInfo(@QueryMap par: Map<String, String>) : Call<Response<Any?>>
 
 
 }
