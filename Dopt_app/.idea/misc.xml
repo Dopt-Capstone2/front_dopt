@@ -29,6 +29,7 @@
         <entry key="app/src/main/res/drawable/profile_menu_radius.xml" value="0.20092592592592592" />
         <entry key="app/src/main/res/drawable/profile_radius.xml" value="0.2" />
         <entry key="app/src/main/res/drawable/rounding_line_yellow.xml" value="0.1259259259259259" />
+        <entry key="app/src/main/res/drawable/star_animal_status_radius.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_join.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10833333333333334" />
@@ -49,8 +50,9 @@
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_profiledetail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_share.xml" value="0.125" />
-        <entry key="app/src/main/res/layout/fragment_star.xml" value="0.3392210144927536" />
+        <entry key="app/src/main/res/layout/fragment_star.xml" value="0.125" />
         <entry key="app/src/main/res/layout/item_share.xml" value="0.2798913043478261" />
+        <entry key="app/src/main/res/layout/item_small_animal.xml" value="0.335" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.33177083333333335" />
       </map>
     </option>
