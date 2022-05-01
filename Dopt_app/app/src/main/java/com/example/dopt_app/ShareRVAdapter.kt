@@ -45,8 +45,6 @@ class ShareRVAdapter(private val shareList: ArrayList<Share>) : RecyclerView.Ada
         fun bind(share: Share){
             binding.itemAnimalImgIv.setImageResource(share.aniImg!!)
             binding.itemAnimalShareTitleTv.text = share.title
-            binding.itemAnimalShareTitleTv.text = share.text
-            binding.itemAnimalShareTitleTv.text = share.userId
         }
     }
 }
