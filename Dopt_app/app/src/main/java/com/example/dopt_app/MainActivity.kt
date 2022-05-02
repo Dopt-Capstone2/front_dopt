@@ -44,8 +44,16 @@ class MainActivity : AppCompatActivity() {
         call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
             override fun onResponse(call: Call<OpenAnimal>, response: Response<OpenAnimal>){
                 animalList1.value = response.body() as OpenAnimal
-                Log.d("body", animalList1.toString())
-                Log.d("success", "success"+response.body().toString())
+                //객체에 저장이 되지 않고 null만 출력해대서
+                //isSuccessful()을 달아주었더니 잘 나온다.
+                if (response.isSuccessful()){
+                    Log.d("body", animalList1.toString())
+                    Log.d("success", "success"+response.body().toString())
+                }
+                else{
+                    Log.d("request_error", ""+response.errorBody())
+                }
+
             }
             override fun onFailure(call: Call<OpenAnimal>, t : Throwable) {
                 t.printStackTrace()
@@ -65,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
 
                 R.id.homeFragment -> {
-                    Log.d("animalList_val", animalList1.value.toString())
+                    Log.d("animalList_val", getAnimalData().value.toString())
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, HomeFragment())
                         .commitAllowingStateLoss()
