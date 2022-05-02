@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="370dp"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="20dp">
+    android:padding="10dp"
+    android:background="@drawable/white_all_radius">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/item_star_animal_img_cardView"
@@ -26,12 +27,20 @@
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/start_book_img"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:id="@+id/start_unbook_img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/bookmark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/start_book_img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/bookmark_full"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/animal_what_gender"
@@ -52,9 +61,21 @@
         android:textColor="@color/black"
         android:textSize="10sp"
         android:textStyle="bold"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="10dp"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="@id/animal_place_tx"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/animal_neuterYn_tx"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="(중성화X)"
+        android:textColor="@color/black"
+        android:textSize="8sp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toEndOf="@+id/animal_gender_tx"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
@@ -76,7 +97,7 @@
         android:textColor="@color/black"
         android:textSize="10sp"
         android:textStyle="bold"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="10dp"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="@id/animal_place_tx"
         app:layout_constraintTop_toBottomOf="@+id/animal_what_gender"/>
@@ -100,7 +121,7 @@
         android:textColor="@color/black"
         android:textSize="10sp"
         android:textStyle="bold"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="10dp"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toEndOf="@id/animal_what_place"
         app:layout_constraintTop_toBottomOf="@+id/animal_what_type"/>
@@ -111,10 +132,10 @@
         android:layout_height="26dp"
         android:paddingHorizontal="20dp"
         android:text="보호소 연락 기다리는 중"
-        android:textColor="@color/main_color"
+        android:textColor="@color/purple_700"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/animal_what_place"
         app:layout_constraintStart_toEndOf="@id/item_star_animal_img_cardView"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

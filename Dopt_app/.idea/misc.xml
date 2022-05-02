@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/drawable/bg_spinner.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/drawable/btm_color_selector.xml" value="0.14907407407407408" />
         <entry key="app/src/main/res/drawable/btn_color_selector.xml" value="0.14537037037037037" />
+        <entry key="app/src/main/res/drawable/gray_all_line_radius.xml" value="0.13055555555555556" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.14907407407407408" />
         <entry key="app/src/main/res/drawable/ic_plus_gray.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/join_shape.xml" value="0.14907407407407408" />
@@ -28,8 +29,10 @@
         <entry key="app/src/main/res/drawable/profile_fix_radius.xml" value="0.10648148148148148" />
         <entry key="app/src/main/res/drawable/profile_menu_radius.xml" value="0.20092592592592592" />
         <entry key="app/src/main/res/drawable/profile_radius.xml" value="0.2" />
+        <entry key="app/src/main/res/drawable/purple_all_radius.xml" value="0.16018518518518518" />
         <entry key="app/src/main/res/drawable/rounding_line_yellow.xml" value="0.1259259259259259" />
         <entry key="app/src/main/res/drawable/star_animal_status_radius.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/white_all_radius.xml" value="0.13055555555555556" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_join.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10833333333333334" />
@@ -48,11 +51,13 @@
         <entry key="app/src/main/res/layout/fragment_match.xml" value="0.15925925925925927" />
         <entry key="app/src/main/res/layout/fragment_newshare.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_profiledetail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_profiledetail.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_share.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_star.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/fragment_star_detail.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/item_my_share.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_share.xml" value="0.2798913043478261" />
-        <entry key="app/src/main/res/layout/item_small_animal.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_small_animal.xml" value="0.165" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.33177083333333335" />
       </map>
     </option>
