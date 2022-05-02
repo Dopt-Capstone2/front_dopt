@@ -19,6 +19,15 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //url 변수 지정
+        //buildConfigField "String?", "URL_ANIMAL", properties['url.animalOpenAPI']
+
+        //endpoint 변수 지정
+        //buildConfigField "String", "ENDPOINT_GET_ANIMAL_STATUS", properties['endPoint.getAnimalOpenAPIStatus']
+
+        //api key 변수 지정
+        //buildConfigField "String", "API_KEY", properties['api.key']
     }
 
     buildTypes {
@@ -46,4 +55,14 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.0.0'
+    implementation "io.reactivex.rxjava2:rxjava:2.2.3"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    def okhttp_version="3.12.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    implementation("com.squareup.okhttp3:okhttp") {
+        version { strictly "$okhttp_version" }
+    }
 }
