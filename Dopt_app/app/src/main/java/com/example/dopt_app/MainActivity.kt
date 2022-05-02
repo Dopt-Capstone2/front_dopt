@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
 
                 R.id.homeFragment -> {
-                    Log.d("animalList_val", getAnimalData().value.toString())
+                    getAnimalData()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, HomeFragment())
                         .commitAllowingStateLoss()
