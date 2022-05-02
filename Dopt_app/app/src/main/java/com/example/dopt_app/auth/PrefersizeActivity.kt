@@ -1,14 +1,11 @@
-package com.example.dopt_app
+package com.example.dopt_app.auth
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dopt_app.databinding.ActivityPreferBinding
+import com.example.dopt_app.MainActivity
+import com.example.dopt_app.R
 import com.example.dopt_app.databinding.ActivityPrefersizeBinding
-import kotlinx.android.synthetic.main.activity_nickname.*
-import kotlinx.android.synthetic.main.activity_prefer.*
 import kotlinx.android.synthetic.main.activity_preferbread.*
 
 class PrefersizeActivity : AppCompatActivity() {

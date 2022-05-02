@@ -1,4 +1,4 @@
-package com.example.dopt_app
+package com.example.dopt_app.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import com.example.dopt_app.databinding.FragmentHomeBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.example.dopt_app.*
+import com.example.dopt_app.data.Share
 import com.google.gson.Gson
 import java.util.ArrayList
 
@@ -36,7 +38,7 @@ class HomeFragment : Fragment() {
 
         binding.homeRecentShareRv.adapter=shareRVAdapter
 
-        shareRVAdapter.setMyItemClickListener(object : ShareRVAdapter.MyItemClickListener{
+        shareRVAdapter.setMyItemClickListener(object : ShareRVAdapter.MyItemClickListener {
             override fun onItemClick(share: Share) {
                 changeNewShareFragment(share)
             }

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import com.example.dopt_app.NicknameActivity
 import com.example.dopt_app.R
 import com.google.android.material.textfield.TextInputEditText
 

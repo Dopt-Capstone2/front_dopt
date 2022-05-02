@@ -2,7 +2,12 @@ package com.example.dopt_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.dopt_app.account.AccountFragment
 import com.example.dopt_app.databinding.ActivityMainBinding
+import com.example.dopt_app.home.HomeFragment
+import com.example.dopt_app.match.MatchFragment
+import com.example.dopt_app.share.ShareFragment
+import com.example.dopt_app.star.StarFragment
 
 class MainActivity : AppCompatActivity() {
 
