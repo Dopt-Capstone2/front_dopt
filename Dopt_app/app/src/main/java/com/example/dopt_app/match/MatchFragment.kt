@@ -1,4 +1,4 @@
-package com.example.dopt_app
+package com.example.dopt_app.match
 
 import android.os.Build
 import android.os.Bundle

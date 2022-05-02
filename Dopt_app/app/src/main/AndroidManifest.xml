@@ -31,22 +31,22 @@
 
         //회원가입 정보입력
         <activity
-            android:name=".NicknameActivity"
+            android:name=".auth.NicknameActivity"
             android:exported="true"/>
         <activity
-            android:name=".PreferActivity"
+            android:name=".auth.PreferActivity"
             android:exported="true"/>
         <activity
-            android:name=".PreferbreadActivity"
+            android:name=".auth.PreferbreadActivity"
             android:exported="true"/>
         <activity
-            android:name=".PrefergenderActivity"
+            android:name=".auth.PrefergenderActivity"
             android:exported="true"/>
         <activity
-            android:name=".PrefercolorActivity"
+            android:name=".auth.PrefercolorActivity"
             android:exported="true"/>
         <activity
-            android:name=".PrefersizeActivity"
+            android:name=".auth.PrefersizeActivity"
             android:exported="true"/>
 
         <activity

@@ -1,4 +1,4 @@
-package com.example.dopt_app
+package com.example.dopt_app.data
 
 data class Share(
     var title: String?="",

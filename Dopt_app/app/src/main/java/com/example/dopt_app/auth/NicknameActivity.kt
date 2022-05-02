@@ -1,9 +1,9 @@
-package com.example.dopt_app
+package com.example.dopt_app.auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.dopt_app.R
 import kotlinx.android.synthetic.main.activity_nickname.*
 
 class NicknameActivity : AppCompatActivity() {
