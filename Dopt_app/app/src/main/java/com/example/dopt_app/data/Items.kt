@@ -1,5 +1,5 @@
 package com.example.dopt_app.data
 
 data class Items(
-    val item: List<Item>
+    val item: Array<Item>
 )

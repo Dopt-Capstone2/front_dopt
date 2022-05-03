@@ -32,8 +32,6 @@ class AnimalOpenAPI {
         //fun getAnimal(@Path("api_key") key: String) : Call<OpenAnimal>
         
         //dynamic url로 구현
-        //TODO: 실행시에 한 번, 실시간으로 입양이 된다면 동물이 카드에서 사라져야하므로 실시간으로도 수행되어야함
-        //TODO: 현재는 비동기적으로 동작.
         //참고 블로그
         //https://realapril.tistory.com/54
         @GET fun getAnimal(@Url url:String) : Call<OpenAnimal>
@@ -52,6 +50,7 @@ class AnimalOpenAPI {
         private val retrofitClient: Retrofit.Builder by lazy {
             Retrofit.Builder()
                 .baseUrl(AnimalOpenAPI.DOMAIN)
+                //.addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
         }
         val animalOpenService: AnimalOpenService by lazy {
