@@ -6,4 +6,6 @@ data class Share(
     var aniImg: Int? = null,
     var upDate: String = "",
     var userId: String?="",
+    var userNm: String?="",
+    var shareWk: String?="",
 )
