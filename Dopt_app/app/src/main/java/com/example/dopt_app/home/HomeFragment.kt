@@ -27,11 +27,19 @@ class HomeFragment : Fragment() {
 
 
         shareDatas.apply {
-            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ 정말 뿌듯해요", R.drawable.dog_num_one, "test11"))
-            add(Share("냥냥이 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ 정말 뿌듯해요", R.drawable.cat_num_one, "test22"))
-            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ 정말 뿌듯해요", R.drawable.dog_num_one, "test11"))
-            add(Share("냥냥이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ 정말 뿌듯해요", R.drawable.cat_num_one, "test22"))
-            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ 정말 뿌듯해요", R.drawable.dog_num_one, "test11"))
+            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                    " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
+                    " 만관부~~", R.drawable.dog_num_one, "2022-05-02", "test11", "채현채현"))
+            add(Share("냥냥이 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요ㅜㅠ \n 다음 주차에도 후기 올리러 오겠습니다 ;) \n 만관부~~", R.drawable.cat_num_one, "test22"))
+            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요 왕왕\n" +
+                    " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
+                    " 만관부~~", R.drawable.dog_num_one, "2022-05-02", "test11", "채현채현"))
+            add(Share("냥냥이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                    " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
+                    " 만관부~~", R.drawable.cat_num_one, "2022-05-02", "test11", "채현채현"))
+            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                    " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
+                    " 만관부~~", R.drawable.dog_num_one, "2022-05-02", "test11", "채현채현"))
         }
 
         val shareRVAdapter = ShareRVAdapter(shareDatas)
