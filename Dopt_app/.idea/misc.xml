@@ -29,6 +29,7 @@
         <entry key="app/src/main/res/drawable/profile_fix_radius.xml" value="0.10648148148148148" />
         <entry key="app/src/main/res/drawable/profile_menu_radius.xml" value="0.20092592592592592" />
         <entry key="app/src/main/res/drawable/profile_radius.xml" value="0.2" />
+        <entry key="app/src/main/res/drawable/puple_line_white_radius.xml" value="0.18888888888888888" />
         <entry key="app/src/main/res/drawable/purple_all_radius.xml" value="0.16018518518518518" />
         <entry key="app/src/main/res/drawable/rounding_line_yellow.xml" value="0.1259259259259259" />
         <entry key="app/src/main/res/drawable/star_animal_status_radius.xml" value="0.1" />
@@ -49,6 +50,7 @@
         <entry key="app/src/main/res/layout/fragment_banner.xml" value="0.36231884057971014" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_match.xml" value="0.15925925925925927" />
+        <entry key="app/src/main/res/layout/fragment_my_share.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_newshare.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_profiledetail.xml" value="0.165" />

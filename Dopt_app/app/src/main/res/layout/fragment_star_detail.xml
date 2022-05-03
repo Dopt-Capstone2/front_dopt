@@ -45,7 +45,7 @@
             android:id="@+id/star_animals_sv"
             android:layout_width="370dp"
             android:layout_height="0dp"
-            android:background="@drawable/profile_menu_radius"
+            android:background="@drawable/white_all_radius"
             app:layout_constraintTop_toBottomOf="@id/back_star_bt"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
