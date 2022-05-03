@@ -18,7 +18,7 @@
             android:id="@+id/item_animal_img_iv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:src="@drawable/dog_num_one"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
