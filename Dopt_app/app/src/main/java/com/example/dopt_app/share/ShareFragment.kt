@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
+import com.example.dopt_app.account.AccountFragment
 import com.example.dopt_app.data.Share
 import com.example.dopt_app.databinding.FragmentShareBinding
 import com.google.gson.Gson
@@ -46,6 +47,21 @@ class ShareFragment : Fragment() {
                     " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
                     " 만관부~~", R.drawable.dog_num_one, "2022-05-02", "test11", "채현채현", "4주차")
             )
+            add(
+                Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                        " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
+                        " 만관부~~", R.drawable.dog_num_one, "2022-05-02", "test11", "채현채현", "5주차")
+            )
+            add(
+                Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                        " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
+                        " 만관부~~", R.drawable.dog_num_one, "2022-05-02", "test11", "채현채현", "6주차")
+            )
+            add(
+                Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                        " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
+                        " 만관부~~", R.drawable.dog_num_one, "2022-05-02", "test11", "채현채현", "7주차")
+            )
         }
 
         // 더미데이터랑 Adapter 연결
@@ -62,6 +78,12 @@ class ShareFragment : Fragment() {
         })
         // 레이아웃 매니저 설정
         binding.shareMyAnimalsRv.layoutManager = GridLayoutManager(context, 2, )
+
+        binding.shareNewBtn.setOnClickListener {
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, WriteShareFragment())
+                .commitAllowingStateLoss()
+        }
 
         return binding.root
     }

@@ -1,4 +1,8 @@
 package com.example.dopt_app.share
 
-class WriteShareFragment {
+import androidx.fragment.app.Fragment
+
+class WriteShareFragment : Fragment()  {
+
+
 }

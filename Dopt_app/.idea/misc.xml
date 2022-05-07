@@ -57,6 +57,7 @@
         <entry key="app/src/main/res/layout/fragment_share.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_star.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_star_detail.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_write_share.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_my_share.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_share.xml" value="0.2798913043478261" />
         <entry key="app/src/main/res/layout/item_small_animal.xml" value="0.165" />
