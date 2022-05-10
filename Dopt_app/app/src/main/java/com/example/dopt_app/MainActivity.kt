@@ -38,9 +38,7 @@ class MainActivity : AppCompatActivity() {
     //해당 코드가 언제 종료될지 모른다는 특징을 가짐.
     //실시간 데이터 변화에 따라서 수정해야하는 상황이라면
     //observer를 사용해야함.
-
-
-
+    
     val animalResponse = MutableLiveData<OpenAnimal>()
     
     //현재 날짜를 갖고오기 위한 변수
@@ -105,6 +103,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.matchFragment -> {
                     //Log.d("animalList_val", getAnimalData().value.toString())
+                    //로그 뜨는 부분
+                    //로그가 너무 많아서 보기 힘들면
+                    //구별 가능한 문자열을 넣거나
+                    //주석처리해주세요.
                     val animalRaw = animalResponse.value!!.copy()
                     val animalItems = animalRaw.response.body.items
                     //println(animalItems.item[0])
