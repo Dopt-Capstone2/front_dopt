@@ -1,16 +1,19 @@
 package com.example.dopt_app
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.data.AnimalOpenAPI
-import com.example.dopt_app.data.Items
 import com.example.dopt_app.data.OpenAnimal
 import com.example.dopt_app.databinding.ActivityMainBinding
+import java.time.LocalDate
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initBottomNavigation()
+
+        Log.d("animalList_val", getAnimalData().value.toString())
 
     }
 
@@ -36,19 +41,32 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    val animalList1 = MutableLiveData<OpenAnimal>()
+    val animalResponse = MutableLiveData<OpenAnimal>()
+    
+    //현재 날짜를 갖고오기 위한 변수
+    @RequiresApi(Build.VERSION_CODES.O)
+    val current = LocalDate.now()
+    @RequiresApi(Build.VERSION_CODES.O)
+    val formatter = DateTimeFormatter.ofPattern("yyyyMMdd")
+    @RequiresApi(Build.VERSION_CODES.O)
+    val endde = current.format(formatter)
+    //이전의 bgnde, endde로 조회.
+    val bgnde = (endde.toInt() - 6).toString()
 
     private fun getAnimalData(): MutableLiveData<OpenAnimal> {
         val call = AnimalOpenAPI.AnimalRetrofitClient.animalOpenService
 
-        call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
+        //call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
+
+        call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde=$bgnde&endde=$endde&numOfRows=3000&ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
             override fun onResponse(call: Call<OpenAnimal>, response: Response<OpenAnimal>){
-                animalList1.value = response.body() as OpenAnimal
+                animalResponse.value = response.body() as OpenAnimal
                 //객체에 저장이 되지 않고 null만 출력해대서
                 //isSuccessful()을 달아주었더니 잘 나온다.
-                if (response.isSuccessful()){
-                    Log.d("body", animalList1.toString())
-                    Log.d("success", "success"+response.body().toString())
+                if (response.isSuccessful){
+                    //val (animalBody, animalHeader) = animalResponse1.value
+                    //Log.d("body", animalList.toString())
+                    Log.d("success", "\n\n"+response.body().toString())
                 }
                 else{
                     Log.d("request_error", ""+response.errorBody())
@@ -60,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Failed", "Failed")
             }
         })
-        return animalList1
+        return animalResponse
     }
 
     private fun initBottomNavigation(){
@@ -73,7 +91,6 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
 
                 R.id.homeFragment -> {
-                    Log.d("animalList_val", getAnimalData().value.toString())
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, HomeFragment())
                         .commitAllowingStateLoss()
@@ -87,6 +104,12 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.matchFragment -> {
+                    //Log.d("animalList_val", getAnimalData().value.toString())
+                    val animalRaw = animalResponse.value!!.copy()
+                    val animalItems = animalRaw.response.body.items
+                    //println(animalItems.item[0])
+                    println(animalItems.item.size)
+
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, MatchFragment())
                         .commitAllowingStateLoss()
