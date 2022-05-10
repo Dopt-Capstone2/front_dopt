@@ -50,7 +50,9 @@ class MainActivity : AppCompatActivity() {
         //TODO: 서비스키 뒤로 현재 일수를 받아 noticeSdt에 넣어주면 됨. 포스트맨 url참고!
         //TODO: notiveSdt의 format: 20220503 (Int)
         //이전의 bgnde는 더이상 사용하지 않습니다.
-        call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
+        //call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
+        
+        call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde=20220504&endde=20220510&numOfRows=3000&ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
             override fun onResponse(call: Call<OpenAnimal>, response: Response<OpenAnimal>){
                 animalResponse.value = response.body() as OpenAnimal
                 //객체에 저장이 되지 않고 null만 출력해대서
@@ -99,7 +101,8 @@ class MainActivity : AppCompatActivity() {
                     //Log.d("animalList_val", getAnimalData().value.toString())
                     val animalRaw = animalResponse.value!!.copy()
                     val animalItems = animalRaw.response.body.items
-                    println(animalItems.item[0])
+                    //println(animalItems.item[0])
+                    println(animalItems.item.size)
 
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, MatchFragment())
