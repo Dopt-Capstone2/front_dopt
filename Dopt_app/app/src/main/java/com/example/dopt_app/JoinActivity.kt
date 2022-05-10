@@ -42,7 +42,7 @@ class JoinActivity: AppCompatActivity()  {
                     }
 
                     override fun onResponse(call: Call<Join>, response: Response<Join>) {
-                        Toast.makeText(applicationContext, response.body()?.mesage,Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, response.body()?.message,Toast.LENGTH_LONG).show()
                     }
                 }
             )
