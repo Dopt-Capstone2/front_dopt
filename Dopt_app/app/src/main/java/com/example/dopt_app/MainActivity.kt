@@ -1,19 +1,19 @@
 package com.example.dopt_app
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.data.AnimalOpenAPI
-
-import com.example.dopt_app.data.Item
-import com.example.dopt_app.data.Items
-
 import com.example.dopt_app.data.OpenAnimal
 import com.example.dopt_app.databinding.ActivityMainBinding
+import java.time.LocalDate
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,17 +42,23 @@ class MainActivity : AppCompatActivity() {
 
 
     val animalResponse = MutableLiveData<OpenAnimal>()
+    
+    //현재 날짜를 갖고오기 위한 변수
+    @RequiresApi(Build.VERSION_CODES.O)
+    val current = LocalDate.now()
+    @RequiresApi(Build.VERSION_CODES.O)
+    val formatter = DateTimeFormatter.ofPattern("yyyyMMdd")
+    @RequiresApi(Build.VERSION_CODES.O)
+    val endde = current.format(formatter)
+    //이전의 bgnde, endde로 조회.
+    val bgnde = (endde.toInt() - 6).toString()
 
     private fun getAnimalData(): MutableLiveData<OpenAnimal> {
         val call = AnimalOpenAPI.AnimalRetrofitClient.animalOpenService
 
-        //TODO: 동물을 현재일로부터 10일 전부터 조회할 것. ex) 오늘이 11일이라면 1일부터 조회.
-        //TODO: 서비스키 뒤로 현재 일수를 받아 noticeSdt에 넣어주면 됨. 포스트맨 url참고!
-        //TODO: notiveSdt의 format: 20220503 (Int)
-        //이전의 bgnde는 더이상 사용하지 않습니다.
         //call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
-        
-        call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde=20220504&endde=20220510&numOfRows=3000&ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
+
+        call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde=$bgnde&endde=$endde&numOfRows=3000&ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
             override fun onResponse(call: Call<OpenAnimal>, response: Response<OpenAnimal>){
                 animalResponse.value = response.body() as OpenAnimal
                 //객체에 저장이 되지 않고 null만 출력해대서
