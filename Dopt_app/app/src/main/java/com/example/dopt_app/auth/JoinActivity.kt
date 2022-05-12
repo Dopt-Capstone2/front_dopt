@@ -7,7 +7,8 @@ import android.widget.Button
 import android.widget.Toast
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
-import com.example.dopt_app.data.Join
+import com.example.dopt_app.data.JoinModel
+import com.example.dopt_app.data.JoinResult
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,28 +27,26 @@ class JoinActivity : AppCompatActivity() {
         joinBtn.setOnClickListener{
             val userEmail= findViewById<TextInputEditText>(R.id.join_email_jo)
             val userPw = findViewById<TextInputEditText>(R.id.join_pw_jo)
-            //val intent= Intent(this, NicknameActivity::class.java)
+
+            val data = JoinModel(userEmail.text.toString(), userPw.text.toString(), "hmin","Ilsan","nick")
             startActivity(intent)
 
-            RetrofitClient.instance.userJoin(userEmail,userPw)
-                .enqueue(object: Callback<Join> {
-                    override fun onFailure(call: Call<Join>, t: Throwable) {
-                        Log.d(TAG, "Request Failed")
+            RetrofitClient.instance.userJoin(data)
+                .enqueue(object: Callback<JoinResult> {
+                    override fun onFailure(call: Call<JoinResult>, t: Throwable) {
+                        // Log.d(TAG, "Request Failed start")
                         Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "Request Failed end")
+                        // Log.d(TAG, "Request Failed end")
                     }
-                    override fun onResponse(call: Call<Join>, response: Response<Join>) {
-                        Log.d(TAG,"Request successful")
-                        Log.d(TAG, response.body().toString())
+                    override fun onResponse(call: Call<JoinResult>, response: Response<JoinResult>) {
+                        // Log.d(TAG,"Request successful start")
+                        // Log.d(TAG, response.toString())
+                        // Log.d(TAG, response.body().toString())
+                        // Log.d(TAG, "Request successful end")
                         Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
                     }
                 }
-                )
-
-            Log.d(TAG, "auth/JoinActivity")
-            Log.d(TAG, userEmail.text.toString())
-            Log.d(TAG, userPw.text.toString())
-
+            )
         }
     }
 }
