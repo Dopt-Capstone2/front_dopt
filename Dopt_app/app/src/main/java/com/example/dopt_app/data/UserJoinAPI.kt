@@ -35,7 +35,7 @@ class UserJoinAPI {
                 //.addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
         }
-        val animalOpenService: UserJoinService by lazy {
+        val userJoinService: UserJoinService by lazy {
             retrofitClient.build().create(UserJoinService::class.java)
         }
     }
