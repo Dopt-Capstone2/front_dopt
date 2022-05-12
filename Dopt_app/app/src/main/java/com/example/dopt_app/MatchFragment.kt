@@ -28,7 +28,7 @@ val formatter = DateTimeFormatter.ofPattern("yyyyMMdd")
 @RequiresApi(Build.VERSION_CODES.O)
 val endde = current.format(formatter)
 //이전의 bgnde, endde로 조회.
-val bgnde = (endde.toInt() - 6).toString()
+val bgnde = (endde.toInt() - 10).toString()
 
 //공공API 함수 생성
 //비동기로 실행되기 떄문에
@@ -46,7 +46,7 @@ fun getAnimalData(): MutableLiveData<OpenAnimal> {
 
     //call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
 
-    call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde=$bgnde&endde=$endde&numOfRows=3000&ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object:
+    call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde=$bgnde&endde=$endde&numOfRows=5000&ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object:
         Callback<OpenAnimal> {
         override fun onResponse(call: Call<OpenAnimal>, response: Response<OpenAnimal>){
             animalResponse.value = response.body() as OpenAnimal
