@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
-import com.example.dopt_app.data.AnimalOpenAPI
+import com.example.dopt_app.api.AnimalOpenAPI
 import com.example.dopt_app.data.OpenAnimal
 import com.example.dopt_app.databinding.ActivityMainBinding
 import java.time.LocalDate
