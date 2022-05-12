@@ -1,6 +1,5 @@
 package com.example.dopt_app.api
 
-import com.example.dopt_app.data.Join
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.http.FormUrlEncoded
