@@ -1,10 +1,10 @@
-package com.example.dopt_app.data
+package com.example.dopt_app.api
 
+import com.example.dopt_app.data.OpenAnimal
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Url
 
 //참고 블로그
@@ -49,7 +49,7 @@ class AnimalOpenAPI {
     object AnimalRetrofitClient{
         private val retrofitClient: Retrofit.Builder by lazy {
             Retrofit.Builder()
-                .baseUrl(AnimalOpenAPI.DOMAIN)
+                .baseUrl(DOMAIN)
                 //.addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
         }
