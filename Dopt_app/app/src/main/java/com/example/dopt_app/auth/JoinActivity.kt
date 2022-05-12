@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.Toast
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
+import com.example.dopt_app.data.Join
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
