@@ -52,6 +52,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+        <!-- 팝업 Activity -->
+        <activity android:name=".popup.PopupProfileDoneActivity" android:theme="@android:style/Theme.Dialog" />
+
     </application>
 
 </manifest>

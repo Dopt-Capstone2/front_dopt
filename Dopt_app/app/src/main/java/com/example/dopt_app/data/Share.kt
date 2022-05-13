@@ -8,4 +8,5 @@ data class Share(
     var userId: String?="",
     var userNm: String?="",
     var shareWk: String?="",
+    // 공개 비공개
 )

@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.dopt_app.R
 import kotlinx.android.synthetic.main.activity_nickname.*
 
+// 프로필 입력 순서
+// 닉네임 - 종 - 품종 - 성별 - 색 - 크기
 class NicknameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
