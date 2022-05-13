@@ -1,22 +1,22 @@
-package com.example.dopt_app
+package com.example.dopt_app.match
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.dopt_app.databinding.FragmentStarBinding
+import com.example.dopt_app.databinding.FragmentMatchBinding
 
-class StarFragment : Fragment() {
+class MatchFragment : Fragment() {
 
-    lateinit var binding: FragmentStarBinding
+    lateinit var binding: FragmentMatchBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentStarBinding.inflate(inflater, container, false)
+        binding = FragmentMatchBinding.inflate(inflater, container, false)
 
         return binding.root
     }

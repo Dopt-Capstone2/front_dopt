@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FLO">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
             android:name=".auth.JoinActivity"
             android:exported="true" />
@@ -31,27 +31,31 @@
 
         //회원가입 정보입력
         <activity
-            android:name=".NicknameActivity"
+            android:name=".auth.NicknameActivity"
             android:exported="true"/>
         <activity
-            android:name=".PreferActivity"
+            android:name=".auth.PreferActivity"
             android:exported="true"/>
         <activity
-            android:name=".PreferbreadActivity"
+            android:name=".auth.PreferbreadActivity"
             android:exported="true"/>
         <activity
-            android:name=".PrefergenderActivity"
+            android:name=".auth.PrefergenderActivity"
             android:exported="true"/>
         <activity
-            android:name=".PrefercolorActivity"
+            android:name=".auth.PrefercolorActivity"
             android:exported="true"/>
         <activity
-            android:name=".PrefersizeActivity"
+            android:name=".auth.PrefersizeActivity"
             android:exported="true"/>
 
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+        <!-- 팝업 Activity -->
+        <activity android:name=".popup.PopupProfileDoneActivity" android:theme="@android:style/Theme.Dialog" />
+
     </application>
 
 </manifest>

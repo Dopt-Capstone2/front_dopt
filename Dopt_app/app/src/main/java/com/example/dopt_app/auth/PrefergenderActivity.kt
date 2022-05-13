@@ -1,15 +1,10 @@
-package com.example.dopt_app
+package com.example.dopt_app.auth
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dopt_app.databinding.ActivityPreferBinding
+import com.example.dopt_app.R
 import com.example.dopt_app.databinding.ActivityPrefergenderBinding
-import kotlinx.android.synthetic.main.activity_nickname.*
-import kotlinx.android.synthetic.main.activity_prefer.*
-import kotlinx.android.synthetic.main.activity_preferbread.*
 import kotlinx.android.synthetic.main.activity_prefergender.*
 
 class PrefergenderActivity : AppCompatActivity() {
@@ -18,7 +13,7 @@ class PrefergenderActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_preferbread)
+        setContentView(R.layout.activity_prefergender)
 
         //이전, 다음으로 넘어가
         gender_previous_btn.setOnClickListener{

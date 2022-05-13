@@ -1,4 +1,4 @@
-package com.example.dopt_app
+package com.example.dopt_app.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import com.example.dopt_app.databinding.FragmentHomeBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.example.dopt_app.*
+import com.example.dopt_app.data.Share
 import com.google.gson.Gson
 import java.util.ArrayList
 
@@ -25,18 +27,26 @@ class HomeFragment : Fragment() {
 
 
         shareDatas.apply {
-            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ 정말 뿌듯해요", R.drawable.dog_num_one, "test11"))
-            add(Share("냥냥이 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ 정말 뿌듯해요", R.drawable.cat_num_one, "test22"))
-            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ 정말 뿌듯해요", R.drawable.dog_num_one, "test11"))
-            add(Share("냥냥이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ 정말 뿌듯해요", R.drawable.cat_num_one, "test22"))
-            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ 정말 뿌듯해요", R.drawable.dog_num_one, "test11"))
+            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                    " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
+                    " 만관부~~", R.drawable.dog_num_one, "2022-05-02", "test11", "채현채현"))
+            add(Share("냥냥이 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요ㅜㅠ \n 다음 주차에도 후기 올리러 오겠습니다 ;) \n 만관부~~", R.drawable.cat_num_one, "test22"))
+            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요 왕왕\n" +
+                    " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
+                    " 만관부~~", R.drawable.dog_num_one, "2022-05-02", "test11", "채현채현"))
+            add(Share("냥냥이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                    " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
+                    " 만관부~~", R.drawable.cat_num_one, "2022-05-02", "test11", "채현채현"))
+            add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                    " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
+                    " 만관부~~", R.drawable.dog_num_one, "2022-05-02", "test11", "채현채현"))
         }
 
         val shareRVAdapter = ShareRVAdapter(shareDatas)
 
         binding.homeRecentShareRv.adapter=shareRVAdapter
 
-        shareRVAdapter.setMyItemClickListener(object : ShareRVAdapter.MyItemClickListener{
+        shareRVAdapter.setMyItemClickListener(object : ShareRVAdapter.MyItemClickListener {
             override fun onItemClick(share: Share) {
                 changeNewShareFragment(share)
             }

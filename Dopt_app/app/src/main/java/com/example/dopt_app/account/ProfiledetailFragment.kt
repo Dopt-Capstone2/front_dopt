@@ -1,10 +1,12 @@
-package com.example.dopt_app
+package com.example.dopt_app.account
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.dopt_app.MainActivity
+import com.example.dopt_app.R
 import com.example.dopt_app.databinding.FragmentProfiledetailBinding
 
 class ProfiledetailFragment : Fragment() {

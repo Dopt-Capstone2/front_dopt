@@ -41,7 +41,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="370dp"
         android:layout_height="0dp"
-        android:background="@drawable/profile_menu_radius"
+        android:background="@drawable/white_all_radius"
+        android:paddingBottom="20dp"
         app:layout_constraintTop_toBottomOf="@id/back_account_bt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -92,9 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/dog_num_one"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:src="@drawable/dog_num_one" />
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -110,9 +109,9 @@
 
         <TextView
             android:id="@+id/item_animal_share_text_tv"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginVertical="10dp"
             android:text="우리 아이 입양한지 벌써 3개월 ^^ 힘든날도 많았지만\n 앞으로는 좋은날만~\n우리 아이 입양한지 벌써 3개월 ^^ 힘든날도 많았지만\n 앞으로는 좋은날만~\n우리 아이 입양한지 벌써 3개월 ^^ 힘든날도 많았지만\n 앞으로는 좋은날만~\n"
             android:textColor="@color/black"
             android:textSize="12sp"

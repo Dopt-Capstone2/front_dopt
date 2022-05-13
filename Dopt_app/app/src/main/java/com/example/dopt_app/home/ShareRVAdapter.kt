@@ -1,10 +1,10 @@
-package com.example.dopt_app
+package com.example.dopt_app.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dopt_app.data.Share
 import com.example.dopt_app.databinding.ItemShareBinding
-import java.util.*
 import kotlin.collections.ArrayList
 
 class ShareRVAdapter(private val shareList: ArrayList<Share>) : RecyclerView.Adapter<ShareRVAdapter.ViewHolder>() {
@@ -21,7 +21,7 @@ class ShareRVAdapter(private val shareList: ArrayList<Share>) : RecyclerView.Ada
         mItemClickListener = itemClickListener
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int):ShareRVAdapter.ViewHolder{
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val binding: ItemShareBinding = ItemShareBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
 
         return ViewHolder(binding)
@@ -33,7 +33,7 @@ class ShareRVAdapter(private val shareList: ArrayList<Share>) : RecyclerView.Ada
         notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: ShareRVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(shareList[position])
         holder.itemView.setOnClickListener { mItemClickListener.onItemClick(shareList[position])}}
 
