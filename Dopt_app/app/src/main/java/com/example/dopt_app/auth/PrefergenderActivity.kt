@@ -13,7 +13,7 @@ class PrefergenderActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_preferbread)
+        setContentView(R.layout.activity_prefergender)
 
         //이전, 다음으로 넘어가
         gender_previous_btn.setOnClickListener{

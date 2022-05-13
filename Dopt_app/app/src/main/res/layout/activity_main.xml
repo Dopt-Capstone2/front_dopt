@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <FrameLayout
         android:id="@+id/main_frm"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@id/main_bnv"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +24,7 @@
         app:itemIconTint="@drawable/btm_color_selector"
         app:itemTextColor="@drawable/btm_color_selector"
         app:labelVisibilityMode="labeled"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
