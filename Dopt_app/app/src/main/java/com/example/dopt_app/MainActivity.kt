@@ -14,6 +14,8 @@ import com.example.dopt_app.data.OpenAnimal
 import com.example.dopt_app.databinding.ActivityMainBinding
 import com.example.dopt_app.home.HomeFragment
 import com.example.dopt_app.match.*
+import com.example.dopt_app.match.MatchFragment
+import com.example.dopt_app.match.getAnimalData
 import com.example.dopt_app.share.ShareFragment
 import com.example.dopt_app.star.StarFragment
 import retrofit2.Call

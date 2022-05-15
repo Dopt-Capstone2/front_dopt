@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.dopt_app.*
 import com.example.dopt_app.data.Share
+import com.example.dopt_app.share.WriteShareFragment
 import com.google.gson.Gson
 import java.util.ArrayList
 
@@ -61,6 +62,12 @@ class HomeFragment : Fragment() {
 
         binding.homeBannerVp.adapter = bannerAdapter
         binding.homeBannerVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+        binding.shareMoreBtn.setOnClickListener {
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, HomeMoreFragment())
+                .commitAllowingStateLoss()
+        }
 
         return binding.root
     }

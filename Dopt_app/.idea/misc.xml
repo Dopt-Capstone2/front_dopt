@@ -50,9 +50,11 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2749094202898551" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_banner.xml" value="0.36231884057971014" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home_more.xml" value="0.2823834196891192" />
+        <entry key="app/src/main/res/layout/fragment_home_more_share.xml" value="0.35778985507246375" />
         <entry key="app/src/main/res/layout/fragment_match.xml" value="0.15925925925925927" />
-        <entry key="app/src/main/res/layout/fragment_my_share.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_my_share.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_newshare.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_profiledetail.xml" value="0.165" />
