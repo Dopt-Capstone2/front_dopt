@@ -2,12 +2,11 @@ package com.example.dopt_app.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
-import com.example.dopt_app.data.JoinResult
+import com.example.dopt_app.data.PostResult
 import com.example.dopt_app.data.User_Signup
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
@@ -32,13 +31,13 @@ class JoinActivity : AppCompatActivity() {
             startActivity(intent)
 
             RetrofitClient.instance.userJoin(data)
-                .enqueue(object: Callback<JoinResult> {
-                    override fun onFailure(call: Call<JoinResult>, t: Throwable) {
+                .enqueue(object: Callback<PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
                         // Log.d(TAG, "Request Failed start")
                         Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
                         // Log.d(TAG, "Request Failed end")
                     }
-                    override fun onResponse(call: Call<JoinResult>, response: Response<JoinResult>) {
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
                         // Log.d(TAG,"Request successful start")
                         // Log.d(TAG, response.toString())
                         // Log.d(TAG, response.body().toString())

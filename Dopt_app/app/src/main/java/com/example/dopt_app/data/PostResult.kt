@@ -4,6 +4,6 @@ package com.example.dopt_app.data
 // https://stickode.tistory.com/43
 // DataModels.kt 참고
 
-data class JoinResult(
+data class PostResult(
     val result:String?=null
 )
