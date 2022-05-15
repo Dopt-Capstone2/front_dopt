@@ -21,12 +21,12 @@ object RetrofitClient {
             chain.proceed(request)
         }.build()
 
-    val instance: JoinAPI by lazy {
+    val instance: UserJoinAPI by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
-        retrofit.create(JoinAPI::class.java)
+        retrofit.create(UserJoinAPI::class.java)
     }
 }

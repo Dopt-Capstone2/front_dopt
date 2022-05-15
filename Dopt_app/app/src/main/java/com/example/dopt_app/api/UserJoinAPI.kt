@@ -8,7 +8,7 @@ import retrofit2.http.POST
 
 // https://stickode.tistory.com/43
 // jsonparams
-interface JoinAPI {
+interface UserJoinAPI {
     @POST("userJoin")
     fun userJoin(
         @Body jsonparams: User_Signup
