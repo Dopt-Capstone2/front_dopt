@@ -1,7 +1,7 @@
 package com.example.dopt_app.api
 
-import com.example.dopt_app.data.JoinModel
 import com.example.dopt_app.data.JoinResult
+import com.example.dopt_app.data.User_Signup
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.http.Body
@@ -14,6 +14,6 @@ import retrofit2.http.Field
 interface JoinAPI {
     @POST("userJoin")
     fun userJoin(
-        @Body jsonparams: JoinModel
+        @Body jsonparams: User_Signup
     ): Call<JoinResult>
 }

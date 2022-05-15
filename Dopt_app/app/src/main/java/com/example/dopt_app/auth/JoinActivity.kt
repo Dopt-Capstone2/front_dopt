@@ -7,8 +7,8 @@ import android.widget.Button
 import android.widget.Toast
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
-import com.example.dopt_app.data.JoinModel
 import com.example.dopt_app.data.JoinResult
+import com.example.dopt_app.data.User_Signup
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,7 +28,7 @@ class JoinActivity : AppCompatActivity() {
             val userEmail= findViewById<TextInputEditText>(R.id.join_email_jo)
             val userPw = findViewById<TextInputEditText>(R.id.join_pw_jo)
 
-            val data = JoinModel(userEmail.text.toString(), userPw.text.toString(), "hmin","Ilsan","nick")
+            val data = User_Signup(userEmail.text.toString(), userPw.text.toString(), "hmin","Ilsan","nick")
             startActivity(intent)
 
             RetrofitClient.instance.userJoin(data)
