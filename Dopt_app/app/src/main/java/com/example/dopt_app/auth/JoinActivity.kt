@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import com.example.dopt_app.R
-import com.example.dopt_app.api.POSTUserSignupRetrofitClient
+import com.example.dopt_app.api.RetrofitClient
 import com.example.dopt_app.data.PostResult
 import com.example.dopt_app.data.User_Signup
 import com.google.android.material.textfield.TextInputEditText
@@ -26,11 +26,10 @@ class JoinActivity : AppCompatActivity() {
         joinBtn.setOnClickListener{
             val userEmail= findViewById<TextInputEditText>(R.id.join_email_jo)
             val userPw = findViewById<TextInputEditText>(R.id.join_pw_jo)
-
             val data = User_Signup(userEmail.text.toString(), userPw.text.toString(), "hmin","Ilsan","nick")
             startActivity(intent)
 
-            POSTUserSignupRetrofitClient.instance.userJoin(data)
+            RetrofitClient.POST_User_Signup_instance.userJoin(data)
                 .enqueue(object: Callback<PostResult> {
                     override fun onFailure(call: Call<PostResult>, t: Throwable) {
                         // Log.d(TAG, "Request Failed start")
