@@ -29,7 +29,7 @@ class JoinActivity : AppCompatActivity() {
             val data = User_Signup(userEmail.text.toString(), userPw.text.toString(), "hmin","Ilsan","nick")
             startActivity(intent)
 
-            RetrofitClient.POST_User_Signup_instance.userJoin(data)
+            RetrofitClient.User_Signup_instance.POST_User_SignUp(data)
                 .enqueue(object: Callback<PostResult> {
                     override fun onFailure(call: Call<PostResult>, t: Throwable) {
                         // Log.d(TAG, "Request Failed start")

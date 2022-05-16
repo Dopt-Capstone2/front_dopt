@@ -42,6 +42,9 @@ import retrofit2.Retrofit
 
 
 object RetrofitClient {
+
+    //https://hntown43.tistory.com/10
+    //여러개의 기능을하는 api만들기
     private const val BASE_URL = "http://ec2-54-241-117-48.us-west-1.compute.amazonaws.com:3000"
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor {chain ->
@@ -54,14 +57,14 @@ object RetrofitClient {
             chain.proceed(request)
         }.build()
 
-    //사용자 회원가입, 로그인
-    val POST_User_Signup_instance: POST_User_SignupAPI by lazy {
+    // 사용자 회원가입, 로그인
+    val User_Signup_instance: User_SignupAPI by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
-        retrofit.create(POST_User_SignupAPI::class.java)
+        retrofit.create(User_SignupAPI::class.java)
     }
 
     // 사용자 근황공유
@@ -85,13 +88,13 @@ object RetrofitClient {
     }
 
     // 즐겨찾기 (북마크)
-    val POST_Bookmark_instance: POST_BookmarkAPI by lazy {
+    val Bookmark_instance: BookmarkAPI by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
-        retrofit.create(POST_BookmarkAPI::class.java)
+        retrofit.create(BookmarkAPI::class.java)
     }
 
     // 체크리스트
