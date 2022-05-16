@@ -9,7 +9,7 @@ import retrofit2.http.POST
 // https://stickode.tistory.com/43
 // jsonparams
 interface Shelter_SignupAPI {
-    @POST("shelterJoin")
+    @POST("Shelter_Signup")
     fun POST_Shelter_Signup(
         @Body jsonparams: Shelter_Signup
     ): Call<PostResult>

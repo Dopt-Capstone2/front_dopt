@@ -10,14 +10,14 @@ import retrofit2.http.POST
 // https://stickode.tistory.com/43
 // jsonparams
 interface User_SignupAPI {
-    @POST("userJoin")
+    @POST("User_Signup")
     fun POST_User_SignUp(
         @Body jsonparams: User_Signup
     ): Call<PostResult>
 
-    //TODO: 처음 실행될 때 접속한 유저의 아이디를 저장해야함
-    @GET("userJoin")
-    fun GET_User_Signup(
-        @Body jsonparams: User_Signup
-    ): Call<PostResult>
+//    //TODO: 처음 실행될 때 접속한 유저의 아이디를 저장해야함
+//    @GET("userJoin")
+//    fun GET_User_Signup(
+//        @Body jsonparams: User_Signup
+//    ): Call<PostResult>
 }
