@@ -8,7 +8,7 @@ import retrofit2.http.POST
 
 // https://stickode.tistory.com/43
 // jsonparams
-interface After_ShareAPI {
+interface POST_After_ShareAPI {
     @POST("userJoin")
     fun userJoin(
         @Body jsonparams: After_Share

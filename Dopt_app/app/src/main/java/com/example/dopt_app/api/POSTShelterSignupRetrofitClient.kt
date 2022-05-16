@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 //오브젝트 이름에는 언더스코어 _ 가 들어가면 안됩니다.
 
 
-object ShelterSignupRetrofitClient {
+object POSTShelterSignupRetrofitClient {
     private const val BASE_URL = "http://ec2-54-241-117-48.us-west-1.compute.amazonaws.com:3000"
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor {chain ->
@@ -22,12 +22,12 @@ object ShelterSignupRetrofitClient {
             chain.proceed(request)
         }.build()
 
-    val instance: Shelter_SignupAPI by lazy {
+    val instance: POST_Shelter_SignupAPI by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
-        retrofit.create(Shelter_SignupAPI::class.java)
+        retrofit.create(POST_Shelter_SignupAPI::class.java)
     }
 }
