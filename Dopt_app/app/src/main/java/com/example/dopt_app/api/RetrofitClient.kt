@@ -68,23 +68,23 @@ object RetrofitClient {
     }
 
     // 사용자 근황공유
-    val POST_After_Share_instance: POST_After_ShareAPI by lazy {
+    val After_Share_instance: After_ShareAPI by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
-        retrofit.create(POST_After_ShareAPI::class.java)
+        retrofit.create(After_ShareAPI::class.java)
     }
 
     // 보호소 회원가입
-    val POST_Shelter_Signup_instance: POST_Shelter_SignupAPI by lazy {
+    val Shelter_Signup_instance: Shelter_SignupAPI by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
-        retrofit.create(POST_Shelter_SignupAPI::class.java)
+        retrofit.create(Shelter_SignupAPI::class.java)
     }
 
     // 즐겨찾기 (북마크)
@@ -98,13 +98,13 @@ object RetrofitClient {
     }
 
     // 체크리스트
-    val POST_Checklist_instance: POST_ChecklistAPI by lazy {
+    val Checklist_instance: ChecklistAPI by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
-        retrofit.create(POST_ChecklistAPI::class.java)
+        retrofit.create(ChecklistAPI::class.java)
     }
 
 }

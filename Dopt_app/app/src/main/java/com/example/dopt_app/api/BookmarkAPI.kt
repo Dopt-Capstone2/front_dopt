@@ -9,8 +9,8 @@ import retrofit2.http.POST
 // https://stickode.tistory.com/43
 // jsonparams
 interface BookmarkAPI {
-    @POST("userJoin")
-    fun userJoin(
+    @POST("Bookmark")
+    fun POST_Bookmark(
         @Body jsonparams: Bookmark
     ): Call<PostResult>
 }
