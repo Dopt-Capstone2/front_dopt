@@ -37,6 +37,7 @@ class JoinActivity : AppCompatActivity() {
                         // Log.d(TAG, "Request Failed start")
                         Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
                         Log.d(TAG, "failed")
+                        Log.d(TAG, t.message.toString())
                         // Log.d(TAG, "Request Failed end")
                     }
                     override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
