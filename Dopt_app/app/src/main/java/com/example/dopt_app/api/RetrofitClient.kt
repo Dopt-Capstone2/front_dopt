@@ -45,7 +45,7 @@ object RetrofitClient {
 
     //https://hntown43.tistory.com/10
     //여러개의 기능을하는 api만들기
-    private const val BASE_URL = "http://54.241.33.61:3000/"
+    private const val BASE_URL = "http://54.241.33.61:3000"
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor {chain ->
             val original = chain.request()
