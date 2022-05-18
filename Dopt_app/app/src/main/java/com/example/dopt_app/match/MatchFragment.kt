@@ -6,13 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
+import com.example.dopt_app.R
 import com.example.dopt_app.api.AnimalOpenAPI
-import com.example.dopt_app.data.OpenAnimal
-import com.example.dopt_app.data.Items
-import com.example.dopt_app.data.Item
+import com.example.dopt_app.api.RetrofitClient
+import com.example.dopt_app.data.*
 import com.example.dopt_app.databinding.FragmentMatchBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -68,7 +70,9 @@ fun getAnimalData(): MutableLiveData<OpenAnimal> {
         }
     })
     return animalResponse
+
 }
+
 
 class MatchFragment : Fragment() {
     lateinit var binding: FragmentMatchBinding
