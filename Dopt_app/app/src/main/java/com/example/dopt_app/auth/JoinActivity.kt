@@ -50,6 +50,21 @@ class JoinActivity : AppCompatActivity() {
                     }
                 }
             )
+
+            RetrofitClient.User_Signup_instance.GET_User_Signup("test")
+                .enqueue(object: Callback <User_Signup> {
+                    override fun onFailure(call: Call<User_Signup>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<User_Signup>, response: Response<User_Signup>) {
+                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "successed")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+                )
         }
     }
 }
