@@ -29,7 +29,6 @@
             </intent-filter>
         </activity>
 
-        // 회원가입 정보입력
         <activity
             android:name=".auth.NicknameActivity"
             android:exported="true"/>
@@ -49,7 +48,10 @@
             android:name=".auth.PrefersizeActivity"
             android:exported="true"/>
 
-        // 보호소 액티비티
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
         <activity
             android:name=".shelter.ShelterNameActivity"
             android:exported="true"/>
@@ -57,14 +59,10 @@
             android:name=".shelter.ShelterMainActivity"
             android:exported="true" />
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-
-
         <!-- 팝업 Activity -->
-        <activity android:name=".popup.PopupProfileDoneActivity"
-            android:theme="@android:style/Theme.Dialog" />
+<!--
+        <activity android:name=".popup.PopupProfileDoneActivity" android:theme="@android:style/Theme.Dialog" />
+-->
 
     </application>
 
