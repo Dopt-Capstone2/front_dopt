@@ -1,6 +1,24 @@
 package com.example.dopt_app.shelter
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.dopt_app.databinding.FragmentShelterHomeBinding
 
-class ShelterHomeFragment: Fragment() {
+class ShelterHomeFragment : Fragment() {
+
+    lateinit var binding: FragmentShelterHomeBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentShelterHomeBinding.inflate(inflater, container, false)
+
+        return binding.root
+    }
+
 }
