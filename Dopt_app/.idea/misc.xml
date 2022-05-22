@@ -39,6 +39,7 @@
         <entry key="app/src/main/res/drawable/shelter_profile_radius.xml" value="0.23055555555555557" />
         <entry key="app/src/main/res/drawable/star_animal_status_radius.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/white_all_radius.xml" value="0.13055555555555556" />
+        <entry key="app/src/main/res/drawable/yellow_bot_radius.xml" value="0.22777777777777777" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_join.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
@@ -53,6 +54,7 @@
         <entry key="app/src/main/res/layout/activity_prefersize.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_shelter_main.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_shelter_name.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_shelter_nickname.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2749094202898551" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.125" />
