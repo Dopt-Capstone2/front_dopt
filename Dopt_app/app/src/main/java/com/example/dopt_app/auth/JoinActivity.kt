@@ -2,21 +2,8 @@ package com.example.dopt_app.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import android.widget.Toast
-import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.R
-import com.example.dopt_app.api.RetrofitClient
-import com.example.dopt_app.data.Bookmark_List
-import com.example.dopt_app.data.OpenAnimal
-import com.example.dopt_app.data.PostResult
-import com.example.dopt_app.data.User_Signup
-import com.example.dopt_app.match.animalResponse
-import com.google.android.material.textfield.TextInputEditText
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class JoinActivity : AppCompatActivity() {
