@@ -35,6 +35,7 @@
         <entry key="app/src/main/res/drawable/purple_all_radius.xml" value="0.16018518518518518" />
         <entry key="app/src/main/res/drawable/purple_border_radius.xml" value="0.22777777777777777" />
         <entry key="app/src/main/res/drawable/purple_bot_radius.xml" value="0.22777777777777777" />
+        <entry key="app/src/main/res/drawable/purple_btm_color_selector.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/rounding_line_yellow.xml" value="0.1259259259259259" />
         <entry key="app/src/main/res/drawable/shelter_profile_radius.xml" value="0.23055555555555557" />
         <entry key="app/src/main/res/drawable/star_animal_status_radius.xml" value="0.1" />

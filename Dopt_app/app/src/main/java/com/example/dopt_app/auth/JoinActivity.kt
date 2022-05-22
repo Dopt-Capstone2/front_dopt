@@ -9,6 +9,10 @@ import android.widget.Toast
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
 import com.example.dopt_app.data.Monthly_Statistics
+import com.example.dopt_app.data.JoinModel
+import com.example.dopt_app.data.JoinResult
+import com.example.dopt_app.shelter.ShelterMainActivity
+import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -122,6 +126,12 @@ class JoinActivity : AppCompatActivity() {
 //                    }
 //                }
 //                )
+        }
+
+        val shelterJoinBtn = findViewById<Button>(R.id.shelterJoinBtn)
+        shelterJoinBtn.setOnClickListener{
+            val intent = Intent(this, ShelterMainActivity::class.java)
+            startActivity(intent)
         }
 
     }

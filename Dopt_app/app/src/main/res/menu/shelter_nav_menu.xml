@@ -2,12 +2,6 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <item
-        android:id="@+id/shelterShareFragment"
-        android:icon="@drawable/share_gray"
-        app:showAsAction="always"
-        android:title="근황공유" />
     <item
         android:id="@+id/shelterHomeFragment"
         android:icon="@drawable/home_gray"
@@ -15,6 +9,12 @@
         android:enabled="true"
         android:title="홈"
         tools:ignore="AlwaysShowAction" />
+    <item
+        android:id="@+id/shelterShareFragment"
+        android:icon="@drawable/share_gray"
+        app:showAsAction="always"
+        android:title="근황공유" />
+
     <item
         android:id="@+id/shelterAccountFragment"
         android:icon="@drawable/account_gray"
