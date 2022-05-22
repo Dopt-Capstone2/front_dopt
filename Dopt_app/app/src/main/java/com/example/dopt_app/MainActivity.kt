@@ -147,12 +147,12 @@ class MainActivity : AppCompatActivity() {
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
-                /*R.id.matchFragment -> {
+                R.id.matchFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, MatchFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
-                }*/
+                }
                 R.id.shareFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, ShareFragment())

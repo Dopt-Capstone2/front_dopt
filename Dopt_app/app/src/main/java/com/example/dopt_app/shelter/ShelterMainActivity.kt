@@ -29,19 +29,19 @@ class ShelterMainActivity : AppCompatActivity() {
         binding.shelterMainBnv.setOnItemSelectedListener{ item ->
             when (item.itemId) {
 
-                R.id.shelter_share_Fragment -> {
+                R.id.shelterShareFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.shelter_main_frm, ShelterShareFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
-                R.id.shelter_home_Fragment -> {
+                R.id.shelterHomeFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.shelter_main_frm, ShelterHomeFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
-                R.id.shelter_account_Fragment -> {
+                R.id.shelterAccountFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.shelter_main_frm, ShelterAccountFragment())
                         .commitAllowingStateLoss()

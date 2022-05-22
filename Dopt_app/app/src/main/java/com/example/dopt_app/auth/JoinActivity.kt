@@ -124,10 +124,5 @@ class JoinActivity : AppCompatActivity() {
 //                )
         }
 
-        val shelterJoinBtn = findViewById<Button>(R.id.shelterJoinBtn)
-        shelterJoinBtn.setOnClickListener{
-            val intent = Intent(this, JoinActivity::class.java)
-            startActivity(intent)
-        }
     }
 }

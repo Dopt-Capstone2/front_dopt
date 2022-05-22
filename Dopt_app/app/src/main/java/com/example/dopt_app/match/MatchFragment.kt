@@ -109,14 +109,15 @@ fun getAnimalData_10Days(): MutableLiveData<OpenAnimal> {
 
 }
 
-
-class MatchFragment : Fragment() {
+class MatchFragment : Fragment()/*, CardStackListener*/ {
     lateinit var binding: FragmentMatchBinding
 
+/*
     lateinit var cardStackAdapter: CardStackAdapter
 
     // 카드스택뷰의 레이아웃 매니져
     lateinit var manager : CardStackLayoutManager
+*/
 
 
     override fun onCreateView(
@@ -142,7 +143,7 @@ class MatchFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         manager = CardStackLayoutManager(context,this).apply {
@@ -183,6 +184,6 @@ class MatchFragment : Fragment() {
     }
 
     override fun onCardDisappeared(view: View?, position: Int) {
-    }
+    }*/
 
 }

@@ -4,19 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/shelter_share_Fragment"
+        android:id="@+id/shelterShareFragment"
         android:icon="@drawable/share_gray"
         app:showAsAction="always"
         android:title="근황공유" />
     <item
-        android:id="@+id/shelter_home_Fragment"
+        android:id="@+id/shelterHomeFragment"
         android:icon="@drawable/home_gray"
         app:showAsAction="always"
         android:enabled="true"
         android:title="홈"
         tools:ignore="AlwaysShowAction" />
     <item
-        android:id="@+id/shelter_account_Fragment"
+        android:id="@+id/shelterAccountFragment"
         android:icon="@drawable/account_gray"
         app:showAsAction="always"
         android:title="프로필" />
