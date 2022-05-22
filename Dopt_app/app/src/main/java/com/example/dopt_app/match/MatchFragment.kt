@@ -1,17 +1,24 @@
 package com.example.dopt_app.match
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
+import androidx.recyclerview.widget.DefaultItemAnimator
+import com.example.dopt_app.MainActivity
+import com.example.dopt_app.R
 import com.example.dopt_app.api.AnimalOpenAPI
 import com.example.dopt_app.data.*
 import com.example.dopt_app.databinding.FragmentMatchBinding
+import com.yuyakaido.android.cardstackview.*
+import kotlinx.android.synthetic.main.activity_match.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -106,6 +113,12 @@ fun getAnimalData_10Days(): MutableLiveData<OpenAnimal> {
 class MatchFragment : Fragment() {
     lateinit var binding: FragmentMatchBinding
 
+    lateinit var cardStackAdapter: CardStackAdapter
+
+    // 카드스택뷰의 레이아웃 매니져
+    lateinit var manager : CardStackLayoutManager
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -128,4 +141,48 @@ class MatchFragment : Fragment() {
 
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        manager = CardStackLayoutManager(context,this).apply {
+            setSwipeableMethod(SwipeableMethod.AutomaticAndManual)
+            setOverlayInterpolator(LinearInterpolator())
+        }
+
+        //임시로 넣을 문자열 데이터
+        val testList = mutableListOf<String>()
+        testList.add("a")
+        testList.add("b")
+        testList.add("c")
+
+        // cardStackAdapter = CardStackAdapter(context, testList)
+        cardStackView.layoutManager = manager
+        cardStackView.adapter = cardStackAdapter
+        cardStackView.itemAnimator.apply {
+            if(this is DefaultItemAnimator){
+                supportsChangeAnimations = false
+            }
+        }
+    }
+
+
+    override fun onCardDragging(direction: Direction?, ratio: Float) {
+    }
+
+    override fun onCardSwiped(direction: Direction?) {
+    }
+
+    override fun onCardRewound() {
+    }
+
+    override fun onCardCanceled() {
+    }
+
+    override fun onCardAppeared(view: View?, position: Int) {
+    }
+
+    override fun onCardDisappeared(view: View?, position: Int) {
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.dopt_app
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import com.example.dopt_app.account.AccountFragment
 import com.example.dopt_app.api.AnimalOpenAPI
 import com.example.dopt_app.data.Items
 import com.example.dopt_app.data.Item
+import com.example.dopt_app.auth.PreferbreadActivity
 import com.example.dopt_app.data.OpenAnimal
 import com.example.dopt_app.databinding.ActivityMainBinding
 import com.example.dopt_app.home.HomeFragment
@@ -18,6 +20,9 @@ import com.example.dopt_app.match.MatchFragment
 import com.example.dopt_app.match.getAnimalData
 import com.example.dopt_app.share.ShareFragment
 import com.example.dopt_app.star.StarFragment
+import kotlinx.android.synthetic.main.activity_prefer.*
+import kotlinx.android.synthetic.main.fragment_match.*
+import java.time.LocalDate
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -142,12 +147,12 @@ class MainActivity : AppCompatActivity() {
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
-                R.id.matchFragment -> {
+                /*R.id.matchFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, MatchFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
-                }
+                }*/
                 R.id.shareFragment -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, ShareFragment())
