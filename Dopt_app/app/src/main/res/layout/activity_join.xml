@@ -58,6 +58,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"/>
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/shelterJoinBtn"
                 android:text="보호소 회원가입"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
