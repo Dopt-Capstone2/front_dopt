@@ -11,7 +11,7 @@
         android:layout_width="350dp"
         android:layout_height="350dp"
         android:src="@drawable/shelter_join"
-        android:layout_margin="50dp"
+        android:layout_margin="40dp"
         android:scaleType="fitCenter"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/shelter_name_tx"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/go_profile_btn"
+        android:id="@+id/start_shelter_btn"
         android:text="Dopt 시작하기"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

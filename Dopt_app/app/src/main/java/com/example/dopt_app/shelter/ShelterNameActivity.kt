@@ -7,6 +7,8 @@ import com.example.dopt_app.R
 import com.example.dopt_app.auth.PreferActivity
 import com.example.dopt_app.databinding.ActivityShelterNameBinding
 import kotlinx.android.synthetic.main.activity_nickname.*
+import kotlinx.android.synthetic.main.activity_nickname.go_profile_btn
+import kotlinx.android.synthetic.main.activity_shelter_name.*
 
 class ShelterNameActivity: AppCompatActivity() {
 
@@ -16,8 +18,8 @@ class ShelterNameActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shelter_name)
 
-        go_profile_btn.setOnClickListener{
-            val intent= Intent(this, PreferActivity::class.java)
+        start_shelter_btn.setOnClickListener{
+            val intent= Intent(this, ShelterMainActivity::class.java)
             startActivity(intent)
         }
 
