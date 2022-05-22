@@ -86,18 +86,16 @@ fun getAnimalData_10Days(): MutableLiveData<OpenAnimal> {
             //객체에 저장이 되지 않고 null만 출력해대서
             //isSuccessful()을 달아주었더니 잘 나온다.
             if (response.isSuccessful){
-                //val (animalBody, animalHeader) = animalResponse1.value
-                //Log.d("body", animalList.toString())
-                Log.d("success", "\n\n"+response.body().toString())
+                //Log.d("animalResponse_10Days", "\n\n"+response.body().toString())
             }
             else{
-                Log.d("request_error", ""+response.errorBody())
+                //Log.d("animalResponse_10Days_r", ""+response.errorBody())
             }
 
         }
         override fun onFailure(call: Call<OpenAnimal>, t : Throwable) {
             t.printStackTrace()
-            Log.d("Failed", "Failed")
+            //Log.d("Failed", "Failed")
         }
     })
     return animalResponse_10Days
@@ -119,11 +117,11 @@ class MatchFragment : Fragment() {
         val animalRaw_10Days = animalResponse_10Days.value?.copy()
         val animalItems_10Days = animalRaw_10Days?.response?.body?.items
         if (animalItems_10Days != null) {
-            println(animalItems_10Days.item.size)
-            println(animalItems_10Days.item[0])
+            //println(animalItems_10Days.item.size)
+            //println(animalItems_10Days.item[0])
         }
         else{
-            println("animalRaw is null")
+            //println("animalRaw is null")
         }
         //Log.d("animalList_val", getAnimalData().value.toString())
         binding = FragmentMatchBinding.inflate(inflater, container, false)

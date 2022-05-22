@@ -8,6 +8,8 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.account.AccountFragment
 import com.example.dopt_app.api.AnimalOpenAPI
+import com.example.dopt_app.data.Items
+import com.example.dopt_app.data.Item
 import com.example.dopt_app.data.OpenAnimal
 import com.example.dopt_app.databinding.ActivityMainBinding
 import com.example.dopt_app.home.HomeFragment
@@ -41,10 +43,10 @@ class MainActivity : AppCompatActivity() {
     val endde_Monthly = get_endde()
     val bgnde_Monthly = get_bgnde(get_DATE_Sub())
 
-    var animalResponse_Monthly = MutableLiveData<OpenAnimal>()
+    val animalResponse_Monthly = MutableLiveData<OpenAnimal>()
 
     val animalRaw_Monthly = animalResponse_Monthly.value?.copy()
-    val animalItems_Monthly = animalRaw_Monthly?.response?.body?.items
+    //val animalItems_Monthly = animalRaw_Monthly?.response?.body?.items
 
 
     fun getAnimalData_Monthly(): MutableLiveData<OpenAnimal> {
@@ -59,22 +61,35 @@ class MainActivity : AppCompatActivity() {
                 //객체에 저장이 되지 않고 null만 출력해대서
                 //isSuccessful()을 달아주었더니 잘 나온다.
                 if (response.isSuccessful){
-                    //val (animalBody, animalHeader) = animalResponse1.value
-                    //Log.d("body", animalList.toString())
-                    Log.d("success", "\n\n"+response.body().toString())
+                    Log.d("animalResponse_Monthly", "\n\n"+response.body().toString())
                 }
                 else{
-                    Log.d("request_error", ""+response.errorBody())
+                    //Log.d("Monthly_error", ""+response.errorBody())
                 }
 
             }
             override fun onFailure(call: Call<OpenAnimal>, t : Throwable) {
                 t.printStackTrace()
-                Log.d("Failed", "Failed")
+                //Log.d("Failed", "Failed")
             }
         })
         return animalResponse_Monthly
 
+    }
+
+
+    //제네릭
+    //https://starrykss.tistory.com/1124
+
+    //갯수 세기
+    //https://kkh0977.tistory.com/650
+    //https://tourspace.tistory.com/111
+    //processState=종료(안락사)
+    fun <T> find_Mercy_Killed(a: Array<T>, Target: T): Int {
+        for (i in a.indices) {
+            if(a.contains(Target)) return i
+        }
+        return -1
     }
 
     private fun initBottomNavigation(){
@@ -88,9 +103,17 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.homeFragment -> {
                     //Log.d("date-1", bgnde_Monthly)
+                    val animalRaw_Monthly = animalResponse_10Days.value?.copy()
+                    //속도차이 때문에 바로 뜨지 않음.
+                    val animalItems_Monthly = animalRaw_Monthly?.response?.body?.items
                     if (animalItems_Monthly != null) {
                         println(animalItems_Monthly.item.size)
-                        println(animalItems_Monthly.item[0])
+                        //println(animalItems_Monthly.item[0])
+                        //val mercy = {p : Item -> p.processState == "종료(안락사)"}
+                        //println(animalItems_Monthly.item.count(mercy))
+                        Log.d("123", animalItems_Monthly.item[0].processState)
+                    } else{
+                        println("animal_Monthly is null")
                     }
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, HomeFragment())
