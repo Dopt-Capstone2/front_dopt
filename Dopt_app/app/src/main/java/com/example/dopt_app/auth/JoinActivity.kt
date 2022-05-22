@@ -1,5 +1,6 @@
 package com.example.dopt_app.auth
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -121,6 +122,12 @@ class JoinActivity : AppCompatActivity() {
 //                    }
 //                }
 //                )
+        }
+
+        val shelterJoinBtn = findViewById<Button>(R.id.shelterJoinBtn)
+        shelterJoinBtn.setOnClickListener{
+            val intent = Intent(this, JoinActivity::class.java)
+            startActivity(intent)
         }
     }
 }
