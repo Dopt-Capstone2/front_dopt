@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     val endde_Monthly = get_endde()
     val bgnde_Monthly = get_bgnde(get_DATE_Sub())
 
-    val animalResponse_Monthly = MutableLiveData<OpenAnimal>()
+    var animalResponse_Monthly = MutableLiveData<OpenAnimal>()
 
     val animalRaw_Monthly = animalResponse_Monthly.value?.copy()
     //val animalItems_Monthly = animalRaw_Monthly?.response?.body?.items
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         //call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object: Callback<OpenAnimal>{
 
-        call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde=$bgnde_Monthly&endde=$endde_Monthly&numOfRows=5000&ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object:
+        call.getAnimal("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?bgnde=$bgnde_Monthly&endde=$endde_Monthly&numOfRows=15000&ServiceKey=SSp25i3dc5GkEAwqr6qrKHLAPS7aMZ%2FaKuVyMlE%2BqQ1irBnGaQNkbmm24XJF05S42SXMwQIIcIeC%2Bvm6IggUOQ%3D%3D&_type=json").enqueue(object:
             Callback<OpenAnimal> {
             override fun onResponse(call: Call<OpenAnimal>, response: Response<OpenAnimal>){
                 animalResponse_Monthly.value = response.body() as OpenAnimal
@@ -85,12 +85,12 @@ class MainActivity : AppCompatActivity() {
     //https://kkh0977.tistory.com/650
     //https://tourspace.tistory.com/111
     //processState=종료(안락사)
-    fun <T> find_Mercy_Killed(a: Array<T>, Target: T): Int {
-        for (i in a.indices) {
-            if(a.contains(Target)) return i
-        }
-        return -1
-    }
+//    fun <T> find_Mercy_Killed(a: Array<T>, Target: T): Int {
+//        for (i in a.indices) {
+//            if(a.contains(Target)) return i
+//        }
+//        return -1
+//    }
 
     private fun initBottomNavigation(){
 
@@ -106,12 +106,26 @@ class MainActivity : AppCompatActivity() {
                     val animalRaw_Monthly = animalResponse_10Days.value?.copy()
                     //속도차이 때문에 바로 뜨지 않음.
                     val animalItems_Monthly = animalRaw_Monthly?.response?.body?.items
+                    var mercysum = 0
+                    var rescuesum =0
                     if (animalItems_Monthly != null) {
                         println(animalItems_Monthly.item.size)
                         //println(animalItems_Monthly.item[0])
                         //val mercy = {p : Item -> p.processState == "종료(안락사)"}
                         //println(animalItems_Monthly.item.count(mercy))
-                        Log.d("123", animalItems_Monthly.item[0].processState)
+                        //Log.d("item[0] processState", animalItems_Monthly.item[0].processState)
+                        for (i in animalItems_Monthly.item)
+                            if (i.processState=="종료(안락사)") {
+                                mercysum += 1
+                                continue
+                            }
+                            else if (i.processState=="종료(입양)") {
+                                rescuesum += 1
+                                continue
+                            }
+                        println(mercysum)
+                        println(rescuesum)
+
                     } else{
                         println("animal_Monthly is null")
                     }
