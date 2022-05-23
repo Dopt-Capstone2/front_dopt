@@ -23,7 +23,9 @@
         <entry key="app/src/main/res/drawable/border_radius.xml" value="0.12407407407407407" />
         <entry key="app/src/main/res/drawable/btm_color_selector.xml" value="0.14907407407407408" />
         <entry key="app/src/main/res/drawable/btn_color_selector.xml" value="0.14537037037037037" />
+        <entry key="app/src/main/res/drawable/divider.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/gray_all_line_radius.xml" value="0.13055555555555556" />
+        <entry key="app/src/main/res/drawable/gray_border_radius.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.14907407407407408" />
         <entry key="app/src/main/res/drawable/ic_plus_gray.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/join_shape.xml" value="0.14907407407407408" />
@@ -77,6 +79,7 @@
         <entry key="app/src/main/res/layout/fragment_star_detail.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_write_share.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_card.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/item_card_info.xml" value="0.2586050724637681" />
         <entry key="app/src/main/res/layout/item_my_share.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_share.xml" value="0.2798913043478261" />
         <entry key="app/src/main/res/layout/item_shelter_match.xml" value="0.28229166666666666" />
