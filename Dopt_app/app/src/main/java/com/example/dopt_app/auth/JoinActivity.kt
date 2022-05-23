@@ -12,6 +12,7 @@ import com.example.dopt_app.data.Monthly_Statistics
 import com.example.dopt_app.data.JoinModel
 import com.example.dopt_app.data.JoinResult
 import com.example.dopt_app.shelter.ShelterMainActivity
+import com.example.dopt_app.shelter.ShelterNameActivity
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
@@ -130,7 +131,7 @@ class JoinActivity : AppCompatActivity() {
 
         val shelterJoinBtn = findViewById<Button>(R.id.shelterJoinBtn)
         shelterJoinBtn.setOnClickListener{
-            val intent = Intent(this, ShelterMainActivity::class.java)
+            val intent = Intent(this, ShelterNameActivity::class.java)
             startActivity(intent)
         }
 
