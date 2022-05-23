@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
 import com.example.dopt_app.data.Monthly_Statistics
@@ -67,8 +68,8 @@ class JoinActivity : AppCompatActivity() {
 //                    }
 //                }
 //                )
-            //사용자 정보 로딩하기
-            //파라미터로 자신의 이메일을 넣는다
+            //통계 데이터 불러오기
+            var Monthly_Statistics_Response = MutableLiveData<Monthly_Statistics>()
             RetrofitClient.Monthly_Statistics__instance.GET_Monthly_Statistics()
                 .enqueue(object: Callback<Monthly_Statistics> {
                     override fun onFailure(call: Call<Monthly_Statistics>, t: Throwable) {
@@ -80,6 +81,16 @@ class JoinActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
                         Log.d(TAG, "succeeded")
                         Log.d(TAG, response.body().toString())
+                        Monthly_Statistics_Response.value = response.body() as Monthly_Statistics
+                        // 값을 복사
+                        val Monthly_Statistics_Raw = Monthly_Statistics_Response.value?.copy()
+                        // 데이터 클래스들의 배열 출력
+                        Log.d("Monthly_Statistics_Raw", Monthly_Statistics_Raw.toString())
+                        //요소별 접근
+                        //response의 각 데이터 클래스 접근
+                        if (Monthly_Statistics_Raw != null) {
+                            Log.d("Monthly_Statistics_", Monthly_Statistics_Raw.data[0].toString())
+                        }
                     }
                 }
                 )
