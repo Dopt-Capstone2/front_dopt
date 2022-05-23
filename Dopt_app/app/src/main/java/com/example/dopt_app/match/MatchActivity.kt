@@ -1,15 +1,24 @@
 package com.example.dopt_app.match
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
+import com.example.dopt_app.auth.PreferActivity
+import com.example.dopt_app.databinding.ActivityMatchBinding
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager
 import com.yuyakaido.android.cardstackview.CardStackListener
 import com.yuyakaido.android.cardstackview.CardStackView
 import com.yuyakaido.android.cardstackview.Direction
+import kotlinx.android.synthetic.main.activity_match.*
+import kotlinx.android.synthetic.main.activity_nickname.*
 
 class MatchActivity : AppCompatActivity() {
+
+    //전역 변수
+    lateinit var binding: ActivityMatchBinding
 
     lateinit var cardStackAdapter: CardStackAdapter
 
@@ -18,7 +27,11 @@ class MatchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_match)
+        binding = ActivityMatchBinding.inflate(layoutInflater)
+
+        setContentView(R.layout.activity_match)
+
+        initClickListener()
 
         val cardStackView = findViewById<CardStackView>(R.id.cardStackView)
 
@@ -27,6 +40,7 @@ class MatchActivity : AppCompatActivity() {
             }
 
             override fun onCardSwiped(direction: Direction?) {
+
             }
 
             override fun onCardRewound() {
@@ -53,5 +67,13 @@ class MatchActivity : AppCompatActivity() {
         cardStackAdapter= CardStackAdapter(baseContext, testList)
         cardStackView.layoutManager=manager
         cardStackView.adapter = cardStackAdapter
+    }
+
+    private fun initClickListener() {
+        bot_arrow_img.setOnClickListener{
+            val intent= Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
