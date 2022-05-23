@@ -107,4 +107,14 @@ object RetrofitClient {
         retrofit.create(ChecklistAPI::class.java)
     }
 
+    // 한달 통계
+    val Monthly_Statistics__instance: Monthly_StatisticsAPI by lazy {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+        retrofit.create(Monthly_StatisticsAPI::class.java)
+    }
+
 }

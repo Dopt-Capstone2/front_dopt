@@ -2,8 +2,15 @@ package com.example.dopt_app.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import com.example.dopt_app.R
+import com.example.dopt_app.api.RetrofitClient
+import com.example.dopt_app.data.Monthly_Statistics
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class JoinActivity : AppCompatActivity() {
@@ -60,6 +67,22 @@ class JoinActivity : AppCompatActivity() {
 //                    }
 //                }
 //                )
+            //사용자 정보 로딩하기
+            //파라미터로 자신의 이메일을 넣는다
+            RetrofitClient.Monthly_Statistics__instance.GET_Monthly_Statistics()
+                .enqueue(object: Callback<Monthly_Statistics> {
+                    override fun onFailure(call: Call<Monthly_Statistics>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<Monthly_Statistics>, response: Response<Monthly_Statistics>) {
+                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "succeeded")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+                )
 
 //            //북마크 정보 불러오기
 //            //북마크들의 배열을 호출한다
