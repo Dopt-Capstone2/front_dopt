@@ -20,6 +20,7 @@
         <entry key="app/src/main/res/drawable/all_side_radius.xml" value="0.21296296296296297" />
         <entry key="app/src/main/res/drawable/bg_previous_btn.xml" value="0.13240740740740742" />
         <entry key="app/src/main/res/drawable/bg_spinner.xml" value="0.15185185185185185" />
+        <entry key="app/src/main/res/drawable/border_radius.xml" value="0.12407407407407407" />
         <entry key="app/src/main/res/drawable/btm_color_selector.xml" value="0.14907407407407408" />
         <entry key="app/src/main/res/drawable/btn_color_selector.xml" value="0.14537037037037037" />
         <entry key="app/src/main/res/drawable/gray_all_line_radius.xml" value="0.13055555555555556" />
@@ -69,7 +70,7 @@
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_profiledetail.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_share.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_shelter_account.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_shelter_account.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_shelter_home.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_shelter_share.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_star.xml" value="0.125" />

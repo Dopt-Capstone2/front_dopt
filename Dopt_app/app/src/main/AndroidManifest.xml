@@ -53,6 +53,10 @@
             android:exported="true" />
 
         <activity
+            android:name=".match.MatchActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".shelter.ShelterNameActivity"
             android:exported="true"/>
         <activity
