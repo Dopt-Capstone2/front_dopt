@@ -4,10 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dopt_app.R
+import com.example.dopt_app.data.Item
 
-class CardStackAdapter(val context: Context, val items: List<String>): RecyclerView.Adapter<CardStackAdapter.ViewHolder>() {
+class CardStackAdapter(val context: Context, val items: List<Item>): RecyclerView.Adapter<CardStackAdapter.ViewHolder>() {
 
     //아이템뷰를 넣어주는곳
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardStackAdapter.ViewHolder {
@@ -27,7 +30,10 @@ class CardStackAdapter(val context: Context, val items: List<String>): RecyclerV
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun binding(data : String){
+        val image = itemView.findViewById<ImageView>(R.id.cardImageArea)
+        val kind = itemView.findViewById<TextView>(R.id.itemKindCd)
+
+        fun binding(data : Item){
 
         }
     }
