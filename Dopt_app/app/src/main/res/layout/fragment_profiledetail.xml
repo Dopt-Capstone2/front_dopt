@@ -39,15 +39,16 @@
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 app:cardElevation="0dp"
-                app:cardCornerRadius="65dp"
+                app:cardCornerRadius="160dp"
+                app:cardBackgroundColor="@color/transparent"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginTop="130dp">
 
                 <ImageView
-                    android:id="@+id/myprofile_profileImg_iv"
+                    android:id="@+id/profile_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/default_profile"
+                    android:src="@drawable/profile_gray"
                     android:scaleType="centerCrop"/>
 
             </androidx.cardview.widget.CardView>
