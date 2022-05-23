@@ -1,5 +1,6 @@
 package com.example.dopt_app.auth
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,11 @@ import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
 import com.example.dopt_app.data.Monthly_Statistics
+// import com.example.dopt_app.data.JoinModel
+// import com.example.dopt_app.data.JoinResult
+import com.example.dopt_app.shelter.ShelterMainActivity
+import com.example.dopt_app.shelter.ShelterNameActivity
+import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -133,5 +139,12 @@ class JoinActivity : AppCompatActivity() {
 //                }
 //                )
         }
+
+        val shelterJoinBtn = findViewById<Button>(R.id.shelterJoinBtn)
+        shelterJoinBtn.setOnClickListener{
+            val intent = Intent(this, ShelterNameActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

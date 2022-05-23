@@ -14,14 +14,12 @@ class IntroActivity : AppCompatActivity() {
 
         val loginBtn = findViewById<Button>(R.id.loginBtn)
         loginBtn.setOnClickListener{
-
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
         val joinBtn = findViewById<Button>(R.id.joinBtn)
         joinBtn.setOnClickListener{
-
             val intent = Intent(this, JoinActivity::class.java)
             startActivity(intent)
         }

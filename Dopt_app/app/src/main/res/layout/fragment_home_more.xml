@@ -9,6 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -30,7 +31,7 @@
             android:id="@+id/my_share_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="내 근황 공유"
+            android:text="최신 근황 공유"
             android:textSize="18sp"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -48,22 +49,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/my_share_tx"
-            tools:listitem="@layout/item_my_share" />
+            tools:listitem="@layout/item_share" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/share_new_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="30dp"
-            android:background="@drawable/purple_all_radius"
-            android:text="글 작성하기"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/share_my_animals_rv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
