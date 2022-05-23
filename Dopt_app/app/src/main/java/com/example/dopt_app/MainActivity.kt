@@ -19,13 +19,13 @@ import com.example.dopt_app.home.HomeFragment
 import com.example.dopt_app.match.*
 import com.example.dopt_app.match.MatchActivity
 import com.example.dopt_app.match.MatchFragment
-import com.example.dopt_app.match.getAnimalData
+// import com.example.dopt_app.match.getAnimalData
 import com.example.dopt_app.share.ShareFragment
 import com.example.dopt_app.star.StarFragment
 import kotlinx.android.synthetic.main.activity_nickname.*
 import kotlinx.android.synthetic.main.activity_prefer.*
 import kotlinx.android.synthetic.main.fragment_match.*
-import java.time.LocalDate
+// import java.time.LocalDate
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

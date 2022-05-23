@@ -9,8 +9,8 @@ import android.widget.Toast
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
 import com.example.dopt_app.data.Monthly_Statistics
-import com.example.dopt_app.data.JoinModel
-import com.example.dopt_app.data.JoinResult
+// import com.example.dopt_app.data.JoinModel
+// import com.example.dopt_app.data.JoinResult
 import com.example.dopt_app.shelter.ShelterMainActivity
 import com.example.dopt_app.shelter.ShelterNameActivity
 import com.google.android.material.textfield.TextInputEditText
