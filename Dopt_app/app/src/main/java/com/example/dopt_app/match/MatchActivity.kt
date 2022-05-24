@@ -28,7 +28,6 @@ class MatchActivity : AppCompatActivity() {
     lateinit var manager : CardStackLayoutManager
 
     // 카드 아이템 안의 정보 recycler view
-
     private var cardItems = ArrayList<Item>()
 
 
@@ -116,15 +115,25 @@ class MatchActivity : AppCompatActivity() {
                     "0.2(Kg)"
                 )
             )
-        }
 
+        }
 
         cardStackAdapter= CardStackAdapter(baseContext, cardItems)
         cardStackView.layoutManager=manager
         cardStackView.adapter = cardStackAdapter
+
+        cardStackAdapter.setMyItemClickListener(object :CardStackAdapter.MoreClickListener{
+            override fun onItemClick(v: View, items: Item) {
+                Intent(this@MatchActivity, CardInfoActivity::class.java).run { startActivity(this) }
+            }
+        })
+
+
     }
 
+
     private fun initClickListener() {
+        //메인 액티비티로 돌아가는 화살표
         bot_arrow_img.setOnClickListener{
             val intent= Intent(this, MainActivity::class.java)
             startActivity(intent)
