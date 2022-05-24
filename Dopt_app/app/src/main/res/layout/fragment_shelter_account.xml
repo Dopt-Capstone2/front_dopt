@@ -45,7 +45,7 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_marginStart="21dp"
-            android:src="@drawable/default_profile"
+            android:src="@drawable/profile_gray"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
