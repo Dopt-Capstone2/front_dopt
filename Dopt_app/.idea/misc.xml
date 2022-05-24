@@ -21,9 +21,11 @@
         <entry key="app/src/main/res/drawable/bg_previous_btn.xml" value="0.13240740740740742" />
         <entry key="app/src/main/res/drawable/bg_spinner.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/drawable/border_radius.xml" value="0.12407407407407407" />
+        <entry key="app/src/main/res/drawable/border_radius_white.xml" value="0.17962962962962964" />
         <entry key="app/src/main/res/drawable/btm_color_selector.xml" value="0.14907407407407408" />
         <entry key="app/src/main/res/drawable/btn_color_selector.xml" value="0.14537037037037037" />
         <entry key="app/src/main/res/drawable/divider.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/gray_all_border.xml" value="0.17962962962962964" />
         <entry key="app/src/main/res/drawable/gray_all_line_radius.xml" value="0.13055555555555556" />
         <entry key="app/src/main/res/drawable/gray_border_radius.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.14907407407407408" />
@@ -44,6 +46,7 @@
         <entry key="app/src/main/res/drawable/star_animal_status_radius.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/white_all_radius.xml" value="0.13055555555555556" />
         <entry key="app/src/main/res/drawable/yellow_bot_radius.xml" value="0.22777777777777777" />
+        <entry key="app/src/main/res/layout/activity_card_info.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_join.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
@@ -72,18 +75,19 @@
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_profiledetail.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_share.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_shelter_account.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_shelter_home.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/fragment_shelter_share.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_shelter_account.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/fragment_shelter_home.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/fragment_shelter_share.xml" value="0.11" />
         <entry key="app/src/main/res/layout/fragment_star.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_star_detail.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_write_share.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/item_card.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/item_card_info.xml" value="0.2586050724637681" />
+        <entry key="app/src/main/res/layout/item_card.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_card_info.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_my_share.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_share.xml" value="0.2798913043478261" />
+        <entry key="app/src/main/res/layout/item_shelter_animal.xml" value="0.2427536231884058" />
         <entry key="app/src/main/res/layout/item_shelter_match.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/item_small_animal.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/item_small_animal.xml" value="0.11594202898550725" />
         <entry key="app/src/main/res/layout/popup_button.xml" value="0.20380434782608695" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/shelter_nav_menu.xml" value="0.28229166666666666" />
