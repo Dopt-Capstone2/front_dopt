@@ -7,7 +7,8 @@ data class Item(
     val careTel: String,
     val chargeNm: String,
     val colorCd: String,
-    val desertionNo: Long,
+    //desertionNo 는 String으로 받는다.
+    val desertionNo: String,
     val filename: String,
     val happenDt: Int,
     val happenPlace: String,
