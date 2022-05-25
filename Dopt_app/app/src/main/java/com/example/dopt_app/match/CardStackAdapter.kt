@@ -1,22 +1,14 @@
 package com.example.dopt_app.match
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
 import com.example.dopt_app.data.Item
-import com.example.dopt_app.data.Share
-import com.google.android.flexbox.FlexDirection
-import com.google.android.flexbox.FlexboxLayoutManager
-import com.google.android.flexbox.JustifyContent
-import kotlinx.android.synthetic.main.activity_match.*
 
 class CardStackAdapter(
     val context: Context,

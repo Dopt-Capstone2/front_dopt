@@ -6,9 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
-import com.example.dopt_app.auth.PreferActivity
 import com.example.dopt_app.data.Item
-import com.example.dopt_app.data.Share
 import com.example.dopt_app.databinding.ActivityMatchBinding
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager
 import com.yuyakaido.android.cardstackview.CardStackListener
