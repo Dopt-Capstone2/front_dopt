@@ -3,6 +3,7 @@ package com.example.dopt_app.api
 import okhttp3.OkHttpClient
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Retrofit
+import java.util.concurrent.TimeUnit
 
 // Retrofit Client 참고
 //https://stackoverflow.com/questions/65699941/retrofit-post-on-android-kotlin-not-working-but-working-on-postman
@@ -45,8 +46,15 @@ object RetrofitClient {
 
     //https://hntown43.tistory.com/10
     //여러개의 기능을하는 api만들기
+
+    // okHttpClient에서 connectTimeout, readTimeout, writeTimeout 설정
+    // Match 정보를 읽어오는데 시간이 너무 오래걸려서 설정이 필요
+    // 참고 : https://jongmin92.github.io/2018/01/31/Programming/android-customize-network-timeouts/
     private const val BASE_URL = "http://54.241.33.61:3000"
     private val okHttpClient = OkHttpClient.Builder()
+        .connectTimeout(1, TimeUnit.MINUTES)
+        .readTimeout(30,TimeUnit.SECONDS)
+        .writeTimeout(15, TimeUnit.SECONDS)
         .addInterceptor {chain ->
             val original = chain.request()
 
@@ -117,4 +125,13 @@ object RetrofitClient {
         retrofit.create(Monthly_StatisticsAPI::class.java)
     }
 
+    // 추천 알고리즘(Match) 결과
+    val Match_instance: MatchAPI by lazy {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+        retrofit.create(MatchAPI::class.java)
+    }
 }

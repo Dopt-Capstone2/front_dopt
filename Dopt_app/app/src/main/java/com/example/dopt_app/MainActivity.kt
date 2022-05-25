@@ -1,24 +1,19 @@
 package com.example.dopt_app
 
+import android.content.ContentValues.TAG
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.annotation.RequiresApi
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.account.AccountFragment
-import com.example.dopt_app.api.AnimalOpenAPI
-import com.example.dopt_app.data.Items
-import com.example.dopt_app.data.Item
-import com.example.dopt_app.auth.PreferActivity
-import com.example.dopt_app.auth.PreferbreadActivity
-import com.example.dopt_app.data.OpenAnimal
+import com.example.dopt_app.api.RetrofitClient
+import com.example.dopt_app.data.Match
 import com.example.dopt_app.databinding.ActivityMainBinding
 import com.example.dopt_app.home.HomeFragment
 import com.example.dopt_app.match.*
 import com.example.dopt_app.match.MatchActivity
-import com.example.dopt_app.match.MatchFragment
 // import com.example.dopt_app.match.getAnimalData
 import com.example.dopt_app.share.ShareFragment
 import com.example.dopt_app.star.StarFragment
@@ -29,8 +24,6 @@ import kotlinx.android.synthetic.main.fragment_match.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,6 +39,8 @@ class MainActivity : AppCompatActivity() {
 
         getAnimalData_10Days()
 //        getAnimalData_Monthly()
+
+
 
     }
 
@@ -157,6 +152,41 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }*/
                 R.id.matchFragment -> {
+                    /*
+                    Log.d(TAG, "Enter Match Fragment")
+                    var Match_Response = MutableLiveData<Match>()
+                    RetrofitClient.Match_instance.GET_Match()
+                        .enqueue(object: Callback<Match> {
+                            override fun onFailure(call: Call<Match>, t: Throwable) {
+                                Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG)
+                                    .show()
+                                Log.d(TAG, "failed")
+                                Log.d(TAG, t.message.toString())
+                            }
+
+                            override fun onResponse(call: Call<Match>, response: Response<Match>) {
+                                Toast.makeText(
+                                    applicationContext,
+                                    response.body().toString(),
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                Log.d(TAG, "succeeded")
+                                Log.d(TAG, response.body().toString())
+                                Match_Response.value = response.body() as Match
+                                // 값을 복사
+                                val Match_Raw = Match_Response.value?.copy()
+                                // 데이터 클래스들의 배열 출력
+                                Log.d("Match_Raw", Match_Raw.toString())
+                                //요소별 접근
+                                //response의 각 데이터 클래스 접근
+                                if (Match_Raw != null) {
+                                    Log.d("MatchItems", Match_Raw.data[0].toString())
+                                }
+                            }
+                        }
+                        )
+                    */
+
                     val intent= Intent(this, MatchActivity::class.java)
                     startActivity(intent)
                     // return@setOnItemSelectedListener true
