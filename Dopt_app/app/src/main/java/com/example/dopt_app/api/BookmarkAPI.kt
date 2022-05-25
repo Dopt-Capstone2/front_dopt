@@ -1,14 +1,10 @@
 package com.example.dopt_app.api
 
-import com.example.dopt_app.data.Bookmark
-import com.example.dopt_app.data.Bookmark_List
-import com.example.dopt_app.data.PostResult
-import com.example.dopt_app.data.User_Signup
+import com.example.dopt_app.data.*
+import org.json.JSONArray
 import retrofit2.Call
+import retrofit2.http.*
 import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
 
 // https://stickode.tistory.com/43
 // jsonparams
@@ -22,4 +18,11 @@ interface BookmarkAPI {
     fun GET_Bookmark(
         @Query("userEmail") userEmail: String
     ): Call<Bookmark_List>
+
+    @DELETE("Bookmark/delete")
+    fun DELETE_Bookmark(
+        @Body jsonparams: Bookmark_Delete
+    ):Call<PostResult>
+
+
 }

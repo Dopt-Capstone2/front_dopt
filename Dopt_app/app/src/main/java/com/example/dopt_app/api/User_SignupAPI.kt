@@ -1,5 +1,6 @@
 package com.example.dopt_app.api
 
+import com.example.dopt_app.data.After_Share
 import com.example.dopt_app.data.PostResult
 import com.example.dopt_app.data.User_Signup
 import retrofit2.Call
@@ -32,4 +33,9 @@ interface User_SignupAPI {
     fun GET_User_Signup(
         @Query("userEmail") userEmail: String
     ): Call<User_Signup>
+
+    @POST("User_Signup/update")
+    fun UPDATE_User_Signup(
+        @Body jsonparams: User_Signup
+    ): Call<PostResult>
 }

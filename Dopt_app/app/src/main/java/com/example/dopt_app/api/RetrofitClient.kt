@@ -115,6 +115,26 @@ object RetrofitClient {
         retrofit.create(ChecklistAPI::class.java)
     }
 
+    // Preference
+    val Preference_instance: PreferenceAPI by lazy {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+        retrofit.create(PreferenceAPI::class.java)
+    }
+
+    //Shelter API
+    val Shelter_instance: ShelterAPI by lazy {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+        retrofit.create(ShelterAPI::class.java)
+    }
+
     // 한달 통계
     val Monthly_Statistics__instance: Monthly_StatisticsAPI by lazy {
         val retrofit = Retrofit.Builder()

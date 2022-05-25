@@ -1,5 +1,6 @@
 package com.example.dopt_app.api
 
+import com.example.dopt_app.data.After_Share
 import com.example.dopt_app.data.Bookmark_List
 import com.example.dopt_app.data.PostResult
 import com.example.dopt_app.data.Shelter_Signup
@@ -21,4 +22,9 @@ interface Shelter_SignupAPI {
     fun GET_Shelter_Signup(
         @Query("userEmail") userEmail: String
     ): Call<Shelter_Signup>
+
+    @POST("Shelter_Signup/update")
+    fun UPDATE_Shelter_Signup(
+        @Body jsonparams: Shelter_Signup
+    ): Call<PostResult>
 }
