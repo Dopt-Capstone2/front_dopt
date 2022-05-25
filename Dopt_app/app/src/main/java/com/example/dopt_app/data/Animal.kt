@@ -1,7 +1,6 @@
 package com.example.dopt_app.data
 
 import java.util.*
-
 data class Animal (
     var age: String?= "",   //나이
     var careAddr: String?= "",  //보호소 주소

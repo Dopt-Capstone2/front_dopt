@@ -1,7 +1,9 @@
 package com.example.dopt_app.data
 
-//TODO: (trivial) 현재 북마크 순서를 알 수 없음
+//TODO: (trivial) 현재 북마크 순서를 알 수 없음 (북마크한 순서대로 저장되긴 함.)
 //TODO: 북마크 동물이 공고 기간이 지났을 시 삭제 로직 필요
+//TODO: 입양 대기중인 동물은 다른 사람이 선택하지 못하도록 해야함
+
 data class Bookmark (
     val userEmail: String,
     val age: String,
@@ -26,5 +28,6 @@ data class Bookmark (
     val processState: String,
     val sexCd: String,
     val specialMark: String,
-    val weight: String
+    val weight: String,
+    val isConsidered: Int
 )
