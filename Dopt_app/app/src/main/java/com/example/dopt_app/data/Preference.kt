@@ -4,9 +4,8 @@ data class Preference (
     val name: String,
     val userEmail: String,
     val breed: String,
-    val age: Int,
-    val sex: Int,
+    val age: String,
+    val sex: String,
     val color: String,
-    val size: Int,
     val type: String
 )
