@@ -6,9 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
-import com.example.dopt_app.auth.PreferActivity
 import com.example.dopt_app.data.Item
-import com.example.dopt_app.data.Share
 import com.example.dopt_app.databinding.ActivityMatchBinding
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager
 import com.yuyakaido.android.cardstackview.CardStackListener
@@ -28,7 +26,6 @@ class MatchActivity : AppCompatActivity() {
     lateinit var manager : CardStackLayoutManager
 
     // 카드 아이템 안의 정보 recycler view
-
     private var cardItems = ArrayList<Item>()
 
 
@@ -116,15 +113,25 @@ class MatchActivity : AppCompatActivity() {
                     "0.2(Kg)"
                 )
             )
-        }
 
+        }
 
         cardStackAdapter= CardStackAdapter(baseContext, cardItems)
         cardStackView.layoutManager=manager
         cardStackView.adapter = cardStackAdapter
+
+        cardStackAdapter.setMyItemClickListener(object :CardStackAdapter.MoreClickListener{
+            override fun onItemClick(v: View, items: Item) {
+                Intent(this@MatchActivity, CardInfoActivity::class.java).run { startActivity(this) }
+            }
+        })
+
+
     }
 
+
     private fun initClickListener() {
+        //메인 액티비티로 돌아가는 화살표
         bot_arrow_img.setOnClickListener{
             val intent= Intent(this, MainActivity::class.java)
             startActivity(intent)

@@ -21,9 +21,6 @@ import kotlinx.android.synthetic.main.activity_nickname.*
 import kotlinx.android.synthetic.main.activity_prefer.*
 import kotlinx.android.synthetic.main.fragment_match.*
 // import java.time.LocalDate
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
