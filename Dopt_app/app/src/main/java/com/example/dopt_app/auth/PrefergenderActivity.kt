@@ -49,34 +49,34 @@ class PrefergenderActivity : BaseActivity<ActivityPrefergenderBinding>(ActivityP
 
 
             }
-            binding.genderNextBtn->dogInfo()
+            //binding.genderNextBtn->dogInfo()
 
 
         }
     }
 
-    private fun getDogInfo() : Preference {
-        val token = dogInfo.split(",")
-        var name : String = token[0]
-        var userEmail : String = token[1]
-        var age : String = token[2]
-        var breed : String = token[3]
-        var sex : String = token[4]
-        var color : String = token[5]
-        var type: String = token[6]
-
-        Log.d("INFO_NAME",name)
-        Log.d("INFO_EMAIL",userEmail)
-        Log.d("INFO_ITEM_AGE",age)
-        Log.d("INFO_ITEM_BREED",breed)
-        Log.d("INFO_ITEM_SEX",sex)
-        Log.d("INFO_ITEM_AGE",age)
-        Log.d("INFO_ITEM_COLOR",color)
-        Log.d("INFO_ITEM_TYPE",type)
-
-        return Preference(name, userEmail,age, sex, age, color, type)
-
-    }
+//    private fun getDogInfo() : Preference {
+//        val token = dogInfo.split(",")
+//        var name : String = token[0]
+//        var userEmail : String = token[1]
+//        var age : String = token[2]
+//        var breed : String = token[3]
+//        var sex : String = token[4]
+//        var color : String = token[5]
+//        var type: String = token[6]
+//
+//        Log.d("INFO_NAME",name)
+//        Log.d("INFO_EMAIL",userEmail)
+//        Log.d("INFO_ITEM_AGE",age)
+//        Log.d("INFO_ITEM_BREED",breed)
+//        Log.d("INFO_ITEM_SEX",sex)
+//        Log.d("INFO_ITEM_AGE",age)
+//        Log.d("INFO_ITEM_COLOR",color)
+//        Log.d("INFO_ITEM_TYPE",type)
+//
+//        return Preference(name, userEmail,age, sex, age, color, type)
+//
+//    }
 
 //    private fun dogInfo() {
 //
