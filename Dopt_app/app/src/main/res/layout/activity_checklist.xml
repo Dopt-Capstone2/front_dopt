@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_color">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/pofile_checklist_tt"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:src="@drawable/checklist_text_big"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/yello_radius"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="20dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/pofile_checklist_tt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="10dp">
+                <ImageView
+                    android:id="@+id/check_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/check"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:visibility="invisible"/>
+                <ImageView
+                    android:id="@+id/uncheck_1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/uncheck"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/check_1_tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="반려동물을 맞이할 환경적 준비, 마음의 각오는 되어 있습니까?"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:layout_constraintStart_toEndOf="@id/uncheck_1"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="10dp">
+                <ImageView
+                    android:id="@+id/check_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/check"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:visibility="invisible"/>
+                <ImageView
+                    android:id="@+id/uncheck_2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/uncheck"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/check_2_tx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="개, 고양이는 10~15년 이상 삽니다. 결혼, 임신, 유학, 이사 등으로 가정환경이 바뀌어도 한번 인연을 맺은 동물은 끝까지 책임지고 보살피겠다는 결심이 섰습니까?"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="30dp"
+                    app:layout_constraintStart_toEndOf="@id/uncheck_2"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
