@@ -31,7 +31,7 @@
 
 
     <Spinner
-        android:id="@+id/dogPreger_kind_sp"
+        android:id="@+id/dogPrefer_kind_sp"
         app:layout_constraintTop_toBottomOf="@id/prefer_kind_img"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,9 +44,9 @@
         android:dropDownWidth="50dp" />
     <ImageView
         android:id="@+id/prefer_btn"
-        app:layout_constraintTop_toTopOf="@id/dogPreger_kind_sp"
-        app:layout_constraintBottom_toBottomOf="@id/dogPreger_kind_sp"
-        app:layout_constraintEnd_toEndOf="@id/dogPreger_kind_sp"
+        app:layout_constraintTop_toTopOf="@id/dogPrefer_kind_sp"
+        app:layout_constraintBottom_toBottomOf="@id/dogPrefer_kind_sp"
+        app:layout_constraintEnd_toEndOf="@id/dogPrefer_kind_sp"
         android:layout_marginEnd="10dp"
         android:layout_width="25dp"
         android:layout_height="16dp"
@@ -58,7 +58,7 @@
         android:layout_width="120dp"
         android:layout_height="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dogPreger_kind_sp"
+        app:layout_constraintTop_toBottomOf="@id/dogPrefer_kind_sp"
         android:layout_marginTop="50dp"
         android:layout_marginStart="50dp"
         android:gravity="center"
@@ -79,7 +79,7 @@
         android:textColor="@color/main_color"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dogPreger_kind_sp" />
+        app:layout_constraintTop_toBottomOf="@id/dogPrefer_kind_sp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
