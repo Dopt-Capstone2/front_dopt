@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
 import com.example.dopt_app.data.Monthly_Statistics
+import com.example.dopt_app.data.User_Signup
 // import com.example.dopt_app.data.JoinModel
 // import com.example.dopt_app.data.JoinResult
 import com.example.dopt_app.shelter.ShelterMainActivity
@@ -23,6 +24,7 @@ import retrofit2.Response
 class JoinActivity : AppCompatActivity() {
 
     private val TAG = "JoinActivity"
+    private lateinit var userEmail : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +32,19 @@ class JoinActivity : AppCompatActivity() {
 
         val joinBtn = findViewById<Button>(R.id.joinBtn)
         joinBtn.setOnClickListener{
+            val intent = Intent(this, PreferActivity::class.java)
+
+
 //            //사용자 회원가입하기
 //            //파라미터로 사용자의 정보를 데이터클래스 객체로 만들어 넣는다
-//            val userEmail= findViewById<TextInputEditText>(R.id.join_email_jo)
-//            val userPw = findViewById<TextInputEditText>(R.id.join_pw_jo)
-//            val data = User_Signup(userEmail.text.toString(), userPw.text.toString(), "hmin","Ilsan","nick")
+            userEmail= findViewById<TextInputEditText>(R.id.join_email_jo).toString()
+            val userPw = findViewById<TextInputEditText>(R.id.join_pw_jo)
+            val userNm = findViewById<TextInputEditText>(R.id.join_nickname_jo)
+            val userLoc = findViewById<TextInputEditText>(R.id.join_userLoc_jo)
+            val data = User_Signup(userEmail, userPw.text.toString(), userNm.text.toString(),userLoc.text.toString(),"nick")
+
             startActivity(intent)
+            intent.putExtra("userEmail",userEmail)
 //            Log.d(TAG, "clicked join btn!!!")
 //            Log.d(TAG, data.toString())
 //            RetrofitClient.User_Signup_instance.POST_User_SignUp(data)
@@ -75,31 +84,31 @@ class JoinActivity : AppCompatActivity() {
 //                }
 //                )
             //통계 데이터 불러오기
-            var Monthly_Statistics_Response = MutableLiveData<Monthly_Statistics>()
-            RetrofitClient.Monthly_Statistics__instance.GET_Monthly_Statistics()
-                .enqueue(object: Callback<Monthly_Statistics> {
-                    override fun onFailure(call: Call<Monthly_Statistics>, t: Throwable) {
-                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "failed")
-                        Log.d(TAG, t.message.toString())
-                    }
-                    override fun onResponse(call: Call<Monthly_Statistics>, response: Response<Monthly_Statistics>) {
-                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "succeeded")
-                        Log.d(TAG, response.body().toString())
-                        Monthly_Statistics_Response.value = response.body() as Monthly_Statistics
-                        // 값을 복사
-                        val Monthly_Statistics_Raw = Monthly_Statistics_Response.value?.copy()
-                        // 데이터 클래스들의 배열 출력
-                        Log.d("Monthly_Statistics_Raw", Monthly_Statistics_Raw.toString())
-                        //요소별 접근
-                        //response의 각 데이터 클래스 접근
-                        if (Monthly_Statistics_Raw != null) {
-                            Log.d("Monthly_Statistics_", Monthly_Statistics_Raw.data[0].toString())
-                        }
-                    }
-                }
-                )
+//            var Monthly_Statistics_Response = MutableLiveData<Monthly_Statistics>()
+//            RetrofitClient.Monthly_Statistics__instance.GET_Monthly_Statistics()
+//                .enqueue(object: Callback<Monthly_Statistics> {
+//                    override fun onFailure(call: Call<Monthly_Statistics>, t: Throwable) {
+//                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+//                        Log.d(TAG, "failed")
+//                        Log.d(TAG, t.message.toString())
+//                    }
+//                    override fun onResponse(call: Call<Monthly_Statistics>, response: Response<Monthly_Statistics>) {
+//                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+//                        Log.d(TAG, "succeeded")
+//                        Log.d(TAG, response.body().toString())
+//                        Monthly_Statistics_Response.value = response.body() as Monthly_Statistics
+//                        // 값을 복사
+//                        val Monthly_Statistics_Raw = Monthly_Statistics_Response.value?.copy()
+//                        // 데이터 클래스들의 배열 출력
+//                        Log.d("Monthly_Statistics_Raw", Monthly_Statistics_Raw.toString())
+//                        //요소별 접근
+//                        //response의 각 데이터 클래스 접근
+//                        if (Monthly_Statistics_Raw != null) {
+//                            Log.d("Monthly_Statistics_", Monthly_Statistics_Raw.data[0].toString())
+//                        }
+//                    }
+//                }
+//                )
 
 //            //북마크 정보 불러오기
 //            //북마크들의 배열을 호출한다
@@ -138,12 +147,6 @@ class JoinActivity : AppCompatActivity() {
 //                    }
 //                }
 //                )
-        }
-
-        val shelterJoinBtn = findViewById<Button>(R.id.shelterJoinBtn)
-        shelterJoinBtn.setOnClickListener{
-            val intent = Intent(this, ShelterNameActivity::class.java)
-            startActivity(intent)
         }
 
     }
