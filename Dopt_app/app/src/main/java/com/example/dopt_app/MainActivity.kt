@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.account.AccountFragment
 import com.example.dopt_app.api.RetrofitClient
 import com.example.dopt_app.data.Match
+import com.example.dopt_app.data.Preference
 import com.example.dopt_app.databinding.ActivityMainBinding
 import com.example.dopt_app.home.HomeFragment
 import com.example.dopt_app.match.*
@@ -20,6 +21,10 @@ import com.example.dopt_app.star.StarFragment
 import kotlinx.android.synthetic.main.activity_nickname.*
 import kotlinx.android.synthetic.main.activity_prefer.*
 import kotlinx.android.synthetic.main.fragment_match.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 // import java.time.LocalDate
 
 class MainActivity : AppCompatActivity() {
@@ -149,10 +154,15 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }*/
                 R.id.matchFragment -> {
-                    /*
                     Log.d(TAG, "Enter Match Fragment")
+                    //get 한 preference 혹은 글로벌 변수로 저장한 preference를 인자로 넘겨주세요
+                    //더미 데이터
+                    val data = Preference("default1", "123@123", "개", "1", "M","흰색","개")
+                    //data부분에 인자 넘기기 여기서 data는 preferece 데이터 클래스 객체
                     var Match_Response = MutableLiveData<Match>()
-                    RetrofitClient.Match_instance.GET_Match()
+                    //RetrofitClient.Match_instance.GET_Match(data)
+                    //deconstor로 인자 전하기
+                    RetrofitClient.Match_instance.GET_Match("default1","123@123","개", "1", "M", "흰색", "개")
                         .enqueue(object: Callback<Match> {
                             override fun onFailure(call: Call<Match>, t: Throwable) {
                                 Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG)
@@ -182,7 +192,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                         )
-                    */
+
 
                     val intent= Intent(this, MatchActivity::class.java)
                     startActivity(intent)
