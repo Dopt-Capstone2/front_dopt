@@ -11,9 +11,7 @@ data class Checklist (
     val q7: Boolean,
     val q8: Boolean,
     val q9: Boolean,
-    val q10: Boolean,
-    val q11: Boolean,
-    val q12: Boolean
+    val q10: Boolean
 )
 
 //- 반려동물을 맞이할 환경적 준비, 마음의 각오는 되어 있습니까?
