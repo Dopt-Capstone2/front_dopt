@@ -85,8 +85,9 @@ class IntroActivity : AppCompatActivity() {
             val intent = Intent(this, JoinActivity::class.java)
             startActivity(intent)
         }
-        val shelterjoinBtn = findViewById<Button>(R.id.shelter_joinBtn)
-        shelterjoinBtn.setOnClickListener{
+
+        val shelterJoinBtn = findViewById<Button>(R.id.shelterJoinBtn)
+        shelterJoinBtn.setOnClickListener{
             val intent = Intent(this, ShelterJoinActivity::class.java)
             startActivity(intent)
         }
