@@ -13,7 +13,6 @@ import com.yuyakaido.android.cardstackview.CardStackListener
 import com.yuyakaido.android.cardstackview.CardStackView
 import com.yuyakaido.android.cardstackview.Direction
 import kotlinx.android.synthetic.main.activity_match.*
-import kotlinx.android.synthetic.main.activity_nickname.*
 
 class MatchActivity : AppCompatActivity() {
 

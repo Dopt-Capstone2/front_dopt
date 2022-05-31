@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.dopt_app.R
 import com.example.dopt_app.databinding.ActivityShelterMainBinding
 
-import kotlinx.android.synthetic.main.activity_nickname.*
 
 class ShelterMainActivity : AppCompatActivity() {
 

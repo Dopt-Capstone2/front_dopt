@@ -6,8 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.dopt_app.R
 import com.example.dopt_app.auth.PreferActivity
 import com.example.dopt_app.databinding.ActivityShelterNameBinding
-import kotlinx.android.synthetic.main.activity_nickname.*
-import kotlinx.android.synthetic.main.activity_nickname.go_profile_btn
+
 import kotlinx.android.synthetic.main.activity_shelter_name.*
 
 class ShelterNameActivity: AppCompatActivity() {

@@ -54,7 +54,7 @@ class PreferActivity : BaseActivity<ActivityPreferBinding>(ActivityPreferBinding
         if(v == null) return
 
         when(v) {
-            binding.dogbreedPreviousBtn -> startActivityWithClear(NicknameActivity::class.java)
+            binding.dogbreedPreviousBtn -> startActivityWithClear(JoinActivity::class.java)
             binding.dogbreedNextBtn -> kind()
 
         }

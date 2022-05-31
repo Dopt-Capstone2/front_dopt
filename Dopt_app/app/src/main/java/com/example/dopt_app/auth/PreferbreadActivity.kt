@@ -57,7 +57,7 @@ class PreferbreadActivity : BaseActivity<ActivityPreferbreadBinding>(ActivityPre
         if(v == null) return
 
         when(v) {
-            binding.breedPreviousBtn -> startActivityWithClear(NicknameActivity::class.java)
+            binding.breedPreviousBtn -> startActivityWithClear(JoinActivity::class.java)
             binding.breedNextBtn -> breed()
 
         }
