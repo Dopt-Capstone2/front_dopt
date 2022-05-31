@@ -4,20 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/join_background">
-
+    android:background="@color/back_color">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".auth.JoinActivity"
-        android:layout_marginTop="370dp">
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginHorizontal="50dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:src="@drawable/join_txt_img"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/splash_dog"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitCenter"
+                android:layout_marginBottom="20dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -127,6 +139,7 @@
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_marginRight="10dp"
+                    android:layout_marginBottom="30dp"
                     android:layout_weight="1"/>
 
             </LinearLayout>
