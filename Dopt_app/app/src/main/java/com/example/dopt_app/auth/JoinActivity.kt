@@ -288,6 +288,7 @@ class JoinActivity : AppCompatActivity() {
                     }
                 }
                 )
+
             //Checklist GET
             var GET_Checklist_Response = MutableLiveData<Checklist>()
             RetrofitClient.Checklist_instance.GET_Checklist("123@123")
@@ -528,6 +529,115 @@ class JoinActivity : AppCompatActivity() {
                 }
                 )
 
+            //ShelterAPi
+            //Shelter에서 쓸 수 있는 기능들
+            //0. 북마크 정보 GET
+            //내 보호소 동물을 사용자가 북마크했는지 동물정보 GET
+            //북마크들의 배열을 호출한다
+            //파라미터로 shelterNm을 입력한다
+            //북마크의 careNm과 shelterNm이 일치하면 GET
+
+            var GET_S_bookmark_Response = MutableLiveData<Bookmark_List>()
+            RetrofitClient.Shelter_instance.GET_Bookmark("careNm1")
+                .enqueue(object: Callback <Bookmark_List> {
+                    override fun onFailure(call: Call<Bookmark_List>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "GET S_B failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<Bookmark_List>, response: Response<Bookmark_List>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "GET S_B succeeded")
+                        Log.d(TAG, response.body().toString())
+
+                        //지정한 데이터 클래스 객체로 저장
+                        GET_S_bookmark_Response.value = response.body() as Bookmark_List
+                        // 값을 복사
+                        val GET_S_bookmarkRaw = GET_S_bookmark_Response.value?.copy()
+                        // 데이터 클래스들의 배열 출력
+                        Log.d("GET_S_bookmarkRaw", GET_S_bookmarkRaw.toString())
+                        //요소별 접근
+                        //response의 각 데이터 클래스 접근
+                        if (GET_S_bookmarkRaw != null) {
+                            Log.d("GET_bookmark", GET_S_bookmarkRaw.Bookmark[0].toString())
+                        }
+                    }
+                }
+                )
+
+            //1. 북마크 정보 POST
+            //파라미터로 넘기는 값의 로직은 다음과 같습니다.
+            //자신의 보호소명이 들어간 Bookmark를 조회한 후,
+            //마지막에 isConsidered를 추가하면 됩니다.
+            //isConsidered는 4가지 값을 가질 수 있습니다.
+            //0: 북마크에 추가
+            //1: 입양 신청 상태
+            //2: 입양 허가
+            //3: 반려
+            //deconstructor 등을 이용해서 Item 정보와 isCondisered를 묶어서
+            //Bookmark 객체로 만든 다음, 파라미터로 넘겨주세요.
+
+            //여기서 보호소가 입력하는 값은 isConsidered값 뿐입니다.
+            //그 외 나머지 값은 Bookmark와 모두 동일합니다.
+            //더미데이터
+            val POST_S_Bookmark_Data = Bookmark_Update("123@123", "desertionNo1", 4)
+            RetrofitClient.Shelter_instance.POST_Bookmark(POST_S_Bookmark_Data)
+                .enqueue(object: Callback <PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "Post S_B failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "Post S_B succeeded")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+                )
+
+            //2.사용자가 올린 근황공유 조회
+            //사용자가 올린 근황공유중,
+            //자신의 보호소의 동물을 입양한 사람의 근황을 조회합니다.
+            var GET_S_After_Share_Response = MutableLiveData<After_Share_List>()
+            RetrofitClient.Shelter_instance.GET_After_Share("careNm1")
+                .enqueue(object: Callback <After_Share_List> {
+                    override fun onFailure(call: Call<After_Share_List>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "Get S_AS failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<After_Share_List>, response: Response<After_Share_List>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "Get S_AS succeeded")
+                        Log.d(TAG, response.body().toString())
+
+                        //지정한 데이터 클래스 객체로 저장
+                        GET_S_After_Share_Response.value = response.body() as After_Share_List
+                        // 값을 복사
+                        val GET_S_After_ShareRaw = GET_S_After_Share_Response.value?.copy()
+                        // 데이터 클래스들의 배열 출력
+                        Log.d("S_After_ShareRaw", GET_S_After_ShareRaw.toString())
+                        //요소별 접근
+                        //response의 각 데이터 클래스 접근
+                        if (GET_S_After_ShareRaw != null) {
+                            Log.d("After_Share", GET_S_After_ShareRaw.After_Share[0].toString())
+                        }
+                    }
+                }
+                )
 
 
         }
