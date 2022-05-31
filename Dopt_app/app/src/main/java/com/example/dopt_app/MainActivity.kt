@@ -161,7 +161,12 @@ class MainActivity : AppCompatActivity() {
                     //data부분에 인자 넘기기 여기서 data는 preferece 데이터 클래스 객체
                     var Match_Response = MutableLiveData<Match>()
                     //RetrofitClient.Match_instance.GET_Match(data)
-                    //deconstor로 인자 전하기
+                    //파라미터로 전하는 데이터 형식은 다음과 같습니다.
+                    //preference의 모든 값,
+                    //그리고 User_Signup의 userLoc
+                    //여기서는 파라미터를 데이터클래스 객체로 전하지 않고,
+                    //모두 분해서 하나씩 전합니다.
+                    //deconstructor 등으로 파라미터를 전달해주세요.
                     RetrofitClient.Match_instance.GET_Match("default1","123@123","개", "1", "M", "흰색", "개", "서울특별시")
                         .enqueue(object: Callback<Match> {
                             override fun onFailure(call: Call<Match>, t: Throwable) {

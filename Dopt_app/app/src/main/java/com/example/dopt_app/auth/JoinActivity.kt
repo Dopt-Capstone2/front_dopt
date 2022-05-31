@@ -340,6 +340,11 @@ class JoinActivity : AppCompatActivity() {
                 }
                 )
 
+            //MatchAPI
+            //MainActivity의 matchfragment 호출부에 있습니다.
+
+
+
 
 
 //            //통계 데이터 불러오기
