@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.dopt_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -28,7 +29,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".auth.ShelterJoinActivity"
+            android:exported="true"/>
         <activity
             android:name=".auth.NicknameActivity"
             android:exported="true"/>
@@ -47,6 +50,10 @@
         <activity
             android:name=".auth.PrefersizeActivity"
             android:exported="true"/>
+        <activity
+            android:name=".auth.CheckListActivity"
+            android:exported="true"
+            tools:ignore="DuplicateActivity" />
 
         <activity
             android:name=".MainActivity"
@@ -66,6 +73,7 @@
         <activity
             android:name=".shelter.ShelterMainActivity"
             android:exported="true" />
+
 
         <!-- 팝업 Activity -->
 <!--

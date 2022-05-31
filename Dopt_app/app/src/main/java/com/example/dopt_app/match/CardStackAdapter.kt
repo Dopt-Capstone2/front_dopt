@@ -1,14 +1,22 @@
 package com.example.dopt_app.match
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
+import com.example.dopt_app.api.RetrofitClient.Match_instance
 import com.example.dopt_app.data.Item
+import com.example.dopt_app.data.PostResult
+import kotlinx.android.synthetic.main.item_card.view.*
+import retrofit2.http.GET
+import javax.security.auth.callback.Callback
 
 class CardStackAdapter(
     val context: Context,
@@ -54,12 +62,26 @@ class CardStackAdapter(
         val age = itemView.findViewById<TextView>(R.id.animal_age_tx)
         val careNm = itemView.findViewById<TextView>(R.id.animal_careNm_tx)
 
+        // val btn = itemView.findViewById<TextView>(R.id.item_more_info)
 
         fun binding(items : Item){
-            val btn = itemView.findViewById<TextView>(R.id.item_more_info)
+/*            val getItems = Match_instance.GET_Match().enqueue(object : Callback<>, t: Throwable) {
+                        Log.d(TAG, "Request Failed start")
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "failed")
+                        Log.d(TAG, t.message.toString())
+                        Log.d(TAG, "Request Failed end")
+                    }*/
+
+
             itemView.setOnClickListener{
-                moreClickListener.onItemClick(itemView,items)
+//                Intent(context, CardInfoActivity::class.java).apply {
+//                    putExtra("data", items)
+//                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                }.run { context.startActivity(this) }
+
             }
+
         }
 
     }

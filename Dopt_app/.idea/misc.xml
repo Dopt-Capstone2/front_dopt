@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.28229166666666666" />
         <entry key="../Dopt_app/app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="../Dopt_app/app/src/main/res/layout/fragment_match.xml" value="0.33177083333333335" />
         <entry key="../Dopt_app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.33177083333333335" />
@@ -45,21 +46,24 @@
         <entry key="app/src/main/res/drawable/shelter_profile_radius.xml" value="0.23055555555555557" />
         <entry key="app/src/main/res/drawable/star_animal_status_radius.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/white_all_radius.xml" value="0.13055555555555556" />
+        <entry key="app/src/main/res/drawable/yello_radius.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/yellow_bot_radius.xml" value="0.22777777777777777" />
-        <entry key="app/src/main/res/layout/activity_card_info.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_intro.xml" value="0.22735507246376813" />
-        <entry key="app/src/main/res/layout/activity_join.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/activity_card_info.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_checklist.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_intro.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_join.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_match.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_nickname.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_popup1.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_popup_profile_done.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_popup_profile_done.xml" value="0.27794561933534745" />
         <entry key="app/src/main/res/layout/activity_prefer.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_preferbread.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_prefercolor.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_prefergender.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_prefersize.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_shelter_join.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_shelter_main.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_shelter_name.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_shelter_nickname.xml" value="0.25" />
@@ -71,12 +75,13 @@
         <entry key="app/src/main/res/layout/fragment_home_more_share.xml" value="0.12620229829413204" />
         <entry key="app/src/main/res/layout/fragment_match.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_my_share.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_newshare.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_newshare.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_profiledetail.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_share.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_shelter_account.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_shelter_home.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/fragment_shelter_match.xml" value="0.16666666666666666" />
         <entry key="app/src/main/res/layout/fragment_shelter_share.xml" value="0.11" />
         <entry key="app/src/main/res/layout/fragment_star.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_star_detail.xml" value="0.165" />

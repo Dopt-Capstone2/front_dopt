@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="match_parent"
@@ -110,6 +115,124 @@
             app:layout_constraintBottom_toBottomOf="@id/profile_image"
             app:layout_constraintTop_toBottomOf="@id/profile_name_tx"/>
 
+        <LinearLayout
+            android:id="@+id/profile_prefer_ln"
+            android:layout_width="370dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/profile_menu_radius"
+            app:layout_constraintTop_toBottomOf="@id/profile_email_tx"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="선호하는 반려동물 종류"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="개"
+                    android:textColor="@color/main_color"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="선호하는 반려동물 종류"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="개"
+                    android:textColor="@color/main_color"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="선호하는 반려동물 종류"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="개"
+                    android:textColor="@color/main_color"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="선호하는 반려동물 종류"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="개"
+                    android:textColor="@color/main_color"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="선호하는 반려동물 종류"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="개"
+                    android:textColor="@color/main_color"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/profile_fix_bt"
             android:layout_width="match_parent"
@@ -122,125 +245,11 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_email_tx" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_prefer_ln" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:layout_width="370dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/profile_menu_radius"
-        app:layout_constraintTop_toBottomOf="@id/profile_info_vp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="선호하는 반려동물 종류"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="개"
-                android:textColor="@color/main_color"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="선호하는 반려동물 종류"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="개"
-                android:textColor="@color/main_color"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="선호하는 반려동물 종류"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="개"
-                android:textColor="@color/main_color"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="선호하는 반려동물 종류"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="개"
-                android:textColor="@color/main_color"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="선호하는 반려동물 종류"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="개"
-                android:textColor="@color/main_color"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
 
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

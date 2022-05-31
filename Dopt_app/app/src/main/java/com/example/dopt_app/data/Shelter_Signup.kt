@@ -1,11 +1,14 @@
 package com.example.dopt_app.data
 
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 data class Shelter_Signup (
-    val shelterEmail: String,
-    val shelterPw: String,
-    val shelterNm: String,
-    val phone: String,
-    val shelterLoc: String,
-    val busRegImg: String,
-    val shelterImage: String
-)
+    @SerializedName("shelterEmail") val shelterEmail: String,
+    @SerializedName("shelterPw") val shelterPw: String,
+    @SerializedName("shelterNm") val shelterNm: String,
+    @SerializedName("phone") val phone: String,
+    @SerializedName("shelterLoc") val shelterLoc: String,
+    @SerializedName("busRegImg") val busRegImg: String,
+    @SerializedName("shelterImage") val shelterImage: String
+): Serializable

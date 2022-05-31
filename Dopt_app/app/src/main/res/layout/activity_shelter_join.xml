@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".auth.JoinActivity"
+        tools:context=".auth.ShelterJoinActivity"
         android:layout_marginTop="10dp">
 
         <LinearLayout
@@ -26,7 +26,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:src="@drawable/splash_dog"
+                android:src="@drawable/shelter_join_img"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="fitCenter"
                 android:layout_marginBottom="20dp"/>
@@ -43,13 +43,13 @@
                 android:layout_height="70dp"
                 >
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/join_email_jo"
+                    android:id="@+id/shelter_join_email_jo"
                     android:textColor="@color/black"
                     android:padding="10dp"
-                    android:background="@drawable/profile_radius"
+                    android:background="@drawable/puple_line_white_radius"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                   />
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
@@ -66,11 +66,11 @@
                 android:layout_height="70dp"
                 >
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/join_pw_jo"
+                    android:id="@+id/shelter_join_pw_jo"
                     android:padding="10dp"
                     android:textColorHint="@color/gray2_color"
                     android:textColor="@color/black"
-                    android:background="@drawable/profile_radius"
+                    android:background="@drawable/puple_line_white_radius"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -81,7 +81,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/gray3_color"
-                android:text="User Name"
+                android:text="Shelter Name"
                 android:textSize="10sp"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/join_nickNm_box"
@@ -90,11 +90,11 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/join_nickNm_jo"
+                    android:id="@+id/join_shelterNm_jo"
                     android:padding="10dp"
                     android:textColorHint="@color/gray2_color"
                     android:textColor="@color/black"
-                    android:background="@drawable/profile_radius"
+                    android:background="@drawable/puple_line_white_radius"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -106,7 +106,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/gray3_color"
-                android:text="User Location"
+                android:text="Shelter Phone"
                 android:textSize="10sp"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/join_userLoc_box"
@@ -115,27 +115,50 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/join_userLoc_jo"
+                    android:id="@+id/join_phone_jo"
                     android:padding="10dp"
                     android:textColorHint="@color/gray2_color"
                     android:textColor="@color/black"
-                    android:background="@drawable/profile_radius"
+                    android:background="@drawable/puple_line_white_radius"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
             </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/gray3_color"
+                android:text="Shelter Location"
+                android:textSize="10sp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/join_shelterLoc_box"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                >
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/join_shelterLoc_jo"
+                    android:padding="10dp"
+                    android:textColorHint="@color/gray2_color"
+                    android:textColor="@color/black"
+                    android:background="@drawable/puple_line_white_radius"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp">
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/joinBtn"
-                    android:text="일반 회원가입"
+                    android:id="@+id/shelterJoinBtn"
+                    android:text="보호소 회원가입"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/join_shape"
+                    android:background="@drawable/purple500_all_radius"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_marginRight="10dp"
