@@ -2,16 +2,16 @@ package com.example.dopt_app.data
 
 data class Checklist (
     val userEmail: String,
-    val q1: Boolean,
-    val q2: Boolean,
-    val q3: Boolean,
-    val q4: Boolean,
-    val q5: Boolean,
-    val q6: Boolean,
-    val q7: Boolean,
-    val q8: Boolean,
-    val q9: Boolean,
-    val q10: Boolean,
-    val q11: Boolean,
-    val q12: Boolean
+    val q1: Int,
+    val q2: Int,
+    val q3: Int,
+    val q4: Int,
+    val q5: Int,
+    val q6: Int,
+    val q7: Int,
+    val q8: Int,
+    val q9: Int,
+    val q10: Int,
+    val q11: Int,
+    val q12: Int
 )

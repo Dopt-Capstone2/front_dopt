@@ -31,6 +31,7 @@ class JoinActivity : AppCompatActivity() {
         val joinBtn = findViewById<Button>(R.id.joinBtn)
         joinBtn.setOnClickListener{
 //            //모든 더미데이터는 userEmail: 123@123에 있습니다.
+//            //아래 예시에 적은 모든 파라미터값은 더미데이터이며 실제 로직과 다를 수 있습니다.
 
 //            //사용자 회원가입하기 POST
 //            //파라미터로 사용자의 정보를 데이터클래스 객체로 만들어 넣는다
@@ -207,7 +208,7 @@ class JoinActivity : AppCompatActivity() {
                 .enqueue(object: Callback <Bookmark_List> {
                     override fun onFailure(call: Call<Bookmark_List>, t: Throwable) {
                         Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "failed")
+                        Log.d(TAG, "GET B failed")
                         Log.d(TAG, t.message.toString())
                     }
                     override fun onResponse(call: Call<Bookmark_List>, response: Response<Bookmark_List>) {
@@ -216,7 +217,7 @@ class JoinActivity : AppCompatActivity() {
                             response.body().toString(),
                             Toast.LENGTH_LONG
                         ).show()
-                        Log.d(TAG, "succeeded")
+                        Log.d(TAG, "GET B succeeded")
                         Log.d(TAG, response.body().toString())
 
                         //지정한 데이터 클래스 객체로 저장
@@ -244,6 +245,7 @@ class JoinActivity : AppCompatActivity() {
             //3: 반려
             //deconstructor 등을 이용해서 Item 정보와 isCondisered를 묶어서
             //Bookmark 객체로 만든 다음, 파라미터로 넘겨주세요.
+            //더미데이터
             val POST_Bookmark_Data = Bookmark("123@123", "2021년생", "careAddr2", "careNm2", "02-222-2222", "chargeNm2", "하양색", "desertionNo22", "file.jpg", 20220527, "서울특별시 동작구", "[개] 골드 리트리버", "Y", 20220527, "22", 20220610, "02-222-2212", "orgNm2", "pofile2", "보호중", "M", "목에 흉터가 있음", "3kg", 0)
             RetrofitClient.Bookmark_instance.POST_Bookmark(POST_Bookmark_Data)
                 .enqueue(object: Callback <PostResult> {
@@ -286,6 +288,59 @@ class JoinActivity : AppCompatActivity() {
                     }
                 }
                 )
+            //Checklist GET
+            var GET_Checklist_Response = MutableLiveData<Checklist>()
+            RetrofitClient.Checklist_instance.GET_Checklist("123@123")
+                .enqueue(object: Callback <Checklist> {
+                    override fun onFailure(call: Call<Checklist>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "GET C failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<Checklist>, response: Response<Checklist>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "GET C succeeded")
+                        Log.d(TAG, response.body().toString())
+
+                        //지정한 데이터 클래스 객체로 저장
+                        GET_Checklist_Response.value = response.body() as Checklist
+                        // 값을 복사
+                        val GET_ChecklistRaw = GET_Checklist_Response.value?.copy()
+                        // 데이터 클래스들의 배열 출력
+                        Log.d("GET_ChecklistRaw", GET_ChecklistRaw.toString())
+                        if (GET_ChecklistRaw != null) {
+                            Log.d("GET_checklist", GET_ChecklistRaw.toString())
+                        }
+                    }
+                }
+                )
+
+            //Checklist POST
+            val POST_Checklist_Data = Checklist("123@123", 0,0,0,0,0,0,0,0,0,0,0,0)
+            RetrofitClient.Checklist_instance.POST_Checklist(POST_Checklist_Data)
+                .enqueue(object: Callback <PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "Post C failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "Post C succeeded")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+                )
+
+
 
 //            //통계 데이터 불러오기
 //            var Monthly_Statistics_Response = MutableLiveData<Monthly_Statistics>()
