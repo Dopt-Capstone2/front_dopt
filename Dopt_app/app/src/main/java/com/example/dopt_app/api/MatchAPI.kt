@@ -19,7 +19,8 @@ interface MatchAPI {
         @Query ("age") age: String,
         @Query ("sex") sex: String,
         @Query ("color") color: String,
-        @Query ("type") type: String
+        @Query ("type") type: String,
+        @Query ("userLoc") userLoc:String
 
     ): Call<Match>
 }

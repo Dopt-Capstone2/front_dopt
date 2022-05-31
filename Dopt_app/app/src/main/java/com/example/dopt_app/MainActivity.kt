@@ -162,7 +162,7 @@ class MainActivity : AppCompatActivity() {
                     var Match_Response = MutableLiveData<Match>()
                     //RetrofitClient.Match_instance.GET_Match(data)
                     //deconstor로 인자 전하기
-                    RetrofitClient.Match_instance.GET_Match("default1","123@123","개", "1", "M", "흰색", "개")
+                    RetrofitClient.Match_instance.GET_Match("default1","123@123","개", "1", "M", "흰색", "개", "서울특별시")
                         .enqueue(object: Callback<Match> {
                             override fun onFailure(call: Call<Match>, t: Throwable) {
                                 Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG)
