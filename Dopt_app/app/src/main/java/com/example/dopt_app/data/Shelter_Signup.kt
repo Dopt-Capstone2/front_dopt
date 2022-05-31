@@ -10,5 +10,5 @@ data class Shelter_Signup (
     @SerializedName("phone") val phone: String,
     @SerializedName("shelterLoc") val shelterLoc: String,
     @SerializedName("busRegImg") val busRegImg: String,
-    @SerializedName("shelterImage") val shelterImage: String
+    @SerializedName("shelterImg") val shelterImg: String
 ): Serializable

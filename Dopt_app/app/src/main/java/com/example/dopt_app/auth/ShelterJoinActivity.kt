@@ -41,12 +41,12 @@ class ShelterJoinActivity : AppCompatActivity() {
 
             //사용자 회원가입하기
             //파라미터로 사용자의 정보를 데이터클래스 객체로 만들어 넣는다
-            val shelterEmail= findViewById<TextInputEditText>(R.id.shelter_join_email_jo).toString()
-            val shelterPw = findViewById<TextInputEditText>(R.id.shelter_join_pw_jo)
-            val shelterNm = findViewById<TextInputEditText>(R.id.join_shelterNm_jo)
-            val phone = findViewById<TextInputEditText>(R.id.join_phone_jo)
-            val shelterLoc = findViewById<TextInputEditText>(R.id.join_shelterLoc_jo)
-            val data = Shelter_Signup(shelterEmail, shelterPw.text.toString(), shelterNm.text.toString(),phone.text.toString(),shelterLoc.text.toString(),"img","123")
+            val shelterEmail= findViewById<TextInputEditText>(R.id.shelter_join_email_jo).text.toString()
+            val shelterPw = findViewById<TextInputEditText>(R.id.shelter_join_pw_jo).text.toString()
+            val shelterNm = findViewById<TextInputEditText>(R.id.join_shelterNm_jo).text.toString()
+            val phone = findViewById<TextInputEditText>(R.id.join_phone_jo).text.toString()
+            val shelterLoc = findViewById<TextInputEditText>(R.id.join_shelterLoc_jo).text.toString()
+            val data = Shelter_Signup(shelterEmail, shelterPw, shelterNm,phone,shelterLoc,"img","img")
             startActivity(intent)
 
             // 보호소 이메일 데이터 전달
