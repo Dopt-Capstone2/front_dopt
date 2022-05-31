@@ -370,7 +370,107 @@ class JoinActivity : AppCompatActivity() {
                 }
                 )
 
-            
+            //Preference 정보 GET
+            //사용자가 등록한 preference의 list를 get합니다.
+            var GET_Preference_Response = MutableLiveData<Preference_List>()
+            RetrofitClient.Preference_instance.GET_Preference("123@123")
+                .enqueue(object: Callback <Preference_List> {
+                    override fun onFailure(call: Call<Preference_List>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "Get P failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<Preference_List>, response: Response<Preference_List>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "Get P succeeded")
+                        Log.d(TAG, response.body().toString())
+
+                        //지정한 데이터 클래스 객체로 저장
+                        GET_Preference_Response.value = response.body() as Preference_List
+                        // 값을 복사
+                        val GET_PreferenceRaw = GET_Preference_Response.value?.copy()
+                        // 데이터 클래스들의 배열 출력
+                        Log.d("GET_PreferenceRaw", GET_PreferenceRaw.toString())
+                        //요소별 접근
+                        //response의 각 데이터 클래스 접근
+                        if (GET_PreferenceRaw != null) {
+                            Log.d("Preference", GET_PreferenceRaw.Preference[0].toString())
+                        }
+                    }
+                }
+                )
+
+            //Prefernece 정보 POST
+            val POST_Preference_Data = Preference("21번째 선호도", "123@123", "고양이", "2022년 생", "M", "하양색", "고양이")
+            RetrofitClient.Preference_instance.POST_Preference(POST_Preference_Data)
+                .enqueue(object: Callback <PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "Post P failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "Post P succeeded")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+                )
+
+            //Preference DELETE
+            //지우려는 데이터를 Preference_Delete 서식에 맞게 넣어줍니다.
+            val DELETE_Preference_Data = Preference_Delete("21번째 선호도", "123@123")
+            RetrofitClient.Preference_instance.DELETE_Preference(DELETE_Preference_Data)
+                .enqueue(object: Callback <PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "Delete P failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "Delete P succeeded")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+                )
+
+            //Preference UPDATE
+            //name과 userEmail을 primary key로 받아 모든 정보를 수정
+            //careNm은 사용하지 않으나 데이터 형식상 필요
+            val UPDATE_Preference_Data = Preference("21번째 선호도", "123@123", "개", "2022년 생", "M", "검은색", "개")
+            RetrofitClient.Preference_instance.UPDATE_Preference(UPDATE_Preference_Data)
+                .enqueue(object: Callback <PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "UPDATE P failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "UPDATE P succeeded")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+                )
+
+
 
         }
 
