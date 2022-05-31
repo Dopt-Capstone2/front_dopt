@@ -22,6 +22,7 @@
                 android:id="@+id/login_email_jo"
                 android:hint="이메일"
                 android:padding="10dp"
+                android:textColor="@color/black"
                 android:background="@drawable/profile_radius"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,6 +37,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/login_pw_jo"
                 android:hint="비밀번호"
+                android:textColor="@color/black"
                 android:padding="10dp"
                 android:background="@drawable/profile_radius"
                 android:layout_width="match_parent"
