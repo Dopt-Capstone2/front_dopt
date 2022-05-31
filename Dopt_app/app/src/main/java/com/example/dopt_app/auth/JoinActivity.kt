@@ -343,36 +343,34 @@ class JoinActivity : AppCompatActivity() {
             //MatchAPI
             //MainActivity의 matchfragment 호출부에 있습니다.
 
+            //Monthly Statistics API
+            var Monthly_Statistics_Response = MutableLiveData<Monthly_Statistics>()
+            RetrofitClient.Monthly_Statistics__instance.GET_Monthly_Statistics()
+                .enqueue(object: Callback<Monthly_Statistics> {
+                    override fun onFailure(call: Call<Monthly_Statistics>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<Monthly_Statistics>, response: Response<Monthly_Statistics>) {
+                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "succeeded")
+                        Log.d(TAG, response.body().toString())
+                        Monthly_Statistics_Response.value = response.body() as Monthly_Statistics
+                        // 값을 복사
+                        val Monthly_Statistics_Raw = Monthly_Statistics_Response.value?.copy()
+                        // 데이터 클래스들의 배열 출력
+                        Log.d("Monthly_Statistics_Raw", Monthly_Statistics_Raw.toString())
+                        //요소별 접근
+                        //response의 각 데이터 클래스 접근
+                        if (Monthly_Statistics_Raw != null) {
+                            Log.d("Monthly_Statistics_", Monthly_Statistics_Raw.data[0].toString())
+                        }
+                    }
+                }
+                )
 
-
-
-
-//            //통계 데이터 불러오기
-//            var Monthly_Statistics_Response = MutableLiveData<Monthly_Statistics>()
-//            RetrofitClient.Monthly_Statistics__instance.GET_Monthly_Statistics()
-//                .enqueue(object: Callback<Monthly_Statistics> {
-//                    override fun onFailure(call: Call<Monthly_Statistics>, t: Throwable) {
-//                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
-//                        Log.d(TAG, "failed")
-//                        Log.d(TAG, t.message.toString())
-//                    }
-//                    override fun onResponse(call: Call<Monthly_Statistics>, response: Response<Monthly_Statistics>) {
-//                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
-//                        Log.d(TAG, "succeeded")
-//                        Log.d(TAG, response.body().toString())
-//                        Monthly_Statistics_Response.value = response.body() as Monthly_Statistics
-//                        // 값을 복사
-//                        val Monthly_Statistics_Raw = Monthly_Statistics_Response.value?.copy()
-//                        // 데이터 클래스들의 배열 출력
-//                        Log.d("Monthly_Statistics_Raw", Monthly_Statistics_Raw.toString())
-//                        //요소별 접근
-//                        //response의 각 데이터 클래스 접근
-//                        if (Monthly_Statistics_Raw != null) {
-//                            Log.d("Monthly_Statistics_", Monthly_Statistics_Raw.data[0].toString())
-//                        }
-//                    }
-//                }
-//                )
+            
 
         }
 
