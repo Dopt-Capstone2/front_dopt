@@ -12,7 +12,7 @@ data class Checklist (
 //- 입양으로 인한 경제적 부담을 짊어질 의사와 능력이 있습니까?
 //- 우리 집에서 키우는 다른 동물과 잘 어울릴 수 있을까요?
 //- 우리 집에서 키우는 다른 동물과 잘 어울릴 수 있을까요?
-    
+
     val userEmail: String,
     val q1: Int,
     val q2: Int,
@@ -26,5 +26,4 @@ data class Checklist (
     val q10: Int,
     val q11: Int,
     val q12: Int
-)
 )
