@@ -30,6 +30,7 @@ class JoinActivity : AppCompatActivity() {
 
         val joinBtn = findViewById<Button>(R.id.joinBtn)
         joinBtn.setOnClickListener{
+            val intent = Intent(this, CheckListActivity::class.java)
 //            //모든 더미데이터는 userEmail: 123@123에 있습니다.
 //            //아래 예시에 적은 모든 파라미터값은 더미데이터이며 실제 로직과 다를 수 있습니다.
 
