@@ -46,7 +46,7 @@ class JoinActivity : AppCompatActivity() {
 //                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
 //                        // Log.d(TAG, "Request Failed start")
 //                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
-//                        Log.d(TAG, "failed")
+//                        Log.d(TAG, "POST U failed")
 //                        Log.d(TAG, t.message.toString())
 //                        // Log.d(TAG, "Request Failed end")
 //                    }
@@ -55,7 +55,7 @@ class JoinActivity : AppCompatActivity() {
 //                        // Log.d(TAG, response.body().toString())
 //                        // Log.d(TAG, "Request successful end")
 //                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
-//                        Log.d(TAG, "successed")
+//                        Log.d(TAG, "POST U succeeded")
 //                        Log.d(TAG, response.body().toString())
 //                    }
 //                }
@@ -67,12 +67,12 @@ class JoinActivity : AppCompatActivity() {
                 .enqueue(object: Callback <User_Signup> {
                     override fun onFailure(call: Call<User_Signup>, t: Throwable) {
                         Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "failed")
+                        Log.d(TAG, "GET U failed")
                         Log.d(TAG, t.message.toString())
                     }
                     override fun onResponse(call: Call<User_Signup>, response: Response<User_Signup>) {
                         Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "succeeded")
+                        Log.d(TAG, "GET U succeeded")
                         Log.d(TAG, response.body().toString())
                     }
                 }
@@ -86,7 +86,7 @@ class JoinActivity : AppCompatActivity() {
                     override fun onFailure(call: Call<PostResult>, t: Throwable) {
                         // Log.d(TAG, "Request Failed start")
                         Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "UPDATE USfailed")
+                        Log.d(TAG, "UPDATE US failed")
                         Log.d(TAG, t.message.toString())
                     }
                     override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
@@ -465,6 +465,64 @@ class JoinActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                         Log.d(TAG, "UPDATE P succeeded")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+                )
+
+            //Shelter_Signup POST
+            val POST_Shelter_Signup_Data = Shelter_Signup("321@321", "321@321", "321", "010-321-321", "서울특별시", "img.jpg", "shelterimg.jpg")
+            RetrofitClient.Shelter_Signup_instance.POST_Shelter_Signup(POST_Shelter_Signup_Data)
+                .enqueue(object: Callback<PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+                        // Log.d(TAG, "Request Failed start")
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "POST S failed")
+                        Log.d(TAG, t.message.toString())
+                        // Log.d(TAG, "Request Failed end")
+                    }
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                        // Log.d(TAG,"Request successful start")
+                        // Log.d(TAG, response.body().toString())
+                        // Log.d(TAG, "Request successful end")
+                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "POST S succeeded")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+            )
+
+            //Shelter_Signup GET
+            //파라미터로 자신의 이메일을 넣는다
+            RetrofitClient.Shelter_Signup_instance.GET_Shelter_Signup("321@321")
+                .enqueue(object: Callback <Shelter_Signup> {
+                    override fun onFailure(call: Call<Shelter_Signup>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "GET S failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<Shelter_Signup>, response: Response<Shelter_Signup>) {
+                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "GET S succeeded")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+                )
+
+            //사용자 정보 UPDATE
+            //ShelterEmail을 primarykey로 모든 정보를 수정합니다.
+            var UPDATE_Shelter_Signup_Data = Shelter_Signup("321@321", "321@321", "321", "010-3333-3333", "서울특별시", "img.jpg", "shelterimg.jpg")
+            RetrofitClient.Shelter_Signup_instance.UPDATE_Shelter_Signup(UPDATE_Shelter_Signup_Data)
+                .enqueue(object: Callback<PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+                        // Log.d(TAG, "Request Failed start")
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "UPDATE SS failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "UPDATE SS succeeded")
                         Log.d(TAG, response.body().toString())
                     }
                 }
