@@ -2,19 +2,29 @@ package com.example.dopt_app.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.telecom.Call
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dopt_app.BaseActivity
 import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
+import com.example.dopt_app.api.RetrofitClient
+import com.example.dopt_app.data.PostResult
 import com.example.dopt_app.data.Preference
 import com.example.dopt_app.databinding.ActivityPrefergenderBinding
 import kotlinx.android.synthetic.main.activity_prefergender.*
+import javax.security.auth.callback.Callback
+import okhttp3.OkHttpClient
+import retrofit2.Response
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.Retrofit
+import java.util.concurrent.TimeUnit
 
 class PrefergenderActivity : BaseActivity<ActivityPrefergenderBinding>(ActivityPrefergenderBinding::inflate) , View.OnClickListener{
-    private lateinit var dogInfo : String
-    private var dogSex : String = "0"
+    private lateinit var preferInfo : String
+    private var itemSex : String = "0"
 
     override fun initAfterBinding() {
 
@@ -23,8 +33,8 @@ class PrefergenderActivity : BaseActivity<ActivityPrefergenderBinding>(ActivityP
         binding.genderMBtn.setOnClickListener(this)
         binding.genderFBtn.setOnClickListener(this)
         intent?.let {
-            it.getStringExtra("dogInfo")?.let{ content->
-                dogInfo=content
+            it.getStringExtra("preferInfo")?.let{ content->
+                preferInfo=content
             }
         }
     }
@@ -37,13 +47,13 @@ class PrefergenderActivity : BaseActivity<ActivityPrefergenderBinding>(ActivityP
 
             binding.genderMBtn ->
             {
-                dogSex="0"
+                itemSex="0"
                 binding.genderMBtn.setImageResource(R.drawable.m_on)
                 binding.genderFBtn.setImageResource(R.drawable.f_off)
 
             }
             binding.genderFBtn -> {
-                dogSex="1"
+                itemSex="1"
                 binding.genderMBtn.setImageResource(R.drawable.m_off)
                 binding.genderFBtn.setImageResource(R.drawable.f_on)
 
@@ -56,7 +66,7 @@ class PrefergenderActivity : BaseActivity<ActivityPrefergenderBinding>(ActivityP
     }
 
     private fun getDogInfo() : Preference {
-        val token = dogInfo.split(",")
+        val token = preferInfo.split(",")
         var name : String = token[0]
         var userEmail : String = token[1]
         var age : String = token[2]
@@ -78,12 +88,35 @@ class PrefergenderActivity : BaseActivity<ActivityPrefergenderBinding>(ActivityP
 
     }
 
-//    private fun dogInfo() {
+    private fun dogInfo() {
+
+
+        val data = Preference(
+            getDogInfo().name,
+            getDogInfo().userEmail,
+            getDogInfo().breed,
+            getDogInfo().age,
+            getDogInfo().sex,
+            getDogInfo().color,
+            getDogInfo().type
+        )
+
+//        RetrofitClient.Preference_instance.POST_Preference(data)
+//            .enqueue(object : Callback<PostResult> {
+//                override fun onFailure(call: Call<PostResult>, t: Throwable) {
+//                    Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+//                }
 //
-//        DogService.dogInfo(this,getDogInfo())
+//                override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+//                    Toast.makeText(
+//                        applicationContext,
+//                        response.body().toString(),
+//                        Toast.LENGTH_LONG
+//                    ).show()
+//                }
 //
-//    }
-//
+//            })
+
 //    override fun onDogInfoLoading() {
 //
 //    }
@@ -102,4 +135,5 @@ class PrefergenderActivity : BaseActivity<ActivityPrefergenderBinding>(ActivityP
 //
 //    }
 
-}
+    }}
+
