@@ -1,20 +1,31 @@
 package com.example.dopt_app.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.databinding.FragmentHomeBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.dopt_app.*
+import com.example.dopt_app.data.Monthly_Statistics
 import com.example.dopt_app.data.Share
 import com.example.dopt_app.share.WriteShareFragment
 import com.google.gson.Gson
 import java.util.ArrayList
+import com.example.dopt_app.api.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class HomeFragment : Fragment() {
+    private val TAG = "HomeFragment"
+
 
     lateinit var binding: FragmentHomeBinding
     private var shareDatas = ArrayList<Share>()
@@ -26,6 +37,7 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        getMonthly()
 
         shareDatas.apply {
             add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
@@ -82,5 +94,34 @@ class HomeFragment : Fragment() {
                 }
             })
             .commitAllowingStateLoss()
+    }
+
+    private fun getMonthly(){
+        //Monthly Statistics API
+            var Monthly_Statistics_Response = MutableLiveData<Monthly_Statistics>()
+            RetrofitClient.Monthly_Statistics__instance.GET_Monthly_Statistics()
+                .enqueue(object: Callback<Monthly_Statistics> {
+                    override fun onFailure(call: Call<Monthly_Statistics>, t: Throwable) {
+                        // Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<Monthly_Statistics>, response: Response<Monthly_Statistics>) {
+                        // Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "succeeded")
+                        Log.d(TAG, response.body().toString())
+                        Monthly_Statistics_Response.value = response.body() as Monthly_Statistics
+                        // 값을 복사
+                        val Monthly_Statistics_Raw = Monthly_Statistics_Response.value?.copy()
+                        // 데이터 클래스들의 배열 출력
+                        Log.d("Monthly_Statistics_Raw", Monthly_Statistics_Raw.toString())
+                        //요소별 접근
+                        //response의 각 데이터 클래스 접근
+                        if (Monthly_Statistics_Raw != null) {
+                            Log.d("Monthly_Statistics_", Monthly_Statistics_Raw.data[0].toString())
+                        }
+                    }
+                }
+                )
     }
 }
