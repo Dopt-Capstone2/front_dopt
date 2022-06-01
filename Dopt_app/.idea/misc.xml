@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.28229166666666666" />
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.28229166666666666" />
         <entry key="../Dopt_app/app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="../Dopt_app/app/src/main/res/layout/fragment_match.xml" value="0.33177083333333335" />
         <entry key="../Dopt_app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.33177083333333335" />
@@ -25,6 +26,7 @@
         <entry key="app/src/main/res/drawable/border_radius_white.xml" value="0.17962962962962964" />
         <entry key="app/src/main/res/drawable/btm_color_selector.xml" value="0.14907407407407408" />
         <entry key="app/src/main/res/drawable/btn_color_selector.xml" value="0.14537037037037037" />
+        <entry key="app/src/main/res/drawable/checkbox_selector.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/divider.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/gray_all_border.xml" value="0.17962962962962964" />
         <entry key="app/src/main/res/drawable/gray_all_line_radius.xml" value="0.13055555555555556" />
@@ -49,7 +51,7 @@
         <entry key="app/src/main/res/drawable/yello_radius.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/yellow_bot_radius.xml" value="0.22777777777777777" />
         <entry key="app/src/main/res/layout/activity_card_info.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_checklist.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_checklist.xml" value="0.21774193548387097" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_join.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
@@ -58,10 +60,11 @@
         <entry key="app/src/main/res/layout/activity_popup1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_popup_profile_done.xml" value="0.27794561933534745" />
         <entry key="app/src/main/res/layout/activity_prefer.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_preferage.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_preferbread.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_prefercolor.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_prefergender.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_prefersize.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_prefercolor.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_prefergender.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_prefersize.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_shelter_join.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_shelter_main.xml" value="0.28229166666666666" />
@@ -93,7 +96,7 @@
         <entry key="app/src/main/res/layout/item_shelter_animal.xml" value="0.2427536231884058" />
         <entry key="app/src/main/res/layout/item_shelter_match.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/item_small_animal.xml" value="0.11594202898550725" />
-        <entry key="app/src/main/res/layout/item_spinner.xml" value="0.14990942028985507" />
+        <entry key="app/src/main/res/layout/item_spinner.xml" value="0.335" />
         <entry key="app/src/main/res/layout/popup_button.xml" value="0.20380434782608695" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/shelter_nav_menu.xml" value="0.28229166666666666" />
