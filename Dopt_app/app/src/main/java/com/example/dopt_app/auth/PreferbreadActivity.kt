@@ -4,76 +4,99 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dopt_app.BaseActivity
 import com.example.dopt_app.R
+import com.example.dopt_app.api.RetrofitClient
+import com.example.dopt_app.data.PostResult
+import com.example.dopt_app.data.Preference
 import com.example.dopt_app.databinding.ActivityPreferBinding
 import com.example.dopt_app.databinding.ActivityPreferbreadBinding
+import kotlinx.android.synthetic.main.activity_prefer.*
 import kotlinx.android.synthetic.main.activity_preferbread.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class PreferbreadActivity : BaseActivity<ActivityPreferbreadBinding>(ActivityPreferbreadBinding::inflate), View.OnClickListener{
+class PreferbreadActivity : AppCompatActivity() {
 
-    private lateinit var preferInfo : String
+    private val TAG = "PreferbreadActivity"
+    lateinit var binding: ActivityPreferBinding
+
+    private lateinit var emailInfo : String
+    private lateinit var preferKind : String
     private lateinit var breed : String
-
-    override fun initAfterBinding() {
-        binding.breedPreviousBtn.setOnClickListener(this)
-        binding.breedNextBtn.setOnClickListener(this)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityPreferBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        intent?.let {
-            it.getStringExtra("breedInfo")?.let{ content->
-                preferInfo=content
-            }
+        intent.hasExtra("userEmail")
+        intent.hasExtra("kind")
+        emailInfo = intent.getStringExtra("userEmail").toString()
+        preferKind = intent.getStringExtra("kind").toString()
+        Log.d(TAG, emailInfo)
+        Log.d(TAG, preferKind)
+
+        val breedPreviousBtn = findViewById<TextView>(R.id.breed_previous_btn)
+        val breedNextBtn = findViewById<TextView>(R.id.breed_next_btn)
+        breedSpinner()
+
+        breedNextBtn.setOnClickListener {
+            val intent = Intent(this, PrefercolorActivity::class.java)
+            //Preference UPDATE
+            //name과 userEmail을 primary key로 받아 모든 정보를 수정
+            //careNm은 사용하지 않으나 데이터 형식상 필요
+            val UPDATE_Preference_Data = Preference("선호도 정보", emailInfo, preferKind, "2022년 생", "M", "하양색", breed)
+            RetrofitClient.Preference_instance.UPDATE_Preference(UPDATE_Preference_Data)
+                .enqueue(object: Callback <PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "UPDATE P failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "UPDATE P succeeded")
+                        Log.d(TAG, response.body().toString())
+                        startActivity(intent)
+                    }
+                }
+                )
         }
 
-        preferSpinner()
+        breedPreviousBtn.setOnClickListener {
+            val intent = Intent(this, PreferActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
-    private fun preferSpinner() {
-        binding.dogBreedSp.adapter=
+    private fun breedSpinner(){
+        val typeSpinner = dogPrefer_kind_sp.findViewById<Spinner>(R.id.dog_breed_sp)
 
-            ArrayAdapter.createFromResource(this, R.array.bread_cat,android.R.layout.simple_spinner_dropdown_item)
+        if(preferKind == "개"){
+            typeSpinner.adapter= ArrayAdapter.createFromResource(dogPrefer_kind_sp.context, R.array.bread_dog,R.layout.item_spinner)
+        }else if (preferKind == "고양이"){
+            typeSpinner.adapter= ArrayAdapter.createFromResource(dogPrefer_kind_sp.context, R.array.bread_cat,R.layout.item_spinner)
+        }
 
-        binding.dogBreedSp.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                breed=binding.dogBreedSp.selectedItem.toString()
+        typeSpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                breed = typeSpinner.selectedItem.toString()
+                startActivity(intent)
+                intent.putExtra("preferBreed",breed)
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
 
             }
         }
-
-    }
-
-    override fun onClick(v: View?) {
-        if(v == null) return
-
-        when(v) {
-            binding.breedPreviousBtn -> startActivityWithClear(JoinActivity::class.java)
-            binding.breedNextBtn -> breed()
-
-        }
-    }
-
-    private fun breed() {
-        if (breed.isEmpty()) {
-            Toast.makeText(this, "선호하는 동물이 선택되지 않았습니다.", Toast.LENGTH_SHORT).show()
-            return
-        }
-        breed += ","
-        preferInfo += breed
-        val intent = Intent(this,PrefercolorActivity::class.java)
-        intent.putExtra("preferInfo",preferInfo)
-        Log.d("PREFERINFO",preferInfo)
-        startActivity(intent)
 
     }
 }
