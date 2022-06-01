@@ -1,32 +1,28 @@
 package com.example.dopt_app.match
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dopt_app.MainActivity
+import com.bumptech.glide.Glide
 import com.example.dopt_app.R
-import com.example.dopt_app.api.RetrofitClient.Match_instance
-import com.example.dopt_app.data.Item
-import com.example.dopt_app.data.PostResult
+import com.example.dopt_app.data.Bookmark
 import kotlinx.android.synthetic.main.item_card.view.*
 import retrofit2.http.GET
 import javax.security.auth.callback.Callback
 
 class CardStackAdapter(
     val context: Context,
-    val items: List<Item>
+    val items: MutableList<Bookmark>
     ):
     RecyclerView.Adapter<CardStackAdapter.ViewHolder>() {
 
     // 클릭 인터페이스 정의
     interface MoreClickListener{
-        fun onItemClick(v:View, items: Item)
+        fun onItemClick(v:View, items: Bookmark)
     }
 
     // 리스너 객체를 전달받는 함수랑 리스너 객체를 저장할 변수
@@ -45,7 +41,7 @@ class CardStackAdapter(
 
     //데이터를 넣어주는 부분
     override fun onBindViewHolder(holder: CardStackAdapter.ViewHolder, position: Int) {
-        val item = items[position]
+        holder.binding(items[position])
         // holder.itemView.setOnClickListener { moreClickListener.onItemClick(items [position]) }
     }
 
@@ -64,26 +60,27 @@ class CardStackAdapter(
 
         // val btn = itemView.findViewById<TextView>(R.id.item_more_info)
 
-        fun binding(items : Item){
-/*            val getItems = Match_instance.GET_Match().enqueue(object : Callback<>, t: Throwable) {
-                        Log.d(TAG, "Request Failed start")
-                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "failed")
-                        Log.d(TAG, t.message.toString())
-                        Log.d(TAG, "Request Failed end")
-                    }*/
+        fun binding(items: Bookmark){
+
+            val imgUrl = items.filename
+            Glide.with(context).load(imgUrl).into(image)
+
+            kind.text=items.kindCd
+            processState.text=items.processState
+            sexCd.text=items.sexCd
+            age.text=items.age
+            careNm.text=items.careNm
 
 
-            itemView.setOnClickListener{
+
+//            itemView.setOnClickListener{
 //                Intent(context, CardInfoActivity::class.java).apply {
 //                    putExtra("data", items)
 //                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 //                }.run { context.startActivity(this) }
-
-            }
-
+//
+//            }
         }
-
     }
 
 
