@@ -37,19 +37,12 @@
                 android:layout_gravity="center_vertical"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="10dp">
-                <ImageView
-                    android:id="@+id/check_1"
+                <CheckBox
+                    android:id="@+id/checkbox_1"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/check"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/uncheck_1"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/uncheck"
+                    android:background="@drawable/checkbox_selector"
+                    android:button="@null"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
                 <TextView
@@ -61,7 +54,7 @@
                     android:textSize="10sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="5dp"
-                    app:layout_constraintStart_toEndOf="@id/uncheck_1"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_1"
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -70,19 +63,12 @@
                 android:layout_height="match_parent"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="10dp">
-                <ImageView
-                    android:id="@+id/check_2"
+                <CheckBox
+                    android:id="@+id/checkbox_2"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/check"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/uncheck_2"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/uncheck"
+                    android:background="@drawable/checkbox_selector"
+                    android:button="@null"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
                 <TextView
@@ -94,7 +80,7 @@
                     android:textSize="10sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="30dp"
-                    app:layout_constraintStart_toEndOf="@id/uncheck_2"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_2"
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -102,19 +88,12 @@
                 android:layout_height="match_parent"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="10dp">
-                <ImageView
-                    android:id="@+id/check_3"
+                <CheckBox
+                    android:id="@+id/checkbox_3"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/check"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/uncheck_3"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/uncheck"
+                    android:background="@drawable/checkbox_selector"
+                    android:button="@null"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
                 <TextView
@@ -126,7 +105,7 @@
                     android:textSize="10sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="30dp"
-                    app:layout_constraintStart_toEndOf="@id/uncheck_3"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_3"
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -134,19 +113,12 @@
                 android:layout_height="match_parent"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="10dp">
-                <ImageView
-                    android:id="@+id/check_4"
+                <CheckBox
+                    android:id="@+id/checkbox_4"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/check"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/uncheck_4"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/uncheck"
+                    android:background="@drawable/checkbox_selector"
+                    android:button="@null"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
                 <TextView
@@ -158,7 +130,7 @@
                     android:textSize="10sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="30dp"
-                    app:layout_constraintStart_toEndOf="@id/uncheck_4"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_4"
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -166,19 +138,12 @@
                 android:layout_height="match_parent"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="10dp">
-                <ImageView
-                    android:id="@+id/check_5"
+                <CheckBox
+                    android:id="@+id/checkbox_5"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/check"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/uncheck_5"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/uncheck"
+                    android:background="@drawable/checkbox_selector"
+                    android:button="@null"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
                 <TextView
@@ -190,7 +155,7 @@
                     android:textSize="10sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="30dp"
-                    app:layout_constraintStart_toEndOf="@id/uncheck_5"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_5"
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -198,19 +163,12 @@
                 android:layout_height="match_parent"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="10dp">
-                <ImageView
-                    android:id="@+id/check_6"
+                <CheckBox
+                    android:id="@+id/checkbox_6"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/check"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/uncheck_6"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/uncheck"
+                    android:background="@drawable/checkbox_selector"
+                    android:button="@null"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
                 <TextView
@@ -222,7 +180,7 @@
                     android:textSize="10sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="30dp"
-                    app:layout_constraintStart_toEndOf="@id/uncheck_6"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_6"
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -231,21 +189,14 @@
             android:layout_height="match_parent"
             android:paddingHorizontal="10dp"
             android:paddingVertical="10dp">
-            <ImageView
-                android:id="@+id/check_7"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/check"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:visibility="invisible"/>
-            <ImageView
-                android:id="@+id/uncheck_7"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/uncheck"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                <CheckBox
+                    android:id="@+id/checkbox_7"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/checkbox_selector"
+                    android:button="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
             <TextView
                 android:id="@+id/check_7_tx"
                 android:layout_width="match_parent"
@@ -255,7 +206,7 @@
                 android:textSize="10sp"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
-                app:layout_constraintStart_toEndOf="@id/uncheck_7"
+                app:layout_constraintStart_toEndOf="@id/checkbox_7"
                 app:layout_constraintTop_toTopOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -263,19 +214,12 @@
                 android:layout_height="match_parent"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="10dp">
-                <ImageView
-                    android:id="@+id/check_8"
+                <CheckBox
+                    android:id="@+id/checkbox_8"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/check"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/uncheck_8"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/uncheck"
+                    android:background="@drawable/checkbox_selector"
+                    android:button="@null"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
                 <TextView
@@ -287,7 +231,7 @@
                     android:textSize="10sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="30dp"
-                    app:layout_constraintStart_toEndOf="@id/uncheck_8"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_8"
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -295,19 +239,12 @@
                 android:layout_height="match_parent"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="10dp">
-                <ImageView
-                    android:id="@+id/check_9"
+                <CheckBox
+                    android:id="@+id/checkbox_9"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/check"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/uncheck_9"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/uncheck"
+                    android:background="@drawable/checkbox_selector"
+                    android:button="@null"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
                 <TextView
@@ -319,7 +256,7 @@
                     android:textSize="10sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="30dp"
-                    app:layout_constraintStart_toEndOf="@id/uncheck_9"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_9"
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -327,19 +264,12 @@
                 android:layout_height="match_parent"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="10dp">
-                <ImageView
-                    android:id="@+id/check_10"
+                <CheckBox
+                    android:id="@+id/checkbox_10"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/check"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="invisible"/>
-                <ImageView
-                    android:id="@+id/uncheck_10"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/uncheck"
+                    android:background="@drawable/checkbox_selector"
+                    android:button="@null"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
                 <TextView
@@ -351,7 +281,7 @@
                     android:textSize="10sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="30dp"
-                    app:layout_constraintStart_toEndOf="@id/uncheck_10"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_10"
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -359,7 +289,7 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/profile_finish_btn"
+            android:id="@+id/go_prefer_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
