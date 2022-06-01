@@ -47,8 +47,8 @@ class JoinActivity : AppCompatActivity() {
 
             val data = User_Signup(userEmail, userPw,"nick" ,userLoc,userNm)
 
-            startActivity(intent)
             intent.putExtra("userEmail",userEmail)
+            startActivity(intent)
 
             Log.d(TAG, "clicked join btn!!!")
             Log.d(TAG, data.toString())
@@ -653,11 +653,7 @@ class JoinActivity : AppCompatActivity() {
 
         }
 
-        val shelterJoinBtn = findViewById<Button>(R.id.shelterJoinBtn)
-        shelterJoinBtn.setOnClickListener{
-            val intent = Intent(this, ShelterNameActivity::class.java)
-            startActivity(intent)
-        }
+
 
     }
 }

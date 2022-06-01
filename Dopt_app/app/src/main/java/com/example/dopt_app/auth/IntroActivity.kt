@@ -30,14 +30,14 @@ class IntroActivity : AppCompatActivity() {
 
         val loginBtn = findViewById<Button>(R.id.loginBtn)
         loginBtn.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
+            val emailIntent = Intent(this, MainActivity::class.java)
             val userEmail= findViewById<TextInputEditText>(R.id.login_email_jo).text.toString()
             val userPw = findViewById<TextInputEditText>(R.id.login_pw_jo).text.toString()
 
             Log.d(TAG, "clicked login btn!!!")
             var GET_user_Response = MutableLiveData<User_Signup>()
-            //사용자 정보 GET
-            //파라미터로 자신의 이메일을 넣는다
+//            사용자 정보 GET
+//            파라미터로 자신의 이메일을 넣는다
             RetrofitClient.User_Signup_instance.GET_User_Signup(userEmail)
                 .enqueue(object: Callback <User_Signup> {
                     override fun onFailure(call: Call<User_Signup>, t: Throwable) {
@@ -55,7 +55,8 @@ class IntroActivity : AppCompatActivity() {
                         Log.d("user_UserRaw", GET_user_UserRaw.toString())
                         if (GET_user_UserRaw?.userPw == userPw){
                             Toast.makeText(applicationContext, "로그인 성공", Toast.LENGTH_SHORT).show()
-                            startActivity(intent)
+                            startActivity(emailIntent)
+
                         }else{
                             Toast.makeText(applicationContext, "로그인 실패", Toast.LENGTH_SHORT).show()
                         }
