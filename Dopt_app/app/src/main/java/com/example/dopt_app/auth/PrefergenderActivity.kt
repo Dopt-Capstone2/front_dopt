@@ -4,102 +4,103 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dopt_app.BaseActivity
-import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
+import com.example.dopt_app.api.RetrofitClient
+import com.example.dopt_app.data.PostResult
 import com.example.dopt_app.data.Preference
 import com.example.dopt_app.databinding.ActivityPrefergenderBinding
-import kotlinx.android.synthetic.main.activity_prefergender.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class PrefergenderActivity : BaseActivity<ActivityPrefergenderBinding>(ActivityPrefergenderBinding::inflate) , View.OnClickListener{
-    private lateinit var dogInfo : String
-    private var dogSex : String = "0"
+class PrefergenderActivity : AppCompatActivity(){
+    private val TAG = "PrefercolorActivity"
+    lateinit var binding: ActivityPrefergenderBinding
+    private var gender : String = "M"
 
-    override fun initAfterBinding() {
+    private lateinit var emailInfo : String
+    private lateinit var preferKind : String
+    private lateinit var preferBreed : String
 
-        binding.genderPreviousBtn.setOnClickListener(this)
-        binding.genderNextBtn.setOnClickListener(this)
-        binding.genderMBtn.setOnClickListener(this)
-        binding.genderFBtn.setOnClickListener(this)
-        intent?.let {
-            it.getStringExtra("dogInfo")?.let{ content->
-                dogInfo=content
-            }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityPrefergenderBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        intent.hasExtra("userEmail")
+        intent.hasExtra("kind")
+
+        emailInfo = intent.getStringExtra("userEmail").toString()
+        preferKind = intent.getStringExtra("kind").toString()
+
+        preferBreed = if (intent.hasExtra("breed")){
+            intent.getStringExtra("preferBreed").toString()
+        }else{
+            "기타"
         }
+        Log.d(TAG, emailInfo)
+        Log.d(TAG, preferKind)
+        Log.d(TAG, preferBreed)
+
+
+        val colorPreviousBtn = findViewById<TextView>(R.id.color_previous_btn)
+        val colorNextBtn = findViewById<TextView>(R.id.color_next_btn)
+        genderOnclick(binding.root)
+
+        colorNextBtn.setOnClickListener {
+            val intent = Intent(this, PreferAgeActivity::class.java)
+            //Preference UPDATE
+            //name과 userEmail을 primary key로 받아 모든 정보를 수정
+            //careNm은 사용하지 않으나 데이터 형식상 필요
+            val UPDATE_Preference_Data = Preference("선호도 정보", emailInfo, preferKind, "2022년 생", gender, "color", preferBreed)
+            RetrofitClient.Preference_instance.UPDATE_Preference(UPDATE_Preference_Data)
+                .enqueue(object: Callback<PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "UPDATE P failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "UPDATE P succeeded")
+                        Log.d(TAG, response.body().toString())
+                        intent.putExtra("preferGender",gender)
+                        startActivity(intent)
+                    }
+                }
+                )
+        }
+
+        colorPreviousBtn.setOnClickListener {
+            val intent = if (preferBreed == "기타"){
+                Intent(this, PreferActivity::class.java)
+            }else{
+                Intent(this, PreferbreadActivity::class.java)
+            }
+            startActivity(intent)
+        }
+
     }
 
-    override fun onClick(v: View?) {
+    private fun genderOnclick(v: View?){
         if(v == null) return
-
         when(v) {
-            binding.genderPreviousBtn -> startActivityWithClear(MainActivity::class.java)
-
-            binding.genderMBtn ->
-            {
-                dogSex="0"
-                binding.genderMBtn.setImageResource(R.drawable.m_on)
-                binding.genderFBtn.setImageResource(R.drawable.f_off)
-
+            binding.genderMonBtn -> {
+                gender = "M"
+                binding.genderMonBtn.setImageResource(R.drawable.m_round_on)
+                binding.genderMonBtn.setImageResource(R.drawable.f_round_off)
             }
-            binding.genderFBtn -> {
-                dogSex="1"
-                binding.genderMBtn.setImageResource(R.drawable.m_off)
-                binding.genderFBtn.setImageResource(R.drawable.f_on)
-
-
+            binding.genderFoffBtn -> {
+                gender = "F"
+                binding.genderFoffBtn.setImageResource(R.drawable.m_round_off)
+                binding.genderFoffBtn.setImageResource(R.drawable.f_round_on)
             }
-            //binding.genderNextBtn->dogInfo()
-
-
         }
     }
-
-//    private fun getDogInfo() : Preference {
-//        val token = dogInfo.split(",")
-//        var name : String = token[0]
-//        var userEmail : String = token[1]
-//        var age : String = token[2]
-//        var breed : String = token[3]
-//        var sex : String = token[4]
-//        var color : String = token[5]
-//        var type: String = token[6]
-//
-//        Log.d("INFO_NAME",name)
-//        Log.d("INFO_EMAIL",userEmail)
-//        Log.d("INFO_ITEM_AGE",age)
-//        Log.d("INFO_ITEM_BREED",breed)
-//        Log.d("INFO_ITEM_SEX",sex)
-//        Log.d("INFO_ITEM_AGE",age)
-//        Log.d("INFO_ITEM_COLOR",color)
-//        Log.d("INFO_ITEM_TYPE",type)
-//
-//        return Preference(name, userEmail,age, sex, age, color, type)
-//
-//    }
-
-//    private fun dogInfo() {
-//
-//        DogService.dogInfo(this,getDogInfo())
-//
-//    }
-//
-//    override fun onDogInfoLoading() {
-//
-//    }
-//    override fun onDogInfoSuccess(dogIdx: Dog)
-//    {
-//        Log.d("LOG_SUCCESS","성공")
-//        startActivityWithClear(DogInfoCheckActivity::class.java)
-//    }
-//
-//    override fun onDogInfoFailure(code: Int, message: String) {
-//        when(code) {
-//            6000 -> {
-//                Toast.makeText(this, "강아지 정보가 정확하지 않습니다.", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//
-//    }
-
 }

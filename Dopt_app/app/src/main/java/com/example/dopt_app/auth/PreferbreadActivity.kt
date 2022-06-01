@@ -23,33 +23,34 @@ class PreferbreadActivity : AppCompatActivity() {
 
     private val TAG = "PreferbreadActivity"
     lateinit var binding: ActivityPreferBinding
-
-    private lateinit var emailInfo : String
-    private lateinit var preferKind : String
     private lateinit var breed : String
+
+    private var userEmail : String = "123@123"
+    private var preferKind : String = "개"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPreferBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        intent.hasExtra("userEmail")
-        intent.hasExtra("kind")
-        emailInfo = intent.getStringExtra("userEmail").toString()
-        preferKind = intent.getStringExtra("kind").toString()
-        Log.d(TAG, emailInfo)
-        Log.d(TAG, preferKind)
+        breedSpinner()
 
         val breedPreviousBtn = findViewById<TextView>(R.id.breed_previous_btn)
         val breedNextBtn = findViewById<TextView>(R.id.breed_next_btn)
-        breedSpinner()
 
         breedNextBtn.setOnClickListener {
-            val intent = Intent(this, PrefercolorActivity::class.java)
+            val intent = Intent(this, PrefergenderActivity::class.java)
+
+            intent.hasExtra("userEmail")
+            intent.hasExtra("kind")
+            userEmail = intent.getStringExtra("userEmail").toString()
+            preferKind = intent.getStringExtra("kind").toString()
+            Log.d(TAG, userEmail)
+            Log.d(TAG, preferKind)
+
             //Preference UPDATE
             //name과 userEmail을 primary key로 받아 모든 정보를 수정
             //careNm은 사용하지 않으나 데이터 형식상 필요
-            val UPDATE_Preference_Data = Preference("선호도 정보", emailInfo, preferKind, "2022년 생", "M", "하양색", breed)
+            val UPDATE_Preference_Data = Preference("선호도 정보", userEmail, preferKind, "2022년 생", "M", "하양색", breed)
             RetrofitClient.Preference_instance.UPDATE_Preference(UPDATE_Preference_Data)
                 .enqueue(object: Callback <PostResult> {
                     override fun onFailure(call: Call<PostResult>, t: Throwable) {
@@ -65,6 +66,7 @@ class PreferbreadActivity : AppCompatActivity() {
                         ).show()
                         Log.d(TAG, "UPDATE P succeeded")
                         Log.d(TAG, response.body().toString())
+                        intent.putExtra("preferBreed",breed)
                         startActivity(intent)
                     }
                 }
@@ -75,23 +77,23 @@ class PreferbreadActivity : AppCompatActivity() {
             val intent = Intent(this, PreferActivity::class.java)
             startActivity(intent)
         }
-
     }
 
     private fun breedSpinner(){
+
         val typeSpinner = dogPrefer_kind_sp.findViewById<Spinner>(R.id.dog_breed_sp)
 
-        if(preferKind == "개"){
-            typeSpinner.adapter= ArrayAdapter.createFromResource(dogPrefer_kind_sp.context, R.array.bread_dog,R.layout.item_spinner)
-        }else if (preferKind == "고양이"){
-            typeSpinner.adapter= ArrayAdapter.createFromResource(dogPrefer_kind_sp.context, R.array.bread_cat,R.layout.item_spinner)
-        }
+        typeSpinner.adapter= ArrayAdapter.createFromResource(dogPrefer_kind_sp.context, R.array.bread_dog,R.layout.item_spinner)
+
+//        if(preferKind == "개"){
+//            typeSpinner.adapter= ArrayAdapter.createFromResource(dogPrefer_kind_sp.context, R.array.bread_dog,R.layout.item_spinner)
+//        }else if (preferKind == "고양이"){
+//            typeSpinner.adapter= ArrayAdapter.createFromResource(dogPrefer_kind_sp.context, R.array.bread_cat,R.layout.item_spinner)
+//        }
 
         typeSpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
                 breed = typeSpinner.selectedItem.toString()
-                startActivity(intent)
-                intent.putExtra("preferBreed",breed)
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
 
