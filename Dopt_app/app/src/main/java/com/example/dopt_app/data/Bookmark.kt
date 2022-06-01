@@ -29,6 +29,7 @@ data class Bookmark (
     val sexCd: String,
     val specialMark: String,
     val weight: String,
+
     //0: 북마크에 추가
     //1: 입양 신청 상태
     //2: 입양 허가
