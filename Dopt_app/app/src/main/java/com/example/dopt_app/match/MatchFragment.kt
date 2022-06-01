@@ -143,47 +143,5 @@ class MatchFragment : Fragment()/*, CardStackListener*/ {
         return binding.root
     }
 
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        manager = CardStackLayoutManager(context,this).apply {
-            setSwipeableMethod(SwipeableMethod.AutomaticAndManual)
-            setOverlayInterpolator(LinearInterpolator())
-        }
-
-        //임시로 넣을 문자열 데이터
-        val testList = mutableListOf<String>()
-        testList.add("a")
-        testList.add("b")
-        testList.add("c")
-
-        // cardStackAdapter = CardStackAdapter(context, testList)
-        cardStackView.layoutManager = manager
-        cardStackView.adapter = cardStackAdapter
-        cardStackView.itemAnimator.apply {
-            if(this is DefaultItemAnimator){
-                supportsChangeAnimations = false
-            }
-        }
-    }
-
-
-    override fun onCardDragging(direction: Direction?, ratio: Float) {
-    }
-
-    override fun onCardSwiped(direction: Direction?) {
-    }
-
-    override fun onCardRewound() {
-    }
-
-    override fun onCardCanceled() {
-    }
-
-    override fun onCardAppeared(view: View?, position: Int) {
-    }
-
-    override fun onCardDisappeared(view: View?, position: Int) {
-    }*/
 
 }
