@@ -41,7 +41,7 @@
         android:spinnerMode="dropdown"
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_spinner"
-        android:dropDownWidth="50dp" />
+        android:dropDownWidth="100dp" />
     <ImageView
         android:id="@+id/prefer_btn"
         app:layout_constraintTop_toTopOf="@id/dogPrefer_kind_sp"

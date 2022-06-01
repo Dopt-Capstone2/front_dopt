@@ -40,9 +40,13 @@ class PreferActivity : AppCompatActivity() {
         preferSpinner()
 
         dogbreedNextBtn.setOnClickListener {
-            val intent = Intent(this, PreferbreadActivity::class.java)
+            val intent = if (kind == "기타"){
+                Intent(this, PreferbreadActivity::class.java)
+            }else{
+                Intent(this, PrefercolorActivity::class.java)
+            }
             //Prefernece 정보 POST
-            val POST_Preference_Data = Preference("선호도 정보", emailInfo, kind, "2022년 생", "M", "하양색", "고양이")
+            val POST_Preference_Data = Preference("선호도 정보", emailInfo, kind, "2022년 생", "M", "하양색", "기타")
             RetrofitClient.Preference_instance.POST_Preference(POST_Preference_Data)
                 .enqueue(object : Callback<PostResult> {
                     override fun onFailure(call: Call<PostResult>, t: Throwable) {
@@ -68,16 +72,20 @@ class PreferActivity : AppCompatActivity() {
     }
 
     private fun preferSpinner(){
-        binding.dogPreferKindSp.adapter = ArrayAdapter.createFromResource(this, R.array.kind,android.R.layout.simple_spinner_dropdown_item)
+        val typeSpinner = dogPrefer_kind_sp.findViewById<Spinner>(R.id.dogPrefer_kind_sp)
+        typeSpinner.adapter= ArrayAdapter.createFromResource(dogPrefer_kind_sp.context, R.array.kind,R.layout.item_spinner)
 
-        binding.dogPreferKindSp.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long){
-                kind=binding.dogPreferKindSp.selectedItem.toString()
-                Log.d(TAG, kind)
+        typeSpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                kind = typeSpinner.selectedItem.toString()
+                startActivity(intent)
+                intent.putExtra("preferKind",kind)
+
             }
-            override fun  onNothingSelected(p0: AdapterView<*>?){
+            override fun onNothingSelected(p0: AdapterView<*>?) {
 
             }
         }
+
     }
 }
