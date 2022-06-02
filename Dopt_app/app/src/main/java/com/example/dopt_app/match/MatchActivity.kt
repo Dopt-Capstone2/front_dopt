@@ -1,5 +1,6 @@
 package com.example.dopt_app.match
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -25,8 +26,11 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import com.example.dopt_app.api.RetrofitClient
+import com.example.dopt_app.auth.emailInfo
 import com.example.dopt_app.data.*
+import com.example.dopt_app.matchDatas
 import kotlinx.android.synthetic.main.item_card.*
+import java.time.LocalDate
 
 
 class MatchActivity : AppCompatActivity() {
@@ -39,13 +43,8 @@ class MatchActivity : AppCompatActivity() {
     // 카드스택뷰의 레이아웃 매니져
     lateinit var manager : CardStackLayoutManager
 
-    private var isConsidered : Int = 3
-    private var userEmail : String ="123@123"
-
     // 카드 아이템 안의 정보 recycler view
-    private var cardItems = mutableListOf<Bookmark>()
-
-    private lateinit var itemString : String
+    private var cardItems = mutableListOf<DataX>()
     private var cardCount = 0
 
     var animalResponse_10Days = MutableLiveData<OpenAnimal>()
@@ -56,12 +55,22 @@ class MatchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMatchBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_match)
-
-        getItems()
         initClickListener()
 
-        val cardStackView = findViewById<CardStackView>(R.id.cardStackView)
+        if (matchDatas == null) {
+            Toast.makeText(this@MatchActivity, "아니아니아니", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            Log.d(TAG+"사이즈", matchDatas.data.size.toString())
+            Log.d(TAG+"투스트링", matchDatas.data[0].toString())
 
+            for (i : Int in 0..matchDatas.data.size){
+                cardItems.add(matchDatas.data[i])
+                Log.d(TAG+"들어갔니?", cardItems.toString())
+            }
+        }
+
+        val cardStackView = findViewById<CardStackView>(R.id.cardStackView)
 
         manager= CardStackLayoutManager(baseContext, object: CardStackListener{
             override fun onCardDragging(direction: Direction?, ratio: Float) {
@@ -72,83 +81,50 @@ class MatchActivity : AppCompatActivity() {
                     itemLike(cardCount)
 
                 }else if (direction==Direction.Left){
-
-                }else if (direction==Direction.Top){
-
+                    Toast.makeText(this@MatchActivity, "NOPE", Toast.LENGTH_SHORT).show()
                 }
+//                else if (direction==Direction.Top){
+//                }
                 cardCount += 1
-
             }
 
             override fun onCardRewound() {
             }
-
             override fun onCardCanceled() {
             }
-
             override fun onCardAppeared(view: View?, position: Int) {
-
             }
-
             override fun onCardDisappeared(view: View?, position: Int) {
-
             }
         })
 
 //        cardItems.apply {
 //            getAnimalData_10Days()
-//            add(
-//                Item("2022(년생)",
+//            add( Item("2022(년생)",
 //                "경상남도 거제시 사등면 두동로1길 109 (사등면, 한국자원재생공사폐비닐적재장) 거제시유기동물보호소",
-//            "거제시유기동물보호소",
-//            "055-639-6368",
-//            "김부근",
-//            "연갈색 줄무늬",
-//            "448537202200425",
-//            "http://www.animal.go.kr/files/shelter/2022/04/202205231405234_s.jpg",
-//            20220523,
-//            "일운면 스타힐스",
-//            "[고양이] 한국 고양이",
-//            "N",
-//            20220602,
-//            "경남-거제-2022-00348",
-//            20220523,
-//            "055-639-6366",
-//            "경상남도 거제시",
+//            "거제시유기동물보호소","055-639-6368","김부근",
+//            "연갈색 줄무늬","448537202200425",
+//            "http://www.animal.go.kr/files/shelter/2022/04/202205231405234_s.jpg",20220523,
+//            "일운면 스타힐스","[고양이] 한국 고양이","N",20220602,"경남-거제-2022-00348",
+//            20220523,"055-639-6366","경상남도 거제시",
 //            "http://www.animal.go.kr/files/shelter/2022/04/202205231405234.jpg",
-//            "보호중",
-//            "Q",
-//            "허피스증세",
-//            "0.2(Kg)"
-//                )
+//            "보호중","Q","허피스증세","0.2(Kg)"
+//              )
 //            )
-//            add(
-//                Item("2022(년생)",
-//                    "경상남도 거제시 사등면 두동로1길 109 (사등면, 한국자원재생공사폐비닐적재장) 거제시유기동물보호소",
-//                    "거제시유기동물보호소",
-//                    "055-639-6368",
-//                    "김부근",
-//                    "연갈색 줄무늬",
-//                    "448537202200425",
-//                    "http://www.animal.go.kr/files/shelter/2022/04/202205231405234_s.jpg",
-//                    20220523,
-//                    "일운면 스타힐스",
-//                    "[고양이] 한국 고양이",
-//                    "N",
-//                    20220602,
-//                    "경남-거제-2022-00348",
-//                    20220523,
-//                    "055-639-6366",
-//                    "경상남도 거제시",
-//                    "http://www.animal.go.kr/files/shelter/2022/04/202205231405234.jpg",
-//                    "보호중",
-//                    "Q",
-//                    "허피스증세",
-//                    "0.2(Kg)"
-//                )
-//            )
+//            add( Item("2022(년생)",
+////                "경상남도 거제시 사등면 두동로1길 109 (사등면, 한국자원재생공사폐비닐적재장) 거제시유기동물보호소",
+////            "거제시유기동물보호소","055-639-6368","김부근",
+////            "연갈색 줄무늬","448537202200425",
+////            "http://www.animal.go.kr/files/shelter/2022/04/202205231405234_s.jpg",20220523,
+////            "일운면 스타힐스","[고양이] 한국 고양이","N",20220602,"경남-거제-2022-00348",
+////            20220523,"055-639-6366","경상남도 거제시",
+////            "http://www.animal.go.kr/files/shelter/2022/04/202205231405234.jpg",
+////            "보호중","Q","허피스증세","0.2(Kg)"
+////              )
+////            )
 //        }
 
+        Log.d(TAG+"널이니?", cardItems.toString())
         cardStackAdapter= CardStackAdapter(baseContext, cardItems)
         cardStackView.layoutManager=manager
         cardStackView.adapter = cardStackAdapter
@@ -159,61 +135,51 @@ class MatchActivity : AppCompatActivity() {
 //            }
 //        })
 
+        Log.d(TAG+"널이니?", cardItems.toString())
 
     }
 
-    private fun getItems() {
-        getAnimalData_10Days()
-
-        val animalRaw10Days = animalResponse_10Days.value?.copy()
-        val animalItems10Days = animalRaw10Days?.response?.body?.items
-
-        //println(animalItems_10Days.item.size)
-        //println(animalItems_10Days.item[0])
-        val size : Int = animalItems10Days!!.item.size
-
-        for(i : Int in 0..size){
-            val token = animalItems10Days!!.item[i].toString().split(",")
-            var age: String = token[0]
-            var careAddr: String = token[1]
-            var careNm: String = token[2]
-            var careTel: String = token[3]
-            var chargeNm: String = token[4]
-            var colorCd: String = token[5]
-            var desertionNo: String = token[6]
-            var filename: String = token[7]
-            var happenDt: Int = token[8].toInt()
-            var happenPlace: String = token[9]
-            var kindCd: String = token[10]
-            var neuterYn: String = token[11]
-            var noticeEdt: Int = token[12].toInt()
-            var noticeNo: String = token[13]
-            var noticeSdt: Int = token[14].toInt()
-            var officetel: String = token[15]
-            var orgNm: String = token[16]
-            var popfile: String = token[17]
-            var processState: String = token[18]
-            var sexCd: String = token[19]
-            var specialMark: String = token[20]
-            var weight: String = token[21]
-
-            val cardItem = Bookmark(userEmail,age,careAddr,careNm,careTel,chargeNm,colorCd,desertionNo,
-                filename,happenDt,happenPlace,kindCd,neuterYn,noticeEdt,noticeNo,noticeSdt,officetel,orgNm,
-                popfile,processState,sexCd,specialMark,weight,isConsidered)
-
-            cardItems.add(i,cardItem)
-            }
-//            else{
-//                println("animalRaw is null")
-//            }
-            //Log.d("animalList_val", getAnimalData().value.toString())
-    }
+//    private fun getItems() {
+//            var age: String = token[0]
+//            var careAddr: String = token[1]
+//            var careNm: String = token[2]
+//            var careTel: String = token[3]
+//            var chargeNm: String = token[4]
+//            var colorCd: String = token[5]
+//            var desertionNo: String = token[6]
+//            var filename: String = token[7]
+//            var happenDt: Int = token[8].toInt()
+//            var happenPlace: String = token[9]
+//            var kindCd: String = token[10]
+//            var neuterYn: String = token[11]
+//            var noticeEdt: Int = token[12].toInt()
+//            var noticeNo: String = token[13]
+//            var noticeSdt: Int = token[14].toInt()
+//            var officetel: String = token[15]
+//            var orgNm: String = token[16]
+//            var popfile: String = token[17]
+//            var processState: String = token[18]
+//            var sexCd: String = token[19]
+//            var specialMark: String = token[20]
+//            var weight: String = token[21]
+//
+//            val cardItem = Bookmark(
+//                emailInfo,age,careAddr,careNm,careTel,chargeNm,colorCd,desertionNo,
+//                filename,happenDt,happenPlace,kindCd,neuterYn,noticeEdt,noticeNo,noticeSdt,officetel,orgNm,
+//                popfile,processState,sexCd,specialMark,weight,isConsidered)
+//                }
 
     private fun itemLike(count: Int){
-//        val POST_Bookmark_Data = Bookmark(userEmail, "2021년생", "careAddr2", "careNm2", "02-222-2222", "chargeNm2", "하양색", "desertionNo22", "file.jpg", 20220527, "서울특별시 동작구", "[개] 골드 리트리버", "Y", 20220527, "22", 20220610, "02-222-2212", "orgNm2", "pofile2", "보호중", "M", "목에 흉터가 있음", "3kg", 0)
-        cardItems[count].isConsidered to 0
-        val POST_Bookmark_Data = cardItems[count]
-            RetrofitClient.Bookmark_instance.POST_Bookmark(POST_Bookmark_Data)
+        var POST_Bookmark_Data = Bookmark(emailInfo, cardItems[count].age, cardItems[count].careAddr, cardItems[count].careNm,
+            cardItems[count].careTel, cardItems[count].chargeNm, cardItems[count].colorCd, cardItems[count].desertionNo,
+            cardItems[count].filename, cardItems[count].happenDt, cardItems[count].happenPlace, cardItems[count].kindCd,
+            cardItems[count].neuterYn, cardItems[count].noticeEdt, cardItems[count].noticeNo, cardItems[count].noticeSdt,
+            cardItems[count].officetel, cardItems[count].orgNm, cardItems[count].popfile, cardItems[count].processState,
+            cardItems[count].sexCd, cardItems[count].specialMark, cardItems[count].weight, 1)
+
+        Log.d(TAG+"아래", POST_Bookmark_Data.toString())
+
+        RetrofitClient.Bookmark_instance.POST_Bookmark(POST_Bookmark_Data)
                 .enqueue(object: Callback <PostResult> {
                     override fun onFailure(call: Call<PostResult>, t: Throwable) {
                         Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
@@ -229,9 +195,7 @@ class MatchActivity : AppCompatActivity() {
                         Log.d(TAG, "Post B succeeded")
                         Log.d(TAG, response.body().toString())
                     }
-                }
-                )
-
+                })
     }
 
     private fun initClickListener() {

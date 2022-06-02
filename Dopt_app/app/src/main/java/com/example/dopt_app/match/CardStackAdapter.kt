@@ -1,6 +1,7 @@
 package com.example.dopt_app.match
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,20 +10,20 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dopt_app.R
-import com.example.dopt_app.data.Bookmark
-import kotlinx.android.synthetic.main.item_card.view.*
-import retrofit2.http.GET
-import javax.security.auth.callback.Callback
+import com.example.dopt_app.data.DataX
+import com.example.dopt_app.data.Item
 
 class CardStackAdapter(
     val context: Context,
-    val items: MutableList<Bookmark>
+    val items: List<DataX>
     ):
     RecyclerView.Adapter<CardStackAdapter.ViewHolder>() {
 
+    private val TAG = "CardStackAdapter"
+
     // 클릭 인터페이스 정의
     interface MoreClickListener{
-        fun onItemClick(v:View, items: Bookmark)
+        fun onItemClick(v:View, items: Item)
     }
 
     // 리스너 객체를 전달받는 함수랑 리스너 객체를 저장할 변수
@@ -60,7 +61,7 @@ class CardStackAdapter(
 
         // val btn = itemView.findViewById<TextView>(R.id.item_more_info)
 
-        fun binding(items: Bookmark){
+        fun binding(items: DataX){
 
             val imgUrl = items.filename
             Glide.with(context).load(imgUrl).into(image)
@@ -70,6 +71,8 @@ class CardStackAdapter(
             sexCd.text=items.sexCd
             age.text=items.age
             careNm.text=items.careNm
+
+            Log.d(TAG+"왜", kind.toString())
 
 
 
