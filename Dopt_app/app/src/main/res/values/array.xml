@@ -11,12 +11,10 @@
         <item>말티즈</item>
         <item>포메라니안</item>
         <item>말라뮤트</item>
-        <item>코카 스파니엘</item>
         <item>푸들</item>
         <item>스피츠</item>
         <item>시츄</item>
         <item>핏불테리어</item>
-        <item>시베리안 허스키</item>
         <item>진도견</item>
         <item>비숑</item>
         <item>삽살개</item>
@@ -38,17 +36,13 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
     </string-array>
     <string-array name="bread_color">
-        <item>검정색</item>
+        <item>검정</item>
         <item>흰색</item>
         <item>갈색</item>
         <item>회색</item>
-        <item>기타</item>
+        <item>노랑</item>
     </string-array>
     <string-array name="bread_size">
         <item>대형</item>

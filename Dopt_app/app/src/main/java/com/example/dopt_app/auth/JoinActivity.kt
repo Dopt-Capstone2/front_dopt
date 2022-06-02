@@ -19,6 +19,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+var emailInfo : String = "123@123"
 
 class JoinActivity : AppCompatActivity() {
 
@@ -48,7 +49,6 @@ class JoinActivity : AppCompatActivity() {
             val data = User_Signup(userEmail, userPw,"nick" ,userLoc,userNm)
 
             intent.putExtra("userEmail",userEmail)
-            startActivity(intent)
 
             Log.d(TAG, "clicked join btn!!!")
             Log.d(TAG, data.toString())
@@ -68,6 +68,11 @@ class JoinActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
                         Log.d(TAG, "POST U succeeded")
                         Log.d(TAG, response.body().toString())
+                        Log.d(TAG, userEmail)
+
+                        emailInfo = userEmail
+                        startActivity(intent)
+
                     }
                 }
             )
