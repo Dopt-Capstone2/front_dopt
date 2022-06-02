@@ -39,16 +39,6 @@
         app:layout_constraintTop_toBottomOf="@+id/prefer_gender_img"
         app:layout_constraintStart_toStartOf="@+id/prefer_gender_img"
         app:layout_constraintEnd_toStartOf="@id/gender_Foff_btn"/>
-    <ImageView
-        android:id="@+id/gender_Moff_btn"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/m_round_off"
-        app:layout_constraintTop_toBottomOf="@+id/prefer_gender_img"
-        app:layout_constraintStart_toStartOf="@+id/prefer_gender_img"
-        app:layout_constraintEnd_toStartOf="@id/gender_Foff_btn"
-        android:visibility="invisible"/>
 
     <ImageView
         android:id="@+id/gender_Foff_btn"
@@ -59,16 +49,6 @@
         app:layout_constraintEnd_toEndOf="@id/prefer_gender_img"
         app:layout_constraintStart_toEndOf="@id/gender_Mon_btn"
         app:layout_constraintTop_toBottomOf="@id/prefer_gender_img"/>
-    <ImageView
-        android:id="@+id/gender_Fon_btn"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/f_round_on"
-        app:layout_constraintEnd_toEndOf="@id/prefer_gender_img"
-        app:layout_constraintStart_toEndOf="@id/gender_Mon_btn"
-        app:layout_constraintTop_toBottomOf="@id/prefer_gender_img"
-        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/gender_previous_btn"

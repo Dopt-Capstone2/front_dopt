@@ -55,7 +55,7 @@
         android:src="@drawable/arrow_right_yellow"/>
 
     <TextView
-        android:id="@+id/breed_previous_btn"
+        android:id="@+id/age_previous_btn"
         android:layout_width="120dp"
         android:layout_height="30dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +69,7 @@
         android:textColor="@color/black"/>
 
     <TextView
-        android:id="@+id/breed_next_btn"
+        android:id="@+id/age_next_btn"
         android:layout_width="120dp"
         android:layout_height="30dp"
         android:layout_marginTop="48dp"
