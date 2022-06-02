@@ -12,6 +12,7 @@ import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
 import com.example.dopt_app.data.PostResult
+import com.example.dopt_app.data.Preference_List
 import com.example.dopt_app.data.User_Signup
 import com.example.dopt_app.shelter.ShelterMainActivity
 import com.google.android.material.textfield.TextInputEditText
@@ -55,6 +56,8 @@ class IntroActivity : AppCompatActivity() {
                         Log.d("user_UserRaw", GET_user_UserRaw.toString())
                         if (GET_user_UserRaw?.userPw == userPw){
                             Toast.makeText(applicationContext, "로그인 성공", Toast.LENGTH_SHORT).show()
+                            emailInfo = userEmail
+                            Log.d(TAG+"메일은?", emailInfo)
                             startActivity(emailIntent)
 
                         }else{
@@ -62,6 +65,53 @@ class IntroActivity : AppCompatActivity() {
                         }
                     }
                 })
+
+            //Preference 정보 GET
+            //사용자가 등록한 preference의 list를 get합니다.
+            var GET_Preference_Response = MutableLiveData<Preference_List>()
+            RetrofitClient.Preference_instance.GET_Preference(userEmail)
+                .enqueue(object: Callback <Preference_List> {
+                    override fun onFailure(call: Call<Preference_List>, t: Throwable) {
+                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "Get P failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<Preference_List>, response: Response<Preference_List>) {
+                        Toast.makeText(
+                            applicationContext,
+                            response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        Log.d(TAG, "Get P succeeded")
+                        Log.d(TAG, response.body().toString())
+
+                        //지정한 데이터 클래스 객체로 저장
+                        GET_Preference_Response.value = response.body() as Preference_List
+                        // 값을 복사
+                        val GET_PreferenceRaw = GET_Preference_Response.value?.copy()
+                        // 데이터 클래스들의 배열 출력
+                        Log.d("GET_PreferenceRaw", GET_PreferenceRaw.toString())
+                        //요소별 접근
+                        //response의 각 데이터 클래스 접근
+                        if (GET_PreferenceRaw != null) {
+                            Log.d("Preference", GET_PreferenceRaw.Preference[0].toString())
+                            emailInfo = GET_PreferenceRaw.Preference[0].userEmail
+                            preferKind = GET_PreferenceRaw.Preference[0].type
+                            preferBreed = GET_PreferenceRaw.Preference[0].breed
+                            preferGender = GET_PreferenceRaw.Preference[0].sex
+                            preferColor = GET_PreferenceRaw.Preference[0].color
+                            preferAge = GET_PreferenceRaw.Preference[0].age
+
+                            Log.d(TAG+"막", emailInfo)
+                            Log.d(TAG+"막", preferKind)
+                            Log.d(TAG+"막", preferBreed)
+                            Log.d(TAG+"막", preferGender)
+                            Log.d(TAG+"막", preferColor)
+                            Log.d(TAG+"막", preferAge)
+                        }
+                    }
+                }
+                )
         }
 
         val shelter_loginBtn = findViewById<Button>(R.id.shelter_loginBtn)

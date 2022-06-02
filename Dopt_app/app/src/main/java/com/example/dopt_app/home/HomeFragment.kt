@@ -18,6 +18,7 @@ import com.example.dopt_app.share.WriteShareFragment
 import com.google.gson.Gson
 import java.util.ArrayList
 import com.example.dopt_app.api.RetrofitClient
+import com.example.dopt_app.match.getAnimalData_10Days
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

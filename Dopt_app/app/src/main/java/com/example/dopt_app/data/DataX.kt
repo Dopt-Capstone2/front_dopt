@@ -7,7 +7,7 @@ data class DataX(
     val careTel: String,
     val chargeNm: String,
     val colorCd: String,
-    val desertionNo: Long,
+    val desertionNo: String,
     val filename: String,
     val happenDt: Int,
     val happenPlace: String,
@@ -22,5 +22,7 @@ data class DataX(
     val popfile: String,
     val processState: String,
     val sexCd: String,
-    val specialMark: String
+    val specialMark: String,
+    val weight: String
+
 )
