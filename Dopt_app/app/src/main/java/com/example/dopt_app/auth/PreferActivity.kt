@@ -17,14 +17,17 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.http.POST
 
+var preferKind : String = "개"
+
 // 프로필 입력 순서
 // 회원가입 체크리스트 종 품종 성별 색 크기
 
 class PreferActivity : AppCompatActivity() {
-
     private val TAG = "PreferActivity"
     lateinit var binding: ActivityPreferBinding
     private lateinit var kind : String
+
+    // private var preferKind : String = kind
 
     private var userEmail : String ="123@123"
 
@@ -53,23 +56,27 @@ class PreferActivity : AppCompatActivity() {
 //            }
 
             //Prefernece 정보 POST
-            val POST_Preference_Data = Preference("선호도 정보", userEmail, kind, "2022년 생", "M", "하양색", "기타")
-            RetrofitClient.Preference_instance.POST_Preference(POST_Preference_Data)
-                .enqueue(object : Callback<PostResult> {
-                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
-                        Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "Post P failed")
-                        Log.d(TAG, t.message.toString())
-                    }
+//            val POST_Preference_Data = Preference("선호도 정보", userEmail, kind, "2022년 생", "M", "하양색", "기타")
+//            RetrofitClient.Preference_instance.POST_Preference(POST_Preference_Data)
+//                .enqueue(object : Callback<PostResult> {
+//                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+//                        Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+//                        Log.d(TAG, "Post P failed")
+//                        Log.d(TAG, t.message.toString())
+//                    }
+//
+//                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+//                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+//                        Log.d(TAG, "Post P succeeded")
+//                        Log.d(TAG, response.body().toString())
+//                        intent.putExtra("preferKind",kind)
+//
+//                        startActivity(intent)
+//                    }
+//                })
+            intent.putExtra("preferKind",kind)
 
-                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
-                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "Post P succeeded")
-                        Log.d(TAG, response.body().toString())
-                        intent.putExtra("preferKind",kind)
-                        startActivity(intent)
-                    }
-                })
+            startActivity(intent)
         }
 
         dogbreedPreviousBtn.setOnClickListener {
@@ -86,7 +93,9 @@ class PreferActivity : AppCompatActivity() {
         typeSpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
                 kind = typeSpinner.selectedItem.toString()
-
+                Log.d(TAG, kind)
+                preferKind = kind
+                Log.d(TAG, preferKind)
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
 
