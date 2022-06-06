@@ -87,20 +87,21 @@
             android:layout_height="wrap_content"
             android:text="Chloe"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginStart="30dp"
             app:layout_constraintStart_toEndOf="@id/profile_image"
             app:layout_constraintTop_toTopOf="parent"/>
         <TextView
+            android:id="@+id/user_location_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="여"
+            android:text="서울"
             android:textStyle="bold"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textColor="#EBB53E"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="3dp"
             app:layout_constraintStart_toEndOf="@id/profile_name_tx"
             app:layout_constraintTop_toTopOf="parent"/>
         <TextView
@@ -109,7 +110,7 @@
             android:layout_height="wrap_content"
             android:text="test@test"
             android:textColor="#707070"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:layout_marginStart="30dp"
             app:layout_constraintStart_toEndOf="@id/profile_image"
             app:layout_constraintBottom_toBottomOf="@id/profile_image"
@@ -136,15 +137,16 @@
                     android:layout_margin="20dp"
                     android:text="선호하는 반려동물 종류"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"/>
                 <TextView
+                    android:id="@+id/user_prefer_kind_tx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:text="개"
                     android:textColor="@color/main_color"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
@@ -157,15 +159,16 @@
                     android:layout_margin="20dp"
                     android:text="선호하는 반려동물 종"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"/>
                 <TextView
+                    android:id="@+id/user_prefer_breed_tx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:text="푸들"
                     android:textColor="@color/main_color"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
@@ -178,15 +181,16 @@
                     android:layout_margin="20dp"
                     android:text="선호하는 반려동물 성별"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"/>
                 <TextView
+                    android:id="@+id/user_prefer_gender_tx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:text="수컷"
                     android:textColor="@color/main_color"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
@@ -199,15 +203,16 @@
                     android:layout_margin="20dp"
                     android:text="선호하는 반려동물 색"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"/>
                 <TextView
+                    android:id="@+id/user_prefer_color_tx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:text="회색"
                     android:textColor="@color/main_color"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
@@ -218,17 +223,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="선호하는 반려동물 나"
+                    android:text="선호하는 반려동물 나이"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"/>
                 <TextView
+                    android:id="@+id/user_prefer_age_tx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:text="2"
                     android:textColor="@color/main_color"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"/>
             </LinearLayout>
 
