@@ -1,5 +1,7 @@
 package com.example.dopt_app.data
 
+import java.io.Serializable
+
 data class Item(
     val age: String,
     val careAddr: String,
@@ -24,7 +26,7 @@ data class Item(
     val sexCd: String,
     val specialMark: String,
     val weight: String
-)
+): Serializable
 
 /*
     "age": "2022(년생)",

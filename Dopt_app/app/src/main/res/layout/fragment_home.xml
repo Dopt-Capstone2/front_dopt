@@ -54,7 +54,7 @@
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="5월달"/>
+                android:text=""/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="000 마리"
+            android:text="6665 마리"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="2dp"
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
             android:layout_marginRight="30dp"
-            android:text="000 마리"
+            android:text="299 마리"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -123,7 +123,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="00 마리"
+            android:text="1187 마리"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="2dp"

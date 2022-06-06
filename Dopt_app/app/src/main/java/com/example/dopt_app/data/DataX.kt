@@ -1,5 +1,7 @@
 package com.example.dopt_app.data
 
+import java.io.Serializable
+
 data class DataX(
     val age: String,
     val careAddr: String,
@@ -25,4 +27,4 @@ data class DataX(
     val specialMark: String,
     val weight: String
 
-)
+): Serializable

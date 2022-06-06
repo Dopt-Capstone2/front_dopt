@@ -14,6 +14,7 @@ import com.example.dopt_app.data.Item
 import com.example.dopt_app.data.Match
 import com.example.dopt_app.data.Preference
 import com.example.dopt_app.databinding.ActivityMainBinding
+import com.example.dopt_app.databinding.ActivityMatchBinding
 import com.example.dopt_app.home.HomeFragment
 import com.example.dopt_app.match.*
 import com.example.dopt_app.match.MatchActivity
@@ -37,16 +38,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initBottomNavigation()
 
-        getAnimalData_10Days()
-//        getAnimalData_Monthly()
-
-
+        //getAnimalData_10Days()
+//      getAnimalData_Monthly()
 
     }
 
@@ -112,48 +110,6 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
 
                 R.id.homeFragment -> {
-                    Log.d(TAG, "Enter Match Fragment")
-                    //get 한 preference 혹은 글로벌 변수로 저장한 preference를 인자로 넘겨주세요
-                    //더미 데이터
-                    //RetrofitClient.Match_instance.GET_Match(data)
-                    //파라미터로 전하는 데이터 형식은 다음과 같습니다.
-                    //preference의 모든 값,
-                    //그리고 User_Signup의 userLoc
-                    //여기서는 파라미터를 데이터클래스 객체로 전하지 않고,
-                    //모두 분해서 하나씩 전합니다.
-                    //deconstructor 등으로 파라미터를 전달해주세요.
-                    RetrofitClient.Match_instance.GET_Match(emailInfo,emailInfo,preferKind, preferAge, preferGender, preferColor, preferBreed, "서울특별시")
-                        .enqueue(object: Callback<Match> {
-                            override fun onFailure(call: Call<Match>, t: Throwable) {
-                                Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG)
-                                    .show()
-                                Log.d(TAG, "failed")
-                                Log.d(TAG, t.message.toString())
-                            }
-
-                            override fun onResponse(call: Call<Match>, response: Response<Match>) {
-                                Toast.makeText(
-                                    applicationContext,
-                                    response.body().toString(),
-                                    Toast.LENGTH_LONG
-                                ).show()
-                                Log.d(TAG, "succeeded")
-                                Log.d(TAG, response.body().toString())
-                                Match_Response.value = response.body() as Match
-                                // 값을 복사
-                                val Match_Raw = Match_Response.value?.copy()
-
-                                matchDatas= Match_Response.value!!.copy()
-
-                                // 데이터 클래스들의 배열 출력
-                                Log.d("Match_Raw", Match_Raw.toString())
-                                //요소별 접근
-                                //response의 각 데이터 클래스 접근
-                                if (Match_Raw != null) {
-                                    Log.d("MatchItems", Match_Raw.data[0].toString())
-                                }
-                            }
-                        })
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frm, HomeFragment())
                         .commitAllowingStateLoss()
@@ -173,11 +129,53 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }*/
                 R.id.matchFragment -> {
-
                     val intent= Intent(this, MatchActivity::class.java)
+                    Log.d(TAG, "Enter Match Fragment")
+                    //get 한 preference 혹은 글로벌 변수로 저장한 preference를 인자로 넘겨주세요
+                    //더미 데이터
+                    //RetrofitClient.Match_instance.GET_Match(data)
+                    //파라미터로 전하는 데이터 형식은 다음과 같습니다.
+                    //preference의 모든 값,
+                    //그리고 User_Signup의 userLoc
+                    //여기서는 파라미터를 데이터클래스 객체로 전하지 않고,
+                    //모두 분해서 하나씩 전합니다.
+                    //deconstructor 등으로 파라미터를 전달해주세요.
+//                    RetrofitClient.Match_instance.GET_Match(emailInfo,emailInfo,preferKind, preferAge, preferGender, preferColor, preferBreed, "서울특별시")
+//                        .enqueue(object: Callback<Match> {
+//                            override fun onFailure(call: Call<Match>, t: Throwable) {
+//                                Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG)
+//                                    .show()
+//                                Log.d(TAG, "failed")
+//                                Log.d(TAG, t.message.toString())
+//                            }
+//
+//                            override fun onResponse(call: Call<Match>, response: Response<Match>) {
+//                                Toast.makeText(
+//                                    applicationContext,
+//                                    response.body().toString(),
+//                                    Toast.LENGTH_LONG
+//                                ).show()
+//                                Log.d(TAG, "succeeded")
+//                                Log.d(TAG, response.body().toString())
+//                                Match_Response.value = response.body() as Match
+//                                // 값을 복사
+//                                val Match_Raw = Match_Response.value?.copy()
+//                                // 데이터 클래스들의 배열 출력
+//                                Log.d("Match_Raw", Match_Raw.toString())
+////                                if (Match_Raw != null) {
+////                                    matchDatas=Match_Raw.copy()
+////                                }
+//                                intent.putExtra("matchV", Match_Raw)
+//                                //요소별 접근
+//                                //response의 각 데이터 클래스 접근
+//                                if (Match_Raw != null) {
+//                                    Log.d("MatchItems", Match_Raw.data[0].toString())
+//                                }
+//                            }
+//                        })
 
                     startActivity(intent)
-                    // return@setOnItemSelectedListener true
+                    return@setOnItemSelectedListener true
                 }
 
                 R.id.shareFragment -> {

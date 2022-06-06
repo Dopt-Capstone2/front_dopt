@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="450dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/cat_num_one"/>
+                android:src="@drawable/yello_poo"/>
 
         </androidx.cardview.widget.CardView>
         <ImageView
@@ -47,7 +47,7 @@
             app:layout_constraintBottom_toBottomOf="@id/image_card_view"/>
             <TextView
                 android:id="@+id/moreKindCd"
-                android:text="[고양이] 한국 고양이"
+                android:text="[개] 아메리칸 코카 스파니엘"
                 android:textSize="24sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
@@ -96,7 +96,7 @@
                     android:id="@+id/more_age_tx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2022(년생)"
+                    android:text="2015(년생)"
                     android:textSize="15sp"
                     android:textColor="#2e2e2e"
                     android:paddingHorizontal="18dp"
@@ -107,7 +107,7 @@
                     android:id="@+id/more_weight_tx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0.2(Kg)"
+                    android:text="6(Kg)"
                     android:textSize="15sp"
                     android:textColor="#2e2e2e"
                     android:paddingHorizontal="18dp"
@@ -118,7 +118,7 @@
                     android:id="@+id/more_specialMark_tx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="허피스증세"
+                    android:text="쫄래쫄래 잘 따라오는 이쁜이"
                     android:textSize="15sp"
                     android:textColor="#2e2e2e"
                     android:paddingHorizontal="18dp"
@@ -129,7 +129,7 @@
                     android:id="@+id/more_noticeSdt_tx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="등록일: 20220523"
+                    android:text="등록일: 20220602"
                     android:textSize="15sp"
                     android:textColor="#2e2e2e"
                     android:paddingHorizontal="18dp"
@@ -177,7 +177,7 @@
             android:id="@+id/more_careNm_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="거제시유기동물보호소"
+            android:text="경주동물사랑보호센터"
             android:textSize="15sp"
             android:textColor="#2e2e2e"
             android:paddingHorizontal="18dp"
@@ -187,7 +187,7 @@
             android:id="@+id/more_chargeNm_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="김부근"
+            android:text="경주시"
             android:textSize="15sp"
             android:textColor="#2e2e2e"
             android:paddingHorizontal="18dp"
@@ -198,7 +198,7 @@
             android:id="@+id/more_careTel_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="055-639-6368"
+            android:text="054-552-2233"
             android:textSize="15sp"
             android:textColor="#2e2e2e"
             android:paddingHorizontal="18dp"

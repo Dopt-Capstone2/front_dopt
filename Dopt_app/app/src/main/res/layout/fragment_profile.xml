@@ -85,7 +85,7 @@
             android:id="@+id/profile_name_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="입양하러왓개"
+            android:text="Chloe"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -107,7 +107,7 @@
             android:id="@+id/profile_email_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123456@123.456"
+            android:text="test@test"
             android:textColor="#707070"
             android:textSize="12sp"
             android:layout_marginStart="30dp"
@@ -120,7 +120,7 @@
             android:layout_width="370dp"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/profile_menu_radius"
             app:layout_constraintTop_toBottomOf="@id/profile_email_tx"
             app:layout_constraintStart_toStartOf="parent"
@@ -155,7 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="선호하는 반려동물 종류"
+                    android:text="선호하는 반려동물 종"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textStyle="bold"/>
@@ -163,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="개"
+                    android:text="푸들"
                     android:textColor="@color/main_color"
                     android:textSize="12sp"
                     android:textStyle="bold"/>
@@ -176,7 +176,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="선호하는 반려동물 종류"
+                    android:text="선호하는 반려동물 성별"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textStyle="bold"/>
@@ -184,7 +184,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="개"
+                    android:text="수컷"
                     android:textColor="@color/main_color"
                     android:textSize="12sp"
                     android:textStyle="bold"/>
@@ -197,7 +197,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="선호하는 반려동물 종류"
+                    android:text="선호하는 반려동물 색"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textStyle="bold"/>
@@ -205,7 +205,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="개"
+                    android:text="회색"
                     android:textColor="@color/main_color"
                     android:textSize="12sp"
                     android:textStyle="bold"/>
@@ -218,7 +218,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="선호하는 반려동물 종류"
+                    android:text="선호하는 반려동물 나"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textStyle="bold"/>
@@ -226,7 +226,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:text="개"
+                    android:text="2"
                     android:textColor="@color/main_color"
                     android:textSize="12sp"
                     android:textStyle="bold"/>

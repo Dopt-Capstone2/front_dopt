@@ -2,16 +2,20 @@ package com.example.dopt_app.star
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dopt_app.data.Animal
+import com.bumptech.glide.Glide
+import com.example.dopt_app.R
+import com.example.dopt_app.data.Bookmark
 import com.example.dopt_app.databinding.ItemSmallAnimalBinding
 import kotlin.collections.ArrayList
 
-class StarRVAdapter (private val animalList: ArrayList<Animal>) : RecyclerView.Adapter<StarRVAdapter.ViewHolder>(){
+class StarRVAdapter (private val animalList: ArrayList<Bookmark>) : RecyclerView.Adapter<StarRVAdapter.ViewHolder>(){
 
     // 클릭 인터페이스 정의
     interface MyItemClickListener{
-        fun onItemClick(animal: Animal)
+        fun onItemClick(animal: Bookmark)
         fun onRemoveAlbum(position: Int)
     }
 
@@ -29,8 +33,8 @@ class StarRVAdapter (private val animalList: ArrayList<Animal>) : RecyclerView.A
         return ViewHolder(binding)
     }
 
-    fun addItem(animal: Animal){
-        animalList.add(animal)
+    fun addItem(bookmark: Bookmark){
+        animalList.add(bookmark)
         notifyDataSetChanged()
     }
 
@@ -51,12 +55,40 @@ class StarRVAdapter (private val animalList: ArrayList<Animal>) : RecyclerView.A
 
     // 뷰홀더
     inner class ViewHolder(val binding: ItemSmallAnimalBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(animal: Animal){
-            binding.animalGenderTx.text=animal.sexCd
-            binding.animalNeuterYnTx.text=animal.neuterYn
-            binding.animalTypeTx.text=animal.kindCd
-            binding.animalPlaceTx.text=animal.careAddr
-            binding.itemAnimalImgIv.setImageResource((animal.filename!!))
+        val image = itemView.findViewById<ImageView>(R.id.item_animal_img_iv)
+        val kindCd = itemView.findViewById<TextView>(R.id.animal_type_tx)
+        val neuterYn = itemView.findViewById<TextView>(R.id.star_neuterYn_tx)
+        val sexCd = itemView.findViewById<TextView>(R.id.animal_gender_tx)
+        val place = itemView.findViewById<TextView>(R.id.animal_place_tx)
+        val state = itemView.findViewById<TextView>(R.id.item_animal_star_status_tv)
+
+        fun bind(bookmark: Bookmark){
+            if(bookmark.kindCd == "M"){
+                kindCd.text = "수컷"
+                state.text="즐겨찾기"
+            }else if (bookmark.kindCd == "F"){
+                kindCd.text = "암컷"
+                state.text="입양 신청 완료"
+
+            }else{
+                kindCd.text = "성별미상"
+            }
+
+            if(bookmark.neuterYn == "Y"){
+                neuterYn.text = "중성화(O)"
+            }else if (bookmark.kindCd == "N"){
+                neuterYn.text = "중성화(X)"
+            }else{
+                neuterYn.text = "미상"
+            }
+            sexCd.text=bookmark.sexCd
+            place.text=bookmark.careAddr
+
+
+
+            val imgUrl = bookmark.filename
+            Glide.with(binding.root).load(imgUrl).into(image)
+//            binding.itemAnimalImgIv.setImageResource((bookmark.filename!!))
         }
     }
 

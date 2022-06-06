@@ -58,7 +58,7 @@
             android:id="@+id/profile_name_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="입양하러왓개"
+            android:text="Chloe"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -79,7 +79,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123456@123.456"
+            android:text="test@test"
             android:textColor="#707070"
             android:textSize="12sp"
             android:layout_marginStart="30dp"
