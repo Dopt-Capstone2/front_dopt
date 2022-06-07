@@ -1,27 +1,20 @@
 package com.example.dopt_app.match
 
 import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.Glide.init
 import com.example.dopt_app.R
-import com.example.dopt_app.auth.PrefercolorActivity
-import com.example.dopt_app.auth.emailInfo
-import com.example.dopt_app.data.Item
+import com.example.dopt_app.data.DataX
 
 class CardStackAdapter(
     val context: Context,
-    val items: List<Item>
+    val items: List<DataX>
     ):
     RecyclerView.Adapter<CardStackAdapter.ViewHolder>() {
 
@@ -32,37 +25,12 @@ class CardStackAdapter(
         val view : View = inflater.inflate(R.layout.item_card, parent, false)
         return ViewHolder(view)
     }
-    // 리스너 객체를 전달받는 함수랑 리스너 객체를 저장할 변수
-//    private lateinit var moreClickListener: MoreClickListener
-
-    // 클릭 인터페이스 정의
-//    interface MoreClickListener{
-//        fun onItemClick(v:View, items: Item)
-//        fun onInsideClick(position: Int)
-//    }
 
     //데이터를 넣어주는 부분
     override fun onBindViewHolder(holder: CardStackAdapter.ViewHolder, position: Int) {
         holder.binding(items[position])
-
-//        holder.itemView.setOnClickListener{
-//            val intent = Intent(holder.itemView?.context, CardInfoActivity::class.java)
-//            // intent.putExtra("moreInfo", items)
-//            ContextCompat.startActivity(holder.itemView.context, intent, null)
-//        }
     }
 
-//    fun setMoreClickListener(listener: MoreClickListener){
-//        moreClickListener = listener
-//    }
-
-//    inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
-//        init {
-//            itemView.setOnClickListener{
-//
-//            }
-//        }
-//    }
 
     //아이템들의 사이즈
     override fun getItemCount(): Int {
@@ -79,7 +47,7 @@ class CardStackAdapter(
 
         // val btn = itemView.findViewById<TextView>(R.id.item_more_info)
 
-        fun binding(items: Item){
+        fun binding(items: DataX){
 
             val imgUrl = items.filename
             Glide.with(context).load(imgUrl).into(image)
@@ -92,14 +60,6 @@ class CardStackAdapter(
 
             Log.d(TAG+"왜", kind.toString())
 
-
-
-//            itemView.setOnClickListener {
-//                Intent(context, CardInfoActivity::class.java).apply {
-////                    putExtra("data", items)
-////                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//                }.run { context.startActivity(this) }
-//            }
         }
 
     }
