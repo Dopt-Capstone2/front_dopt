@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:text=" 유기동물 통계"/>
+                android:text="6월 유기동물 통계"/>
         </LinearLayout>
 
         <TextView
