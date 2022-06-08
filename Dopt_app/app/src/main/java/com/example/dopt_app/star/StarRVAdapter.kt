@@ -1,5 +1,6 @@
 package com.example.dopt_app.star
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -9,9 +10,13 @@ import com.bumptech.glide.Glide
 import com.example.dopt_app.R
 import com.example.dopt_app.data.Bookmark
 import com.example.dopt_app.databinding.ItemSmallAnimalBinding
+import kotlinx.android.synthetic.main.item_card.view.*
+import retrofit2.http.Url
 import kotlin.collections.ArrayList
+import kotlin.coroutines.coroutineContext
 
-class StarRVAdapter (private val animalList: ArrayList<Bookmark>) : RecyclerView.Adapter<StarRVAdapter.ViewHolder>(){
+class StarRVAdapter(val context: StarFragment, private val animalList: ArrayList<Bookmark>) : RecyclerView.Adapter<StarRVAdapter.ViewHolder>(){
+    private val TAG = "StarRVAdapter"
 
     // 클릭 인터페이스 정의
     interface MyItemClickListener{
@@ -55,41 +60,48 @@ class StarRVAdapter (private val animalList: ArrayList<Bookmark>) : RecyclerView
 
     // 뷰홀더
     inner class ViewHolder(val binding: ItemSmallAnimalBinding): RecyclerView.ViewHolder(binding.root){
-        val image = itemView.findViewById<ImageView>(R.id.item_animal_img_iv)
-        val kindCd = itemView.findViewById<TextView>(R.id.animal_type_tx)
-        val neuterYn = itemView.findViewById<TextView>(R.id.star_neuterYn_tx)
-        val sexCd = itemView.findViewById<TextView>(R.id.animal_gender_tx)
-        val place = itemView.findViewById<TextView>(R.id.animal_place_tx)
-        val state = itemView.findViewById<TextView>(R.id.item_animal_star_status_tv)
+        private val image: ImageView = itemView.findViewById(R.id.item_animal_img_iv)
+        private val kindCd: TextView = itemView.findViewById(R.id.animal_type_tx)
+        private val age: TextView = itemView.findViewById(R.id.star_neuterYn_tx)
+        private val sexCd: TextView = itemView.findViewById(R.id.animal_gender_tx)
+        private val place: TextView = itemView.findViewById(R.id.animal_place_tx)
+        private val state: TextView = itemView.findViewById(R.id.item_animal_star_status_tv)
 
-        fun bind(bookmark: Bookmark){
-            if(bookmark.kindCd == "M"){
-                kindCd.text = "수컷"
-                state.text="즐겨찾기"
-            }else if (bookmark.kindCd == "F"){
-                kindCd.text = "암컷"
-                state.text="입양 신청 완료"
+        fun bind(animalList: Bookmark){
+            val imgUrl = animalList.filename
+            Log.d(TAG, imgUrl)
+            Glide.with(context).load(imgUrl).into(image)
 
-            }else{
-                kindCd.text = "성별미상"
+            when (animalList.sexCd) {
+                "M" -> {
+                    sexCd.text = "수컷"
+                }
+                "F" -> {
+                    sexCd.text = "암컷"
+                }
+                else -> {
+                    sexCd.text = "성별미상"
+                }
+            }
+            when(animalList.isConsidered){
+                0 ->{
+                    state.text = "즐겨찾기"
+                }
+                1 ->{
+                    state.text = "입양 신청 완료"
+                }
+                2 ->{
+                    state.text = "입양 허가"
+                }
+                3 ->{
+                    state.text = "입양 거절"
+                }
             }
 
-            if(bookmark.neuterYn == "Y"){
-                neuterYn.text = "중성화(O)"
-            }else if (bookmark.kindCd == "N"){
-                neuterYn.text = "중성화(X)"
-            }else{
-                neuterYn.text = "미상"
-            }
-            sexCd.text=bookmark.sexCd
-            place.text=bookmark.careAddr
+            age.text=animalList.age
+            kindCd.text=animalList.kindCd
+            place.text=animalList.careAddr
 
-
-
-            val imgUrl = bookmark.filename
-            Glide.with(binding.root).load(imgUrl).into(image)
-//            binding.itemAnimalImgIv.setImageResource((bookmark.filename!!))
         }
     }
-
     }

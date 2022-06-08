@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.databinding.FragmentStarBinding
@@ -14,10 +13,8 @@ import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
 import com.example.dopt_app.auth.emailInfo
-import com.example.dopt_app.data.Animal
 import com.example.dopt_app.data.Bookmark
 import com.example.dopt_app.data.Bookmark_List
-import com.example.dopt_app.data.Item
 import com.google.gson.Gson
 import java.util.ArrayList
 import retrofit2.Call
@@ -57,7 +54,7 @@ class StarFragment : Fragment() {
 //        }
         getBookmark()
         // 더미데이터랑 Adapter 연결
-        val starRVAdapter = StarRVAdapter(animalDatas)
+        val starRVAdapter = StarRVAdapter(this, animalDatas)
         // 리사이클러뷰에 어댑터를 연결
         binding.starAnimalsRv.adapter = starRVAdapter
 
@@ -108,15 +105,17 @@ class StarFragment : Fragment() {
                         //response의 각 데이터 클래스 접근
                         if (GET_bookmarkRaw != null) {
                             Log.d("GET_bookmark", GET_bookmarkRaw.Bookmark[0].toString())
-                            for (i: Int in 0..GET_bookmarkRaw.Bookmark.size){
+                            for (element in GET_bookmarkRaw.Bookmark){
                                 Log.d("GET_bookmark size", GET_bookmarkRaw.Bookmark.size.toString())
-                                animalDatas.add(GET_bookmarkRaw.Bookmark[i])
+                                animalDatas.add(element)
                             }
                         }
                     }
                 }
                 )
     }
+
+
 
     private fun changeAnimalFragment(bookmark: Bookmark) {
         (context as MainActivity).supportFragmentManager.beginTransaction()
