@@ -11,7 +11,7 @@
         android:id="@+id/prefer_kind_tt"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:src="@drawable/prefer_size"
+        android:src="@drawable/prefer_age_title"
         android:layout_marginTop="70dp"
         android:scaleType="fitCenter"
         app:layout_constraintTop_toTopOf="parent"
