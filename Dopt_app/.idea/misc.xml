@@ -73,6 +73,8 @@
         <entry key="app/src/main/res/layout/activity_shelter_nickname.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2749094202898551" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.2923076923076923" />
+        <entry key="app/src/main/res/layout/fragment_adopt_new.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_adopt_share.xml" value="0.20425724637681159" />
         <entry key="app/src/main/res/layout/fragment_banner.xml" value="0.36231884057971014" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home_more.xml" value="0.25" />

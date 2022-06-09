@@ -34,7 +34,7 @@ class IntroActivity : AppCompatActivity() {
             val emailIntent = Intent(this, MainActivity::class.java)
             val userEmail= findViewById<TextInputEditText>(R.id.login_email_jo).text.toString()
             val userPw = findViewById<TextInputEditText>(R.id.login_pw_jo).text.toString()
-
+            startActivity(emailIntent)
             Log.d(TAG, "clicked login btn!!!")
             var GET_user_Response = MutableLiveData<User_Signup>()
 //            사용자 정보 GET

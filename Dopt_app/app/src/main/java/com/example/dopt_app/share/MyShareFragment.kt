@@ -1,6 +1,5 @@
 package com.example.dopt_app.share
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +22,6 @@ class MyShareFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMyShareBinding.inflate(inflater,container,false)
-
 
         // Home 에서 넘어온 데이터 받아오기
         val shareJson = arguments?.getString("share")
