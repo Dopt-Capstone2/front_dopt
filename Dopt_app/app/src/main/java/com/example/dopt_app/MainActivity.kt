@@ -34,8 +34,8 @@ var animalDatas = ArrayList<Bookmark>()
 
 
 class MainActivity : AppCompatActivity() {
+    private val TAG = "MainActivity"
 
-    lateinit var udpThread: Thread
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,9 +60,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.homeFragment -> {
 
                     var Match_Response = MutableLiveData<Match>()
-
+                    Log.d(TAG, emailInfo)
+                    Log.d(TAG, preferKind)
                     RetrofitClient.Match_instance.GET_Match(
                         emailInfo, emailInfo, preferKind, preferAge, preferGender, preferColor, preferBreed, "서울특별시")
+
                         .enqueue(object : Callback<Match> {
                             override fun onFailure(call: Call<Match>, t: Throwable) {
                                 Log.d(ContentValues.TAG, "failed")
@@ -116,7 +118,11 @@ class MainActivity : AppCompatActivity() {
                                     Log.d("GET_bookmark", GET_bookmarkRaw.Bookmark[0].toString())
                                     for (element in GET_bookmarkRaw.Bookmark){
                                         Log.d("GET_bookmark size", GET_bookmarkRaw.Bookmark.size.toString())
+                                        animalDatas.removeAll(listOf(element))
+                                        Log.d(TAG+"비었니?", animalDatas.toString())
                                         animalDatas.add(element)
+                                        Log.d(TAG+"차있니?", animalDatas.toString())
+
                                     }
                                 }
                             }
