@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:text="6월 유기동물 통계"/>
+                android:text="5월 10일 ~ 6월 10일까지"/>
         </LinearLayout>
 
         <TextView
@@ -153,16 +153,16 @@
             android:padding="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
-        <TextView
-            android:id="@+id/share_more_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="더보기"
-            android:textSize="13sp"
-            android:textColor="@color/black"
-            android:padding="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+<!--        <TextView-->
+<!--            android:id="@+id/share_more_btn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="더보기"-->
+<!--            android:textSize="13sp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:padding="20dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"/>-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_recent_share_rv"
