@@ -19,7 +19,7 @@ class ShareFragment : Fragment() {
 
     lateinit var binding: FragmentShareBinding
     lateinit var shelNm : String
-    private val information = arrayListOf("입양 완료", "+")
+    private val information = arrayListOf("🐱", "➕")
 
     override fun onCreateView(
         inflater: LayoutInflater,

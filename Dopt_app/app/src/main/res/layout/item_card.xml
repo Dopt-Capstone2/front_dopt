@@ -138,20 +138,11 @@
                 android:layout_height="70dp"
                 android:src="@drawable/card_dislike"
                 android:layout_gravity="left"/>
+
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-            <ImageView
-                android:id="@+id/card_star_btn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/card_star"
-                android:layout_gravity="center"/>
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="8"/>
             <ImageView
                 android:id="@+id/card_like_btn"
                 android:layout_width="70dp"
