@@ -80,7 +80,7 @@
         <entry key="app/src/main/res/layout/fragment_home_more.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home_more_share.xml" value="0.12620229829413204" />
         <entry key="app/src/main/res/layout/fragment_match.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_my_share.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_my_share.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_newshare.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.26912181303116145" />
         <entry key="app/src/main/res/layout/fragment_profiledetail.xml" value="0.165" />
@@ -95,7 +95,7 @@
         <entry key="app/src/main/res/layout/item_api_img.xml" value="0.2798913043478261" />
         <entry key="app/src/main/res/layout/item_card.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_card_info.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/item_my_share.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/item_my_share.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_share.xml" value="0.2798913043478261" />
         <entry key="app/src/main/res/layout/item_shelter_animal.xml" value="0.2427536231884058" />
         <entry key="app/src/main/res/layout/item_shelter_match.xml" value="0.28229166666666666" />

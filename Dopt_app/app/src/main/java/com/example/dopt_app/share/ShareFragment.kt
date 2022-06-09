@@ -18,6 +18,7 @@ import com.google.gson.Gson
 class ShareFragment : Fragment() {
 
     lateinit var binding: FragmentShareBinding
+    lateinit var shelNm : String
     private val information = arrayListOf("입양 완료", "+")
 
     override fun onCreateView(
@@ -37,6 +38,7 @@ class ShareFragment : Fragment() {
 
         return binding.root
     }
+
 
 
 }

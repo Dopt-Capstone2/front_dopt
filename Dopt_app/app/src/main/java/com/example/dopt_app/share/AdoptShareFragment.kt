@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
+import com.example.dopt_app.auth.emailInfo
+import com.example.dopt_app.auth.userName
 import com.example.dopt_app.data.Share
 import com.example.dopt_app.databinding.FragmentAdoptShareBinding
 import com.google.gson.Gson
@@ -28,29 +31,30 @@ class AdoptShareFragment: Fragment() {
         myshareDatas.apply {
             add(
                 Share(
-                    "멍멍이의 성장과정 1", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
-                            " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
-                            " 만관부~~", R.drawable.dog_num_one, "2022-05-02", "test11", "채현채현", "1주차"
+                    "입양한 멍뭉이의 성장과정 1", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                            " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" + " 만관부~~", R.drawable.hmin_cat_002,
+                    "2022-05-02", emailInfo, userName, "1주차", "채현보호소",false
                 )
             )
             add(
                 Share(
-                    "멍멍이의 성장과정 2", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요 왕왕\n" +
-                            " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
-                            " 만관부~~", R.drawable.dog_num_one, "2022-05-17", "test11", "채현채현", "2주차"
+                    "멍뭉이의 성장과정 2", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요 왕왕\n" +
+                            " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" + " 만관부~~", R.drawable.hmin_cat_003,
+                    "2022-05-17", emailInfo, userName, "2주차","채현보호소",false
                 )
             )
             add(
                 Share(
-                    "멍멍이의 성장과정 3",
-                    "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
-                            " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" +
-                            " 만관부~~",
-                    R.drawable.dog_num_one,
-                    "2022-05-28",
-                    "test@test",
-                    "Chloe",
-                    "3주차"
+                    "멍뭉이의 성장과정 3", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                            " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" + " 만관부~~", R.drawable.hmin_cat_004,
+                    "2022-05-28", emailInfo, userName, "3주차","채현보호소",false
+                )
+            )
+            add(
+                Share(
+                    "멍뭉이의 성장과정 3", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
+                            " 다음 주차에도 후기 올리러 오겠습니다 ;) \n" + " 만관부~~", R.drawable.hmin_cat_005,
+                    "2022-05-28", emailInfo, userName, "4주차","채현보호소",false
                 )
             )
         }
@@ -68,7 +72,7 @@ class AdoptShareFragment: Fragment() {
 
         })
         // 레이아웃 매니저 설정
-        binding.shareMyAnimalsRv.layoutManager = GridLayoutManager(context, 2, )
+        binding.shareMyAnimalsRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false )
 
         binding.shareNewBtn.setOnClickListener {
             (context as MainActivity).supportFragmentManager.beginTransaction()

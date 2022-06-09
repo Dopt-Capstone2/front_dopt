@@ -247,6 +247,7 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
+                android:singleLine="false"
                 android:paddingHorizontal="20dp"
                 android:layout_marginVertical="10dp"
                 android:layout_marginTop="5dp"

@@ -39,9 +39,12 @@ class MyShareFragment : Fragment() {
 
     private fun setInit(share: Share) {
         binding.itemAnimalImgIv.setImageResource(share.aniImg!!)
-        binding.itemAnimalShareTitleTv.text = share.title.toString()
-        binding.itemAnimalShareTextTv.text = share.text.toString()
+        binding.myShareTitleTv.text = share.title.toString()
+        binding.myShareTextTv.text = share.text.toString()
+        binding.userNameTx.text=share.userNm.toString()
         binding.shareWeekTx.text= share.shareWk.toString()
+        binding.shareDateTx.text= share.upDate
+
     }
 
 

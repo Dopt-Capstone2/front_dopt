@@ -20,6 +20,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 var emailInfo : String = "123@123"
+var userName : String = "채현"
+
 
 class JoinActivity : AppCompatActivity() {
 
@@ -69,7 +71,7 @@ class JoinActivity : AppCompatActivity() {
                         Log.d(TAG, "POST U succeeded")
                         Log.d(TAG, response.body().toString())
                         Log.d(TAG, userEmail)
-
+                        userName=userNm
                         emailInfo = userEmail
                         startActivity(intent)
 

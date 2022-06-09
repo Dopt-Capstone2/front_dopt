@@ -107,7 +107,7 @@
                 android:text="3주차"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="6dp"
                 android:paddingLeft="20dp"
                 app:layout_constraintStart_toEndOf="@id/user_name_tx"
                 app:layout_constraintTop_toTopOf="@id/user_profile_image"/>
@@ -147,12 +147,12 @@
                     android:id="@+id/item_animal_img_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitXY"
                     android:src="@drawable/dog_num_one" />
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/item_animal_share_title_tv"
+                android:id="@+id/my_share_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -163,15 +163,15 @@
                 app:layout_constraintTop_toBottomOf="@id/item_animal_share_img_cardView" />
 
             <TextView
-                android:id="@+id/item_animal_share_text_tv"
+                android:id="@+id/my_share_text_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
                 android:text="우리 아이 입양한지 벌써 3개월 ^^ 힘든날도 많았지만\n 앞으로는 좋은날만~\n우리 아이 입양한지 벌써 3개월 ^^ 힘든날도 많았지만\n 앞으로는 좋은날만~\n우리 아이 입양한지 벌써 3개월 ^^ 힘든날도 많았지만\n 앞으로는 좋은날만~\n"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@id/item_animal_share_title_tv"
-                app:layout_constraintTop_toBottomOf="@id/item_animal_share_title_tv" />
+                app:layout_constraintStart_toStartOf="@id/my_share_title_tv"
+                app:layout_constraintTop_toBottomOf="@id/my_share_title_tv" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
