@@ -7,7 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-// interface function 안에 어떻게 작성해야 될지 모르겠음..
 interface MatchAPI {
 
     @GET("Match/get")
