@@ -76,11 +76,11 @@ class HomeFragment : Fragment() {
         binding.homeBannerVp.adapter = bannerAdapter
         binding.homeBannerVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
-        binding.shareMoreBtn.setOnClickListener {
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.main_frm, HomeMoreFragment())
-                .commitAllowingStateLoss()
-        }
+//        binding.shareMoreBtn.setOnClickListener {
+//            (context as MainActivity).supportFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, HomeMoreFragment())
+//                .commitAllowingStateLoss()
+//        }
 
         return binding.root
     }

@@ -1,20 +1,28 @@
 package com.example.dopt_app.shelter
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
-import com.example.dopt_app.data.Animal
-import com.example.dopt_app.data.Item
-import com.example.dopt_app.data.Share
+import com.example.dopt_app.api.RetrofitClient
+import com.example.dopt_app.auth.emailInfo
+import com.example.dopt_app.data.*
 import com.example.dopt_app.databinding.FragmentShelterMatchBinding
 import com.example.dopt_app.home.HomeFragment
+import com.example.dopt_app.module.GlideApp
 import com.google.gson.Gson
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ShelterMatchFragment : Fragment(){
+    private val TAG = "ShelterMatchFragment"
+
     lateinit var binding: FragmentShelterMatchBinding
     private var gson: Gson = Gson()
     override fun onCreateView(
@@ -24,33 +32,96 @@ class ShelterMatchFragment : Fragment(){
     ): View? {
         binding = FragmentShelterMatchBinding.inflate(inflater, container, false)
 
-        val matchJason = arguments?.getString("animal")
-        val animal = gson.fromJson(matchJason, Animal::class.java)
+        val matchJason = arguments?.getString("item")
+        val animal = gson.fromJson(matchJason, Bookmark::class.java)
 
         setInit(animal)
 
-        binding.shelterBackIg.setOnClickListener {
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.main_frm, ShelterHomeFragment())
-                .commitAllowingStateLoss()
+        binding.starFinalChoiceYesBtn.setOnClickListener{
+            val POST_S_Bookmark_Data = Bookmark_Update("한국동물구조관리협회", animal.desertionNo, 2)
+            RetrofitClient.Shelter_instance.POST_Bookmark(POST_S_Bookmark_Data)
+                .enqueue(object: Callback<PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+//                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "Post S_B failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                        Toast.makeText(activity,"입양 허가 완료", Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "Post S_B succeeded")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+                )
         }
+
+        binding.starFinalChoiceNoBtn.setOnClickListener{
+            val POST_S_Bookmark_Data = Bookmark_Update("한국동물구조관리협회", animal.desertionNo, 3)
+            RetrofitClient.Shelter_instance.POST_Bookmark(POST_S_Bookmark_Data)
+                .enqueue(object: Callback<PostResult> {
+                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
+//                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "Post S_B failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                        Toast.makeText(activity,"입양 반려", Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "Post S_B succeeded")
+                        Log.d(TAG, response.body().toString())
+                    }
+                }
+                )
+        }
+
+        binding.shelterBackIg.setOnClickListener {
+            activity?.onBackPressed()
+        }
+
         return binding.root
 
     }
 
-    private fun setInit(animal: Animal) {
-        binding.animalProcessState.text=animal.processState.toString()
-        binding.animalGenderTx.text=animal.sexCd.toString()
+    private fun setInit(animal: Bookmark) {
         binding.animalNeuterYnTx.text=animal.neuterYn.toString()
         binding.animalTypeTx.text=animal.kindCd.toString()
         binding.animalCareAddrTx.text=animal.careAddr.toString()
         binding.animalAgeTx.text=animal.age.toString()
-        binding.animalWeightTx.text=animal.weight.toString()
         binding.animalCareNmTx.text=animal.careNm.toString()
         binding.animalCareTelTx.text=animal.careTel.toString()
         binding.animalHappenPlaceTx.text=animal.happenPlace.toString()
 
-        binding.itemAnimalImgIv.setImageResource((animal.filename!!))
+        Log.d(TAG, animal.toString())
+        val imgUrl = animal.filename
+        Log.d(TAG, imgUrl)
+
+        when (animal.sexCd) {
+            "M" -> {
+                binding.animalGenderTx.text = "수컷"
+            }
+            "F" -> {
+                binding.animalGenderTx.text = "암컷"
+            }
+            else -> {
+                binding.animalGenderTx.text = "성별미상"
+            }
+        }
+
+        GlideApp.with(binding.root.context).load(imgUrl).into(binding.itemAnimalImgIv)
+
+        when(animal.isConsidered){
+            0 ->{
+                binding.animalProcessState.text = "즐겨찾기"
+            }
+            1 ->{
+                binding.animalProcessState.text = "입양 신청 완료"
+            }
+            2 ->{
+                binding.animalProcessState.text = "입양 허가"
+            }
+            3 ->{
+                binding.animalProcessState.text = "입양 거절"
+            }
+        }
     }
 
 }

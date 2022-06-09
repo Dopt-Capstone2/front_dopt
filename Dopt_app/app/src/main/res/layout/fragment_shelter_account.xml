@@ -33,73 +33,59 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profile_info_vp"
         android:layout_width="370dp"
-        android:layout_height="500dp"
+        android:layout_height="match_parent"
         android:background="@drawable/purple_border_radius"
-        android:layout_marginTop="50dp"
-        android:padding="20dp"
+        android:layout_marginTop="120dp"
+        android:padding="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/shelter_logo_img">
         <ImageView
             android:id="@+id/profile_image"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="21dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/profile_gray"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
         <TextView
             android:id="@+id/shelter_name_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="경주동물사랑보호센터"
+            android:text="한국동물구조관리협회"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_marginStart="30dp"
-            app:layout_constraintStart_toEndOf="@id/profile_image"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image"/>
         <TextView
             android:id="@+id/shelter_manager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:text="관리자:"
+            android:text="관리자: 원은실"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/profile_image"
-            app:layout_constraintTop_toBottomOf="@id/shelter_name_tx"/>
-        <TextView
-            android:id="@+id/shelter_manager_name_tx"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="경주시"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/shelter_manager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/shelter_name_tx"/>
 
         <TextView
             android:id="@+id/shelter_place_tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="경상북도 경주시 천북면 천북로 8-4"
+            android:text="경기도 양주시 남면 감악산로 63-37 (남면) 한국동물구조관리협회"
             android:textStyle="bold"
             android:textSize="12sp"
             android:textColor="@color/purple_500"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="1dp"
-            app:layout_constraintStart_toEndOf="@id/profile_image"
+            android:singleLine="false"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/shelter_manager"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="123456@123.456"
-            android:textColor="#707070"
-            android:textSize="12sp"
-            android:layout_marginStart="30dp"
-            app:layout_constraintStart_toEndOf="@id/profile_image"
-            app:layout_constraintTop_toBottomOf="@id/shelter_place_tx"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

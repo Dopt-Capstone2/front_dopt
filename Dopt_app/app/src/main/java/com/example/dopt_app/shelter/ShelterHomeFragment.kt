@@ -8,14 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
-import com.example.dopt_app.data.Item
+import com.example.dopt_app.data.Bookmark
 import com.example.dopt_app.databinding.FragmentShelterHomeBinding
 import com.google.gson.Gson
 
 class ShelterHomeFragment : Fragment() {
 
     lateinit var binding: FragmentShelterHomeBinding
-    private var matchShel = ArrayList<Item>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,6 +22,34 @@ class ShelterHomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentShelterHomeBinding.inflate(inflater, container, false)
+
+        val shelterMatchRVAdapter=  ShelterMatchRVAdapter(this, shelterItems)
+        binding.shelterAnimalsRv.adapter=shelterMatchRVAdapter
+
+        shelterMatchRVAdapter.setMyItemClickListener(object : ShelterMatchRVAdapter.MyItemClickListener {
+            override fun onItemClick(item: Bookmark) {
+                shelterMatchFragment(item)
+            }
+        })
+
+         binding.shelterAnimalsRv.layoutManager=LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        return binding.root
+    }
+    private fun shelterMatchFragment(item: Bookmark) {
+        (context as ShelterMainActivity).supportFragmentManager.beginTransaction()
+            .replace(R.id.shelter_main_frm, ShelterMatchFragment().apply {
+                arguments = Bundle().apply {
+                    val gson = Gson()
+                    val animalJson = gson.toJson(item)
+                    putString("item", animalJson)
+                }
+            })
+            .commitAllowingStateLoss()
+    }
+
+}
+
 //
 //        matchShel.apply {
 //            add(
@@ -133,29 +160,3 @@ class ShelterHomeFragment : Fragment() {
 //                )
 //            )
 //        }
-//        val shelterMatchRVAdapter=  ShelterMatchRVAdapter(matchShel)
-//        binding.shelterAnimalsRv.adapter=shelterMatchRVAdapter
-//
-//        shelterMatchRVAdapter.setMyItemClickListener(object : ShelterMatchRVAdapter.MyItemClickListener {
-//            override fun onItemClick(item: Item) {
-//                shelterMatchFragment(item)
-//            }
-//        })
-
-        // binding.shelterAnimalsRv.layoutManager=LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-
-        return binding.root
-    }
-    private fun shelterMatchFragment(item: Item) {
-        (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frm, ShelterMatchFragment().apply {
-                arguments = Bundle().apply {
-                    val gson = Gson()
-                    val animalJson = gson.toJson(item)
-                    putString("item", animalJson)
-                }
-            })
-            .commitAllowingStateLoss()
-    }
-
-}

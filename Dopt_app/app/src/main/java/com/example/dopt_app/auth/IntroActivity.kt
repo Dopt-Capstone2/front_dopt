@@ -11,10 +11,9 @@ import androidx.lifecycle.MutableLiveData
 import com.example.dopt_app.MainActivity
 import com.example.dopt_app.R
 import com.example.dopt_app.api.RetrofitClient
-import com.example.dopt_app.data.PostResult
-import com.example.dopt_app.data.Preference_List
-import com.example.dopt_app.data.User_Signup
+import com.example.dopt_app.data.*
 import com.example.dopt_app.shelter.ShelterMainActivity
+import com.example.dopt_app.shelter.shelterItems
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
@@ -115,12 +114,54 @@ class IntroActivity : AppCompatActivity() {
             val intent = Intent(this, ShelterMainActivity::class.java)
 //            val userEmail= findViewById<TextInputEditText>(R.id.login_email_jo)
 //            val userPw = findViewById<TextInputEditText>(R.id.login_pw_jo)
-//            val data = User_Signup(userEmail.text.toString(), userPw.text.toString(), "hmin","Ilsan","nick")
+//            val shelterData = Shelter_Signup(userEmail.text.toString(), userPw.text.toString(), "hmin","Ilsan","nick", "hh","hh")
+//
+            var GET_S_bookmark_Response = MutableLiveData<Bookmark_List>()
+            RetrofitClient.Shelter_instance.GET_Bookmark("한국동물구조관리협회")
+                .enqueue(object: Callback <Bookmark_List> {
+                    override fun onFailure(call: Call<Bookmark_List>, t: Throwable) {
+//                                Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+                        Log.d(TAG, "GET S_B failed")
+                        Log.d(TAG, t.message.toString())
+                    }
+                    override fun onResponse(call: Call<Bookmark_List>, response: Response<Bookmark_List>) {
+//                                Toast.makeText(
+//                                    applicationContext,
+//                                    response.body().toString(),
+//                                    Toast.LENGTH_LONG
+//                                ).show()
+                        Log.d(TAG, "GET S_B succeeded")
+                        Log.d(TAG, response.body().toString())
+
+                        //지정한 데이터 클래스 객체로 저장
+                        GET_S_bookmark_Response.value = response.body() as Bookmark_List
+                        // 값을 복사
+                        val GET_S_bookmarkRaw = GET_S_bookmark_Response.value?.copy()
+                        // 데이터 클래스들의 배열 출력
+                        Log.d("GET_S_bookmarkRaw", GET_S_bookmarkRaw.toString())
+                        //요소별 접근
+                        //response의 각 데이터 클래스 접근
+                        if (GET_S_bookmarkRaw != null) {
+                            Log.d("GET_bookmark", GET_S_bookmarkRaw.Bookmark[0].toString())
+
+                            for (element in GET_S_bookmarkRaw.Bookmark){
+                                Log.d("GET_bookmark size", GET_S_bookmarkRaw.Bookmark.size.toString())
+                                shelterItems.removeAll(listOf(element))
+                                Log.d(TAG+"비었니?", shelterItems.toString())
+                                shelterItems.add(element)
+                                Log.d(TAG+"차있니?", shelterItems.toString())
+
+                            }
+
+                        }
+                    }
+                }
+                )
             startActivity(intent)
 
 //            Log.d(TAG, "clicked login btn!!!")
-//            Log.d(TAG, data.toString())
-//            RetrofitClient.Shelter_Signup_instance.POST_User_SignUp(data)
+//            Log.d(TAG, shelterData.toString())
+//            RetrofitClient.Shelter_Signup_instance.POST_Shelter_Signup(shelterData)
 //                .enqueue(object: Callback<PostResult> {
 //                    override fun onFailure(call: Call<PostResult>, t: Throwable) {
 //                        // Log.d(TAG, "Request Failed start")

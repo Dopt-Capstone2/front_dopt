@@ -70,7 +70,7 @@
         android:id="@+id/animal_neuterYn_tx"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="(중성화X)"
+        android:text="2022년생"
         android:textColor="@color/black"
         android:textSize="8sp"
         android:paddingHorizontal="10dp"

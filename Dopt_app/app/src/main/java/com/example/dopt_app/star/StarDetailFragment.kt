@@ -69,7 +69,7 @@ class StarDetailFragment: Fragment() {
                         Toast.makeText(activity,"입양 신청 완료", Toast.LENGTH_LONG).show()
                         Log.d(TAG, "Post S_B succeeded")
                         Log.d(TAG, response.body().toString())
-                        activity?.onBackPressed()
+
                     }
                 }
                 )
