@@ -60,10 +60,12 @@ class StarDetailFragment: Fragment() {
         binding.animalCareTelTx.text=item.careTel
         binding.animalHappenPlaceTx.text=item.happenPlace
 
+
+
         Log.d(TAG, item.toString())
         val imgUrl = item.filename
         Log.d(TAG, imgUrl)
 
-//        GlideApp.with(binding.root.context).load(imgUrl).into(book_animal_img)
+        GlideApp.with(binding.root.context).load(imgUrl).into(binding.bookAnimalImg)
     }
 }
