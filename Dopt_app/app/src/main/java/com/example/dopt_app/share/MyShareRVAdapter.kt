@@ -51,6 +51,10 @@ class MyShareRVAdapter (private val myshareList: ArrayList<Share>) : RecyclerVie
         fun bind(share: Share){
             binding.itemAnimalImgIv.setImageResource(share.aniImg!!)
             binding.itemAnimalShareWeekTv.text = share.shareWk
+            binding.itemAnimalShareShelterTv.text = share.shelNm
+            binding.itemAnimalShareTitleTv.text = share.title
+            binding.itemAnimalShareDateTv.text = share.upDate
+
         }
     }
 
