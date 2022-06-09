@@ -56,7 +56,7 @@ class JoinActivity : AppCompatActivity() {
                 .enqueue(object: Callback<PostResult> {
                     override fun onFailure(call: Call<PostResult>, t: Throwable) {
                         // Log.d(TAG, "Request Failed start")
-                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+//                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
                         Log.d(TAG, "POST U failed")
                         Log.d(TAG, t.message.toString())
                         // Log.d(TAG, "Request Failed end")
@@ -65,7 +65,7 @@ class JoinActivity : AppCompatActivity() {
                         // Log.d(TAG,"Request successful start")
                         // Log.d(TAG, response.body().toString())
                         // Log.d(TAG, "Request successful end")
-                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+//                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
                         Log.d(TAG, "POST U succeeded")
                         Log.d(TAG, response.body().toString())
                         Log.d(TAG, userEmail)

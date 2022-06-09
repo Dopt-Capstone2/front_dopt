@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        getMonthly()
+//        getMonthly()
 
         shareDatas.apply {
             add(Share("멍멍이의 성장과정", "입양했을때는 엄청 작았는데 벌써 이렇게 컸답니다ㅠㅠ\n 정말 뿌듯해요\n" +
@@ -97,32 +97,32 @@ class HomeFragment : Fragment() {
             .commitAllowingStateLoss()
     }
 
-    private fun getMonthly(){
-        //Monthly Statistics API
-            var Monthly_Statistics_Response = MutableLiveData<Monthly_Statistics>()
-            RetrofitClient.Monthly_Statistics__instance.GET_Monthly_Statistics()
-                .enqueue(object: Callback<Monthly_Statistics> {
-                    override fun onFailure(call: Call<Monthly_Statistics>, t: Throwable) {
-                        // Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "failed")
-                        Log.d(TAG, t.message.toString())
-                    }
-                    override fun onResponse(call: Call<Monthly_Statistics>, response: Response<Monthly_Statistics>) {
-                        // Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
-                        Log.d(TAG, "succeeded")
-                        Log.d(TAG, response.body().toString())
-                        Monthly_Statistics_Response.value = response.body() as Monthly_Statistics
-                        // 값을 복사
-                        val Monthly_Statistics_Raw = Monthly_Statistics_Response.value?.copy()
-                        // 데이터 클래스들의 배열 출력
-                        Log.d("Monthly_Statistics_Raw", Monthly_Statistics_Raw.toString())
-                        //요소별 접근
-                        //response의 각 데이터 클래스 접근
-                        if (Monthly_Statistics_Raw != null) {
-                            Log.d("Monthly_Statistics_", Monthly_Statistics_Raw.data[0].toString())
-                        }
-                    }
-                }
-                )
-    }
+//    private fun getMonthly(){
+//        //Monthly Statistics API
+//            var Monthly_Statistics_Response = MutableLiveData<Monthly_Statistics>()
+//            RetrofitClient.Monthly_Statistics__instance.GET_Monthly_Statistics()
+//                .enqueue(object: Callback<Monthly_Statistics> {
+//                    override fun onFailure(call: Call<Monthly_Statistics>, t: Throwable) {
+//                        // Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+//                        Log.d(TAG, "failed")
+//                        Log.d(TAG, t.message.toString())
+//                    }
+//                    override fun onResponse(call: Call<Monthly_Statistics>, response: Response<Monthly_Statistics>) {
+//                        // Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+//                        Log.d(TAG, "succeeded")
+//                        Log.d(TAG, response.body().toString())
+//                        Monthly_Statistics_Response.value = response.body() as Monthly_Statistics
+//                        // 값을 복사
+//                        val Monthly_Statistics_Raw = Monthly_Statistics_Response.value?.copy()
+//                        // 데이터 클래스들의 배열 출력
+//                        Log.d("Monthly_Statistics_Raw", Monthly_Statistics_Raw.toString())
+//                        //요소별 접근
+//                        //response의 각 데이터 클래스 접근
+//                        if (Monthly_Statistics_Raw != null) {
+//                            Log.d("Monthly_Statistics_", Monthly_Statistics_Raw.data[0].toString())
+//                        }
+//                    }
+//                }
+//                )
+//    }
 }

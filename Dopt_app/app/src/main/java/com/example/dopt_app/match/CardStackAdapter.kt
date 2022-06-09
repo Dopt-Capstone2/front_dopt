@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dopt_app.R
 import com.example.dopt_app.data.DataX
+import com.example.dopt_app.module.GlideApp
 
 class CardStackAdapter(
     val context: Context,
@@ -31,7 +32,6 @@ class CardStackAdapter(
         holder.binding(items[position])
     }
 
-
     //아이템들의 사이즈
     override fun getItemCount(): Int {
         return items.size
@@ -50,7 +50,7 @@ class CardStackAdapter(
         fun binding(items: DataX){
 
             val imgUrl = items.filename
-            Glide.with(context).load(imgUrl).into(image)
+            GlideApp.with(context).load(imgUrl).into(image)
 
             kind.text=items.kindCd
             processState.text=items.processState
@@ -61,9 +61,6 @@ class CardStackAdapter(
             Log.d(TAG+"왜", kind.toString())
 
         }
-
     }
-
-
 }
 

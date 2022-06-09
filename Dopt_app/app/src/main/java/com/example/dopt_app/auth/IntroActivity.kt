@@ -42,12 +42,12 @@ class IntroActivity : AppCompatActivity() {
             RetrofitClient.User_Signup_instance.GET_User_Signup(userEmail)
                 .enqueue(object: Callback <User_Signup> {
                     override fun onFailure(call: Call<User_Signup>, t: Throwable) {
-                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+//                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
                         Log.d(TAG, "GET U failed")
                         Log.d(TAG, t.message.toString())
                     }
                     override fun onResponse(call: Call<User_Signup>, response: Response<User_Signup>) {
-                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
+//                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
                         Log.d(TAG, "GET U succeeded")
                         Log.d(TAG, response.body().toString())
 
@@ -72,16 +72,12 @@ class IntroActivity : AppCompatActivity() {
             RetrofitClient.Preference_instance.GET_Preference(userEmail)
                 .enqueue(object: Callback <Preference_List> {
                     override fun onFailure(call: Call<Preference_List>, t: Throwable) {
-                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+//                        Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
                         Log.d(TAG, "Get P failed")
                         Log.d(TAG, t.message.toString())
                     }
                     override fun onResponse(call: Call<Preference_List>, response: Response<Preference_List>) {
-                        Toast.makeText(
-                            applicationContext,
-                            response.body().toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
+//                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_LONG).show()
                         Log.d(TAG, "Get P succeeded")
                         Log.d(TAG, response.body().toString())
 

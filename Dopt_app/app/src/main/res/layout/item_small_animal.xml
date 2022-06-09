@@ -26,14 +26,14 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/start_unbook_img"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/bookmark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"/>
+<!--    <ImageView-->
+<!--        android:id="@+id/start_unbook_img"-->
+<!--        android:layout_width="20dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:src="@drawable/bookmark"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:visibility="gone"/>-->
     <ImageView
         android:id="@+id/start_book_img"
         android:layout_width="20dp"

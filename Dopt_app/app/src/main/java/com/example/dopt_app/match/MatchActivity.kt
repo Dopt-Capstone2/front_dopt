@@ -76,6 +76,7 @@ class MatchActivity : AppCompatActivity() {
 
                 }else if (direction==Direction.Left){
                     Toast.makeText(this@MatchActivity, "NOPE", Toast.LENGTH_SHORT).show()
+//                    itemDislike(cardCount)
                 }
 //                else if (direction==Direction.Top){
 //                }
@@ -140,12 +141,15 @@ class MatchActivity : AppCompatActivity() {
     }
 
     private fun itemLike(count: Int){
+        Log.d(TAG+"북마크", cardItems[count].toString())
+
         var POST_Bookmark_Data = Bookmark(emailInfo, cardItems[count].age, cardItems[count].careAddr, cardItems[count].careNm,
             cardItems[count].careTel, cardItems[count].chargeNm, cardItems[count].colorCd, cardItems[count].desertionNo,
             cardItems[count].filename, cardItems[count].happenDt, cardItems[count].happenPlace, cardItems[count].kindCd,
             cardItems[count].neuterYn, cardItems[count].noticeEdt, cardItems[count].noticeNo, cardItems[count].noticeSdt,
             cardItems[count].officetel, cardItems[count].orgNm, cardItems[count].popfile, cardItems[count].processState,
-            cardItems[count].sexCd, cardItems[count].specialMark, cardItems[count].weight, 1)
+            cardItems[count].sexCd, cardItems[count].specialMark, cardItems[count]!!.weight, 0)
+
 
         Log.d(TAG+"아래", POST_Bookmark_Data.toString())
 
@@ -167,6 +171,37 @@ class MatchActivity : AppCompatActivity() {
                     }
                 })
     }
+
+//    private fun itemDislike(count : Int){
+//        Log.d(TAG+"북마크", cardItems[count].toString())
+//
+//        var POST_Bookmark_Data = Bookmark(emailInfo, cardItems[count].age, cardItems[count].careAddr, cardItems[count].careNm,
+//            cardItems[count].careTel, cardItems[count].chargeNm, cardItems[count].colorCd, cardItems[count].desertionNo,
+//            cardItems[count].filename, cardItems[count].happenDt, cardItems[count].happenPlace, cardItems[count].kindCd,
+//            cardItems[count].neuterYn, cardItems[count].noticeEdt, cardItems[count].noticeNo, cardItems[count].noticeSdt,
+//            cardItems[count].officetel, cardItems[count].orgNm, cardItems[count].popfile, cardItems[count].processState,
+//            cardItems[count].sexCd, cardItems[count].specialMark, cardItems[count].weight, 3)
+//
+//        Log.d(TAG+"아래", POST_Bookmark_Data.toString())
+//
+//        RetrofitClient.Bookmark_instance.POST_Bookmark(POST_Bookmark_Data)
+//            .enqueue(object: Callback <PostResult> {
+//                override fun onFailure(call: Call<PostResult>, t: Throwable) {
+//                    Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
+//                    Log.d(TAG, "Post B failed")
+//                    Log.d(TAG, t.message.toString())
+//                }
+//                override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+//                    Toast.makeText(
+//                        applicationContext,
+//                        response.body().toString(),
+//                        Toast.LENGTH_LONG
+//                    ).show()
+//                    Log.d(TAG, "Post B succeeded")
+//                    Log.d(TAG, response.body().toString())
+//                }
+//            })
+//    }
 
     private fun initClickListener() {
         //메인 액티비티로 돌아가는 화살표

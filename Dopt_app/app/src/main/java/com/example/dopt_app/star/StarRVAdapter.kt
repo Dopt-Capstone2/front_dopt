@@ -1,5 +1,6 @@
 package com.example.dopt_app.star
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dopt_app.R
+import com.example.dopt_app.auth.preferGender
 import com.example.dopt_app.data.Bookmark
 import com.example.dopt_app.databinding.ItemSmallAnimalBinding
 import kotlinx.android.synthetic.main.item_card.view.*
@@ -21,7 +23,7 @@ class StarRVAdapter(val context: StarFragment, private val animalList: ArrayList
     // 클릭 인터페이스 정의
     interface MyItemClickListener{
         fun onItemClick(animal: Bookmark)
-        fun onRemoveAlbum(position: Int)
+//        fun onRemoveBook(desertionNo: String)
     }
 
     // 리스너 객체를 전달받는 함수랑 리스너 객체를 저장할 변수
@@ -38,21 +40,23 @@ class StarRVAdapter(val context: StarFragment, private val animalList: ArrayList
         return ViewHolder(binding)
     }
 
-    fun addItem(bookmark: Bookmark){
-        animalList.add(bookmark)
-        notifyDataSetChanged()
-    }
-
-    fun removeItem(position: Int){
-        animalList.removeAt(position)
-        notifyDataSetChanged()
-    }
+//    @SuppressLint("NotifyDataSetChanged")
+//    fun removeItem(position: Int){
+//        animalList.removeAt(position)
+//        notifyDataSetChanged()
+//    }
 
     // 뷰홀더에 데이터를 바인딩해줘야 할 때마다 호출되는 함수 => 엄청나게 많이 호출
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(animalList[position])
-        holder.itemView.setOnClickListener { mItemClickListener.onItemClick(animalList[position]) }
-//        holder.binding.itemAlbumTitleTv.setOnClickListener { mItemClickListener.onRemoveAlbum(position) } //삭제됐을 때
+        holder.itemView.setOnClickListener {
+            mItemClickListener.onItemClick(animalList[position])
+        }
+
+//        holder.binding.startBookImg.setOnClickListener {
+//            mItemClickListener.onRemoveBook(animalList[position].desertionNo)
+//            removeItem(position)
+//        } //삭제됐을 때
     }
 
     // 데이터 세트 크기를 알려주는 함수 => 리사이클러뷰가 마지막이 언제인지를 알게 된다.
