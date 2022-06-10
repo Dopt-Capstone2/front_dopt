@@ -33,11 +33,13 @@ class ShelterMatchInfoFragment : Fragment() {
 
         val matchJason = arguments?.getString("item")
         val animal = gson.fromJson(matchJason, Bookmark::class.java)
-        setInit(animal)
+
+        Log.d(TAG, shelterAni.toString())
+        setInit(shelterAni)
 
 
         binding.starFinalChoiceYesBtn.setOnClickListener{
-            val POST_S_Bookmark_Data = Bookmark_Update("한국동물구조관리협회", animal.desertionNo, 2)
+            val POST_S_Bookmark_Data = Bookmark_Update("한국동물구조관리협회", shelterAni.desertionNo, 2)
             RetrofitClient.Shelter_instance.POST_Bookmark(POST_S_Bookmark_Data)
                 .enqueue(object: Callback<PostResult> {
                     override fun onFailure(call: Call<PostResult>, t: Throwable) {
@@ -55,7 +57,7 @@ class ShelterMatchInfoFragment : Fragment() {
         }
 
         binding.starFinalChoiceNoBtn.setOnClickListener{
-            val POST_S_Bookmark_Data = Bookmark_Update("한국동물구조관리협회", animal.desertionNo, 3)
+            val POST_S_Bookmark_Data = Bookmark_Update("한국동물구조관리협회", shelterAni.desertionNo, 3)
             RetrofitClient.Shelter_instance.POST_Bookmark(POST_S_Bookmark_Data)
                 .enqueue(object: Callback<PostResult> {
                     override fun onFailure(call: Call<PostResult>, t: Throwable) {
@@ -103,6 +105,18 @@ class ShelterMatchInfoFragment : Fragment() {
             }
             else -> {
                 binding.animalGenderTx.text = "성별미상"
+            }
+        }
+
+        when(animal.neuterYn){
+            "Y" -> {
+                binding.animalNeuterYnTx.text = "(중성화O)"
+            }
+            "N" -> {
+                binding.animalNeuterYnTx.text = "(중성화X)"
+            }
+            else -> {
+                binding.animalNeuterYnTx.text = "(중성화 모름)"
             }
         }
 

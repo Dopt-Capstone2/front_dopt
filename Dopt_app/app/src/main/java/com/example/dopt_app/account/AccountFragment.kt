@@ -1,5 +1,6 @@
 package com.example.dopt_app.account
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.example.dopt_app.api.RetrofitClient
+import com.example.dopt_app.auth.IntroActivity
 import com.example.dopt_app.auth.emailInfo
 import com.example.dopt_app.data.User_Signup
 import com.google.android.material.textfield.TextInputEditText
@@ -66,6 +68,13 @@ class AccountFragment : Fragment() {
             (context as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.main_frm, ProfileFragment())
                 .commitAllowingStateLoss()
+        }
+
+        binding.accountLogoutTx.setOnClickListener {
+            activity?.let{
+                val intent = Intent(context, IntroActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         return binding.root

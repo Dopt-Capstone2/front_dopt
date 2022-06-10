@@ -22,6 +22,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+lateinit var shelterAni : Bookmark
+
 class ShelterMatchFragment : Fragment(){
     private val TAG = "ShelterMatchFragment"
 
@@ -35,9 +37,10 @@ class ShelterMatchFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentShelterMatchBinding.inflate(inflater, container, false)
-
         val matchJason = arguments?.getString("item")
         val animal = gson.fromJson(matchJason, Bookmark::class.java)
+
+        shelterAni = animal
 
         val lockerAdapter = ShelterMatchInfoVPAdapter(this)
         binding.userShareContentVp.adapter = lockerAdapter

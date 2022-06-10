@@ -51,7 +51,9 @@ class ShelterMainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.shelterHomeFragment -> {
-
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.shelter_main_frm, ShelterHomeFragment())
+                        .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
                 R.id.shelterAccountFragment -> {
