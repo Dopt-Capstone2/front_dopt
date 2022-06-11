@@ -1,5 +1,5 @@
 #  :dog: DOPT (Don't Buy Adopt)
-DOPT는 유기동물 보호소의 입양자 검증 시스템을 통해 무분별한 유기동물 입양과 파양률을 경감시키고, 카드뷰 매칭 UI/UX를 통해, 보다 편리하고 트렌디한 서비스를 제공합니다.
+DOPT는 유기동물 보호소의 입양자 검증 시스템을 도입하여 무분별한 유기동물 입양과 파양률을 경감시키고, 카드뷰 매칭 UI/UX를 통해, 보다 편리하고 트렌디한 서비스를 제공합니다.
 
 # :link: Project Link
 * Front End : https://github.com/Dopt-Capstone2/front_dopt
